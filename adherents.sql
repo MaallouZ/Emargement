@@ -31,9 +31,7 @@ DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
   `idActivite` int NOT NULL AUTO_INCREMENT,
   `libelleActivite` varchar(50) NOT NULL,
-  `idLieu` int NOT NULL,
   PRIMARY KEY (`idActivite`),
-  KEY `idLieu` (`idLieu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -104,28 +102,6 @@ $$
 DELIMITER ;
 
 -- --------------------------------------------------------
-
---
--- Structure de la table `lieu`
---
-
-DROP TABLE IF EXISTS `lieu`;
-CREATE TABLE IF NOT EXISTS `lieu` (
-  `idLieu` int NOT NULL AUTO_INCREMENT,
-  `libelleLieu` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idLieu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `activite`
---
-ALTER TABLE `activite`
-  ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`idLieu`) REFERENCES `lieu` (`idLieu`);
-
 --
 -- Contraintes pour la table `estpresent`
 --

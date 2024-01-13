@@ -1,1 +1,4 @@
-template/*
+template
+node_modules
+blank.html
+param.php

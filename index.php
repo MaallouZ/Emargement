@@ -1,6 +1,8 @@
 <?php
 require("db.php");
 
+setlocale(LC_TIME, 'fr_FR.UTF8');
+
 $stmt = $conn -> prepare("SELECT * FROM journée;");
 $stmt -> execute();
 $tabJournée = $stmt -> fetchAll();
@@ -16,7 +18,7 @@ $tabVisiteur = $stmt -> fetchAll();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Acceuil</title>
+        <title>Tableau de bord</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,11 +38,12 @@ $tabVisiteur = $stmt -> fetchAll();
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="" alt="Logo MJC Bolbec"/>
                 </div>
-                <div class="sidebar-brand-text mx-3">Menu</div>
+                <div class="sidebar-brand-text mx-3">Emargement Esport</div>
             </a>
 
             <!-- Divider -->
@@ -48,7 +51,7 @@ $tabVisiteur = $stmt -> fetchAll();
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de bord</span></a>
             </li>
@@ -65,14 +68,14 @@ $tabVisiteur = $stmt -> fetchAll();
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Menu</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Historique</a>
+                        <a class="collapse-item" href="cards.html">Visiteurs</a>
+                        <a class="collapse-item" href="#">Statistiques</a>
                     </div>
                 </div>
             </li>
@@ -98,6 +101,11 @@ $tabVisiteur = $stmt -> fetchAll();
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -129,6 +137,35 @@ $tabVisiteur = $stmt -> fetchAll();
                     </form>
                 </nav>
                 <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
+                    </div>
+
+                    <div class="row">
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Date du jour</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo date('l d-m-Y'); ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
         </div>
