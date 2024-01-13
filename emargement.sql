@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 11 jan. 2024 à 10:16
+-- Généré le : sam. 13 jan. 2024 à 14:59
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -31,32 +31,8 @@ DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
   `idActivite` int NOT NULL AUTO_INCREMENT,
   `libelleActivite` varchar(50) NOT NULL,
-  PRIMARY KEY (`idActivite`),
+  PRIMARY KEY (`idActivite`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `visiteur`
---
-
-DROP TABLE IF EXISTS `visiteur`;
-CREATE TABLE IF NOT EXISTS `visiteur` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `age` int NOT NULL,
-  `ville` varchar(50) NOT NULL,
-  PRIMARY KEY (`IDvisiteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
-
---
--- Déchargement des données de la table `adherent`
---
-
-INSERT INTO `visiteur` (`ID`, `nom`, `prenom`, `age`, `ville`) VALUES
-(11, 'MAALLOU', 'Mehdi',22,'Lillebonne'),
-(12, 'LOISON', 'Morgan',19, 'Rouville');
 
 -- --------------------------------------------------------
 
@@ -95,13 +71,42 @@ CREATE TABLE IF NOT EXISTS `journée` (
 --
 DROP TRIGGER IF EXISTS `newPresence`;
 DELIMITER $$
-CREATE TRIGGER `newPresence` AFTER INSERT ON `journée` FOR EACH ROW INSERT INTO estpresent (ID, idJournee, Present)
-SELECT adherent.ID, NEW.idJournee, FALSE
-FROM adherent
+CREATE TRIGGER `newPresence` AFTER INSERT ON `journée` FOR EACH ROW INSERT INTO estpresent (IDvisiteur, idJournee, Present)
+SELECT visiteur.ID, NEW.idJournee, FALSE
+FROM visiteur
 $$
 DELIMITER ;
 
 -- --------------------------------------------------------
+
+--
+-- Structure de la table `visiteur`
+--
+
+DROP TABLE IF EXISTS `visiteur`;
+CREATE TABLE IF NOT EXISTS `visiteur` (
+  `IDvisiteur` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `age` int NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `ADH` tinyint(1) NOT NULL DEFAULT '0',
+  `tel` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`IDvisiteur`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `visiteur`
+--
+
+INSERT INTO `visiteur` (`IDvisiteur`, `nom`, `prenom`, `age`, `ville`, `ADH`, `tel`) VALUES
+(11, 'MAALLOU', 'Mehdi', 22, 'Lillebonne', 0, NULL),
+(12, 'LOISON', 'Morgan', 19, 'Rouville', 0, NULL);
+
+--
+-- Contraintes pour les tables déchargées
+--
+
 --
 -- Contraintes pour la table `estpresent`
 --

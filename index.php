@@ -41,7 +41,7 @@ $tabVisiteur = $stmt -> fetchAll();
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
-                    <img src="" alt="Logo MJC Bolbec"/>
+                    <img src="img/MJC BOLBEC_LOGO V1.png" alt="Logo MJC Bolbec" width="75" height="75"/>
                 </div>
                 <div class="sidebar-brand-text mx-3">Emargement Esport</div>
             </a>
@@ -148,7 +148,8 @@ $tabVisiteur = $stmt -> fetchAll();
 
                     <div class="row">
 
-                    <div class="col-xl-3 col-md-6 mb-4">
+                        <!-- Date du jour -->
+                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -164,7 +165,38 @@ $tabVisiteur = $stmt -> fetchAll();
                             </div>
                         </div>
 
+                        <!-- Visiteurs -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Visiteurs</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE dateJournee = ':date' AND present = 1;";
+                                                    $date = date('Y-m-d');
+                                                    $req = $conn -> prepare($sql);
+                                                    $req -> bindParam(":date",$date,PDO::PARAM_STR);
+                                                    $req->execute();
+
+                                                    $visitors = $req -> fetch();
+                                                    echo $visitors[0];
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
+
+
                 </div>
             </div>
         </div>
