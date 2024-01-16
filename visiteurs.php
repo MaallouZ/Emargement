@@ -105,6 +105,34 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                <!-- Tableau d'appel -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Appel</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Age</th>
+                                        <th>Sexe</th>
+                                        <th>ADH</th>
+                                        <th>Ville</th>
+                                        <th>Tél</th>
+                                        <th>Présent</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 
             </div>
         </div>
