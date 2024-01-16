@@ -2,6 +2,7 @@
 require("db.php");
 
 setlocale(LC_TIME, 'fr_FR.UTF8');
+$date = date('Y-m-d');
 
 $stmt = $conn -> prepare("SELECT * FROM journée;");
 $stmt -> execute();
@@ -155,7 +156,7 @@ $tabVisiteur = $stmt -> fetchAll();
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Date du jour</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo date('l d-m-Y'); ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $date; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -174,10 +175,9 @@ $tabVisiteur = $stmt -> fetchAll();
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Visiteurs</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE dateJournee = ':date' AND present = 1;";
-                                                    $date = date('Y-m-d');
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE dateJournee = :date AND present = 1;";
                                                     $req = $conn -> prepare($sql);
-                                                    $req -> bindParam(":date",$date,PDO::PARAM_STR);
+                                                    $req -> bindValue(":date",$date,PDO::PARAM_STR);
                                                     $req->execute();
 
                                                     $visitors = $req -> fetch();
@@ -192,8 +192,24 @@ $tabVisiteur = $stmt -> fetchAll();
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Appel</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
 
-
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
