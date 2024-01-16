@@ -75,8 +75,8 @@ $tabVisiteur = $stmt -> fetchAll();
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Historique</a>
-                        <a class="collapse-item" href="cards.html">Visiteurs</a>
+                        <a class="collapse-item" href="#">Historique</a>
+                        <a class="collapse-item" href="visiteurs.php">Visiteurs</a>
                         <a class="collapse-item" href="#">Statistiques</a>
                     </div>
                 </div>
@@ -247,29 +247,7 @@ $tabVisiteur = $stmt -> fetchAll();
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-                    <div class="row">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Appel</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
