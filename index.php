@@ -1,5 +1,6 @@
 <?php
 require("db.php");
+include("util.php");
 
 setlocale(LC_TIME, 'fr_FR.UTF8');
 $date = date('Y-m-d');
@@ -180,8 +181,8 @@ $tabVisiteur = $stmt -> fetchAll();
                                                     $req -> bindValue(":date",$date,PDO::PARAM_STR);
                                                     $req->execute();
 
-                                                    $visitors = $req -> fetch();
-                                                    echo $visitors[0];
+                                                    $visitors = $req -> fetch()[0];
+                                                    echo $visitors;
                                                 ?>
                                             </div>
                                         </div>
@@ -192,6 +193,62 @@ $tabVisiteur = $stmt -> fetchAll();
                                 </div>
                             </div>
                         </div>
+
+                        <!-- HOMME -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Homme</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee INNER JOIN visiteur ON estpresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'M';";
+                                                    $stmt = $conn -> prepare($sql);
+                                                    $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
+                                                    $stmt -> execute();
+
+                                                    $homme = $stmt -> fetch()[0];
+                                                    echo $homme;
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FEMME -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Femme</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee INNER JOIN visiteur ON estpresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'F';";
+                                                    $stmt = $conn -> prepare($sql);
+                                                    $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
+                                                    $stmt -> execute();
+
+                                                    $femme = $stmt -> fetch()[0];
+                                                    echo $femme;
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                     <div class="row">
                         <div class="card shadow mb-4">
