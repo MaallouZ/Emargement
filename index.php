@@ -2,17 +2,8 @@
 require("db.php");
 include("util.php");
 
-setlocale(LC_TIME, 'fr_FR.UTF8');
-$date = date('Y-m-d');
-
-$stmt = $conn -> prepare("SELECT * FROM journée;");
-$stmt -> execute();
-$tabJournée = $stmt -> fetchAll();
-
-$stmt = $conn -> prepare("SELECT * FROM visiteur;");
-$stmt -> execute();
-$tabVisiteur = $stmt -> fetchAll();
-
+$activite = getActivite($conn);
+$nbActivite = getNbActivite($conn);
 ?>
 <!DOCTYPE html>
 
@@ -66,41 +57,28 @@ $tabVisiteur = $stmt -> fetchAll();
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+
+            <?php
+            for ($i=0; $i < $nbActivite; $i++) { 
+            
+            echo ('<!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse'.$activite[$i][1].'"
+                    aria-expanded="true" aria-controls="collapse'.$activite[$i][1].'">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Menu</span>
+                    <span>'.$activite[$i][1].'</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapse'.$activite[$i][1].'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Historique</a>
-                        <a class="collapse-item" href="visiteurs.php">Visiteurs</a>
-                        <a class="collapse-item" href="#">Statistiques</a>
+                        <a class="collapse-item" href="historique.php?act='.$activite[$i][1].'">Historique</a>
+                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][1].'">Visiteurs</a>
+                        <a class="collapse-item" href="stat.php?act='.$activite[$i][1].'">Statistiques</a>
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
+            ');
+            }
+            ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
 

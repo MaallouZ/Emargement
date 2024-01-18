@@ -3,6 +3,7 @@ require("db.php");
 include("util.php");
 
 addDay($conn);
+
 $tabJournée = getJournee($conn);
 $tabVisiteur = getVisiteur($conn);
 $nbActivite = getNbActivite($conn);
@@ -15,7 +16,7 @@ $activite = getActivite($conn);
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Visiteurs</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -121,34 +122,6 @@ $activite = getActivite($conn);
                     </form>
                 </nav>
                 <!-- End of Topbar -->
-
-                <!-- Tableau d'appel -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Appel</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Age</th>
-                                        <th>Sexe</th>
-                                        <th>ADH</th>
-                                        <th>Ville</th>
-                                        <th>Tél</th>
-                                        <th>Présent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
                 
             </div>
