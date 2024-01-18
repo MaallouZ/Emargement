@@ -21,29 +21,14 @@ function addDay($conn){
     }
 }
 
+addDay($conn);
+
 function getVisiteur($conn){
     $stmt = $conn -> prepare("SELECT * FROM visiteur;");
     $stmt -> execute();
     $tabVisiteur = $stmt -> fetchAll();
 
     return $tabVisiteur;
-}
-
-function printEmarg($conn){
-    $sql = "SELECT nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estpresent ON estpresent.IDvisiteur = visiteur.IDvisiteur WHERE estpresent.idActivite = 1;";
-    $stmt = $conn -> prepare($sql);
-    $stmt -> execute();
-
-    $ndata = $stmt -> rowCount();
-    $data = $stmt -> fetchAll();
-
-    for ($i = 0; $i < $ndata; $i++) {
-        echo "<tr>";
-        for ($j=0; $j < 8 ; $j++) { 
-           echo("<td>" . $data[$i][$j] . "</td>");
-        }
-        echo "</tr>";
-    }
 }
 
 function getActivite($conn){

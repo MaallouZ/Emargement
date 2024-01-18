@@ -2,11 +2,21 @@
 require("db.php");
 include("util.php");
 
-addDay($conn);
 $tabJournée = getJournee($conn);
 $tabVisiteur = getVisiteur($conn);
 $nbActivite = getNbActivite($conn);
 $activite = getActivite($conn);
+
+$act = $_GET['act'];
+
+$sql = "SELECT nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estpresent ON estpresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estpresent.idActivite = :act ;";
+$stmt = $conn -> prepare($sql);
+$stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+$stmt -> bindValue(':act',$act, PDO::PARAM_STR);
+$stmt -> execute();
+
+$ndata = $stmt -> rowCount();
+$data = $stmt -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -73,9 +83,9 @@ $activite = getActivite($conn);
                 </a>
                 <div id="collapse'.$activite[$i][1].'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="historique.php?act='.$activite[$i][1].'">Historique</a>
-                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][1].'">Visiteurs</a>
-                        <a class="collapse-item" href="stat.php?act='.$activite[$i][1].'">Statistiques</a>
+                        <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
+                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>
+                        <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
                     </div>
                 </div>
             </li>
@@ -143,7 +153,15 @@ $activite = getActivite($conn);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    <?php
+                                        for ($i = 0; $i < $ndata; $i++) {
+                                            echo "<tr>";
+                                            for ($j=0; $j < 8 ; $j++) { 
+                                               echo("<td>" . $data[$i][$j] . "</td>");
+                                            }
+                                            echo "</tr>";
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

@@ -70,9 +70,9 @@ $nbActivite = getNbActivite($conn);
                 </a>
                 <div id="collapse'.$activite[$i][1].'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="historique.php?act='.$activite[$i][1].'">Historique</a>
-                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][1].'">Visiteurs</a>
-                        <a class="collapse-item" href="stat.php?act='.$activite[$i][1].'">Statistiques</a>
+                        <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
+                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>
+                        <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
                     </div>
                 </div>
             </li>
