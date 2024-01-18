@@ -149,19 +149,29 @@ $data = $stmt -> fetchAll();
                                         <th>ADH</th>
                                         <th>Ville</th>
                                         <th>Tél</th>
-                                        <th>Présent</th>
+                                        <th>Présence</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                         for ($i = 0; $i < $ndata; $i++) {
                                             echo "<tr>";
-                                            for ($j=0; $j < 8 ; $j++) { 
+                                            for ($j=0; $j < 7 ; $j++) { 
                                                echo("<td>" . $data[$i][$j] . "</td>");
                                             }
+                                            if ($data[$i][7] == 0){
+                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                                                <label class="btn btn-outline-danger" for="danger-outlined">Absent</label></td>');
+                                               }
+                                               else {
+                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                                                <label class="btn btn-outline-success" for="success-outlined">Présent</label></td>');
+                                               }
                                             echo "</tr>";
                                         }
                                     ?>
+
+
                                 </tbody>
                             </table>
                         </div>
