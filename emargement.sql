@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
   `idActivite` int NOT NULL AUTO_INCREMENT,
   `libelleActivite` varchar(50) NOT NULL,
-  `dateDebuteActivite` date DEFAULT NULL,
+  `dateDebutActivite` date DEFAULT NULL,
   `dateFinActivite` date DEFAULT NULL,
   PRIMARY KEY (`idActivite`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `activite` (
 DROP TABLE IF EXISTS `estpresent`;
 CREATE TABLE IF NOT EXISTS `estpresent` (
   `idPresence` int NOT NULL AUTO_INCREMENT,
-  `IDvisiteur` int DEFAULT NULL,
-  `idJournee` int DEFAULT NULL,
-  `present` tinyint(1) DEFAULT NULL,
-  `idActivite` int DEFAULT NULL,
+  `IDvisiteur` int NOT NULL,
+  `idJournee` int NOT NULL,
+  `present` tinyint(1) NOT NULL,
+  `idActivite` int NOT NULL,
   PRIMARY KEY (`idPresence`),
   KEY `IDvisiteur` (`IDvisiteur`),
   KEY `idJournee` (`idJournee`),
@@ -81,7 +81,7 @@ DELIMITER $$
 CREATE TRIGGER `newPresence` AFTER INSERT ON `journée` FOR EACH ROW INSERT INTO estPresent (estpresent.idJournee, estpresent.IDvisiteur, estpresent.idActivite,estpresent.present)
 SELECT NEW.idJournee, visiteur.IDvisiteur, activite.idActivite, FALSE
 FROM visiteur, activite
-WHERE activite.dateDebuteActivite <= NEW.dateJournee
+WHERE activite.dateDebutActivite <= NEW.dateJournee
 AND activite.dateFinActivite >= NEW.dateJournee
 $$
 DELIMITER ;
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `visiteur` (
   `ville` varchar(50) NOT NULL,
   `ADH` tinyint(1) NOT NULL DEFAULT '0',
   `tel` varchar(20) DEFAULT NULL,
-  `sexe` varchar(1) DEFAULT NULL,
+  `sexe` varchar(1) NOT NULL,
   PRIMARY KEY (`IDvisiteur`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 

@@ -12,10 +12,9 @@ function addDay($conn){
     $lastday = $stmt -> fetch()[0];
     $today = date('Y-m-d');
     
-    
     if($today != $lastday){
         // On ajoute une journée dans la base de données
-        $sql = "INSERT INTO journée (dateJournee) VALUES (NOW());";
+        $sql = "INSERT INTO journée (dateJournee) VALUES (DATE(NOW()));";
         $stmt= $conn -> prepare($sql);
         $stmt->execute();
     }
