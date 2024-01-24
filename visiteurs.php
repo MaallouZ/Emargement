@@ -164,7 +164,7 @@ $data = $stmt -> fetchAll();
                                                 <label class="btn btn-outline-danger" for="danger-outlined">Absent</label></td>');
                                                }
                                                else {
-                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off">
                                                 <label class="btn btn-outline-success" for="success-outlined">Présent</label></td>');
                                                }
                                             echo "</tr>";
