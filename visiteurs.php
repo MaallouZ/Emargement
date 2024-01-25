@@ -47,7 +47,6 @@ $data = $stmt -> fetchAll();
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="img/MJC BOLBEC_LOGO V1.png" alt="Logo MJC Bolbec" width="75" height="75"/>
                 </div>
                 <div class="sidebar-brand-text mx-3">Emargement Esport</div>
@@ -141,7 +140,7 @@ $data = $stmt -> fetchAll();
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                    <tr>
+                                    <tr role="row">
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Age</th>
@@ -201,5 +200,12 @@ $data = $stmt -> fetchAll();
 
         <!-- Custom scripts for all pages-->
         <script src="template/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="template/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="template/js/demo/datatables-demo.js"></script>
     </body>
 </html>
