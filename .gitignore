@@ -2,3 +2,5 @@ template
 node_modules
 blank.php
 param.php
+package-lock.json
+package.json

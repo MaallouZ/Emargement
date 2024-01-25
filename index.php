@@ -154,7 +154,7 @@ $nbActivite = getNbActivite($conn);
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Visiteurs</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE dateJournee = :date AND present = 1;";
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE dateJournee = :date AND present = 1;";
                                                     $req = $conn -> prepare($sql);
                                                     $req -> bindValue(":date",$date,PDO::PARAM_STR);
                                                     $req->execute();
@@ -181,7 +181,7 @@ $nbActivite = getNbActivite($conn);
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Homme</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee INNER JOIN visiteur ON estpresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'M';";
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'M';";
                                                     $stmt = $conn -> prepare($sql);
                                                     $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
                                                     $stmt -> execute();
@@ -208,7 +208,7 @@ $nbActivite = getNbActivite($conn);
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Femme</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estpresent.idJournee = journée.idJournee INNER JOIN visiteur ON estpresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'F';";
+                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'F';";
                                                     $stmt = $conn -> prepare($sql);
                                                     $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
                                                     $stmt -> execute();

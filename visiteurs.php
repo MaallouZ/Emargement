@@ -9,7 +9,7 @@ $activite = getActivite($conn);
 
 $act = $_GET['act'];
 
-$sql = "SELECT nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estpresent ON estpresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estpresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estpresent.idActivite = :act ;";
+$sql = "SELECT nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estPresent.idActivite = :act ;";
 $stmt = $conn -> prepare($sql);
 $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
 $stmt -> bindValue(':act',$act, PDO::PARAM_STR);
