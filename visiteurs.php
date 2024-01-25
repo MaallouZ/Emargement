@@ -159,7 +159,7 @@ $data = $stmt -> fetchAll();
                                             for ($j=1; $j < 8 ; $j++) { 
                                                echo("<td>" . $data[$i][$j] . "</td>");
                                             }
-                                            if ($data[$i][8] == 1){
+                                            if ($data[$i][8] == 0){
                                                 echo('<td><a href="process.php?act='.$act.'&id='.$data[$i][0].'&method=presence" class="btn btn-danger btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-trash"></i>
