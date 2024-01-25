@@ -9,7 +9,7 @@ $activite = getActivite($conn);
 
 $act = $_GET['act'];
 
-$sql = "SELECT nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estPresent.idActivite = :act ;";
+$sql = "SELECT idPresence, nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estPresent.idActivite = :act ;";
 $stmt = $conn -> prepare($sql);
 $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
 $stmt -> bindValue(':act',$act, PDO::PARAM_STR);
@@ -156,16 +156,24 @@ $data = $stmt -> fetchAll();
                                     <?php
                                         for ($i = 0; $i < $ndata; $i++) {
                                             echo "<tr>";
-                                            for ($j=0; $j < 7 ; $j++) { 
+                                            for ($j=1; $j < 8 ; $j++) { 
                                                echo("<td>" . $data[$i][$j] . "</td>");
                                             }
-                                            if ($data[$i][7] == 0){
-                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                                                <label class="btn btn-outline-danger" for="danger-outlined">Absent</label></td>');
+                                            if ($data[$i][8] == 1){
+                                                echo('<td><a href="process.php?act='.$act.'&id='.$data[$i][0].'&method=presence" class="btn btn-danger btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span class="text">Absent</span>
+                                            </a></td>');
                                                }
                                                else {
-                                                echo('<td><input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off">
-                                                <label class="btn btn-outline-success" for="success-outlined">Présent</label></td>');
+                                                echo('<td><a href="process.php?act='.$act.'&id='.$data[$i][0].'&method=absence" class="btn btn-success btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                <span class="text">Present</span>
+                                            </a></td>');
                                                }
                                             echo "</tr>";
                                         }
