@@ -127,7 +127,6 @@ $nbActivite = getNbActivite($conn);
                     </div>
 
                     <div class="row">
-
                         <!-- Date du jour -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
@@ -222,6 +221,41 @@ $nbActivite = getNbActivite($conn);
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <i class="fas fa-user fa-8x text-gray-300"></i>
+                                <div class="card-body">
+                                    <h5 class="card-title">Nouvel adhérent</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <i class="fas fa-laptop fa-8x text-gray-300"></i>
+                                <div class="card-body">
+                                    <h5 class="card-title">Location</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <i class="fas fa-plane fa-8x text-gray-300"></i>
+                                <div class="card-body">
+                                    <h5 class="card-title">Nouvelle activité</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <i class="fas fa-file-export fa-8x text-gray-300"></i>
+                                <div class="card-body">
+                                    <h5 class="card-title">Export format Excel</h5>
                                 </div>
                             </div>
                         </div>
