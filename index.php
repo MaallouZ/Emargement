@@ -20,8 +20,9 @@ $nbActivite = getNbActivite($conn);
 
         <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
         <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+
+        <link href="style.css" rel="stylesheet">
     </head>
     <body id="page-top">
 
@@ -227,35 +228,35 @@ $nbActivite = getNbActivite($conn);
                     </div>
 
                     <div class="row row-cols-1 row-cols-md-2 g-4">
-                        <div class="col">
-                            <div class="card">
-                                <i class="fas fa-user fa-8x text-gray-300"></i>
+                        <div class="col text-center">
+                            <div class="card" style="background-color: #4FDFEF;">
+                                <i class="fas fa-user fa-8x text-white mt-4"></i>
                                 <div class="card-body">
-                                    <h5 class="card-title">Nouvel adhérent</h5>
+                                    <h5 class="card-title fw-bolder text-white">Nouvel adhérent</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <i class="fas fa-laptop fa-8x text-gray-300"></i>
+                        <div class="col text-center">
+                            <div class="card" style="background-color: #94F8A7;">
+                                <i class="fas fa-laptop fa-8x text-white mt-4"></i>
                                 <div class="card-body">
-                                    <h5 class="card-title">Location</h5>
+                                    <h5 class="card-title fw-bolder text-white">Location</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <i class="fas fa-plane fa-8x text-gray-300"></i>
+                        <div class="col text-center">
+                            <div class="card" style="background-color: #BBFF6E;">
+                                <i class="fas fa-plane fa-8x text-white mt-4"></i>
                                 <div class="card-body">
-                                    <h5 class="card-title">Nouvelle activité</h5>
+                                    <h5 class="card-title fw-bolder text-white">Nouvelle activité</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <i class="fas fa-file-export fa-8x text-gray-300"></i>
+                        <div class="col text-center">
+                            <div class="card" style="background-color: #FCFB41;">
+                                <i class="fas fa-file-export fa-8x text-white mt-4"></i>
                                 <div class="card-body">
-                                    <h5 class="card-title">Export format Excel</h5>
+                                    <h5 class="card-title fw-bolder text-white">Export format Excel</h5>
                                 </div>
                             </div>
                         </div>
