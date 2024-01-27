@@ -174,7 +174,7 @@ $nbActivite = getNbActivite($conn);
 
                         <!-- HOMME -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -201,7 +201,7 @@ $nbActivite = getNbActivite($conn);
 
                         <!-- FEMME -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -229,36 +229,44 @@ $nbActivite = getNbActivite($conn);
 
                     <div class="row row-cols-1 row-cols-md-2 g-4">
                         <div class="col text-center">
-                            <div class="card" style="background-color: #4FDFEF;">
-                                <i class="fas fa-user fa-8x text-white mt-4"></i>
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bolder text-white">Nouvel adhérent</h5>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" style="text-decoration: none;">
+                                <div class="card" style="background-color: #525B76;">
+                                    <i class="fas fa-user fa-8x text-white mt-4"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bolder text-white">Nouveau visiteur</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col text-center">
-                            <div class="card" style="background-color: #94F8A7;">
-                                <i class="fas fa-laptop fa-8x text-white mt-4"></i>
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bolder text-white">Location</h5>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#locationForm" style="text-decoration: none;">
+                                <div class="card" style="background-color: #DB6C79;">
+                                    <i class="fas fa-laptop fa-8x text-white mt-4"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bolder text-white">Location</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col text-center">
-                            <div class="card" style="background-color: #BBFF6E;">
-                                <i class="fas fa-plane fa-8x text-white mt-4"></i>
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bolder text-white">Nouvelle activité</h5>
+                            <a href="#" data-bs-toggle="modal"  data-bs-target="#newActivite" style="text-decoration: none;">
+                                <div class="card" style="background-color: #87D68D;">
+                                    <i class="fas fa-plane fa-8x text-white mt-4"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bolder text-white">Nouvelle activité</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col text-center">
-                            <div class="card" style="background-color: #FCFB41;">
-                                <i class="fas fa-file-export fa-8x text-white mt-4"></i>
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bolder text-white">Export format Excel</h5>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exportXLS" style="text-decoration: none;">
+                                <div class="card" style="background-color: #8EB1C7;">
+                                    <i class="fas fa-file-export fa-8x text-white mt-4"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bolder text-white">Export format Excel</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -266,6 +274,73 @@ $nbActivite = getNbActivite($conn);
         </div>
         </div>
         <!-- End of Page Wrapper -->
+
+        <!-- Modals -->
+        
+        <div class="modal fade" id="newVisitor" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter un nouveau visiteur</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="process.php" method="post">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="sexe_visiteur" class="form-label">Sexe :</label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"  name="sexe_visiteur" value="M" required>
+                                    <span class="form-check-label">Homme</span>
+                                </label>
+
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"  name="sexe_visiteur" value="F" required>
+                                    <span class="form-check-label">Femme</span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nom_visiteur" class="form-label">Nom :</label>
+                                <input type="text" class="form-control" id="nom_input"  name="nom_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prenom_visiteur" class="form-label">Prénom :</label>
+                                <input type="text" class="form-control" id="prenom_input"  name="prenom_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="age_visiteur" class="form-label">Age :</label>
+                                <input type="int" class="form-control" id="age_input"  name="=age_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ville_visiteur" class="form-label">Ville :</label>
+                                <input type="text" class="form-control" id="ville_input"  name="ville_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tel_visiteur" class="form-label">Téléphone :</label>
+                                <input type="text" class="form-control" id="tel_input"  name="tel_visiteur" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ADH_visiteur" class="form-label">Adhérent :</label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"  name="ADH_visiteur" value="1" required>
+                                    <span class="form-check-label">Oui</span>
+                                </label>
+
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"  name="ADH_visiteur" value="0" required>
+                                    <span class="form-check-label">Non</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End of modals -->
 
         <!-- Bootstrap core JavaScript-->
         <script src="template/vendor/jquery/jquery.min.js"></script>
