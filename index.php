@@ -14,13 +14,13 @@ $nbActivite = getNbActivite($conn);
         <title>Tableau de bord</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
         <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="template/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
 
         <link href="style.css" rel="stylesheet">
     </head>
@@ -286,6 +286,9 @@ $nbActivite = getNbActivite($conn);
                     </div>
                     <form action="process.php" method="post">
                         <div class="modal-body">
+
+                            <input id="method" name="method" type="hidden" value="addVisitor"/>
+                        
                             <div class="mb-3">
                                 <label for="sexe_visiteur" class="form-label">Sexe :</label>
                                 <label class="form-check form-check-inline">
@@ -307,16 +310,16 @@ $nbActivite = getNbActivite($conn);
                                 <input type="text" class="form-control" id="prenom_input"  name="prenom_visiteur" required>
                             </div>
                             <div class="mb-3">
-                                <label for="age_visiteur" class="form-label">Age :</label>
-                                <input type="int" class="form-control" id="age_input"  name="=age_visiteur" required>
+                                <label for="age_visiteur" class="form-label">Age (Facultatif) :</label>
+                                <input type="int" class="form-control" id="age_input"  name="age_visiteur">
                             </div>
                             <div class="mb-3">
-                                <label for="ville_visiteur" class="form-label">Ville :</label>
-                                <input type="text" class="form-control" id="ville_input"  name="ville_visiteur" required>
+                                <label for="ville_visiteur" class="form-label">Ville (Facultatif) :</label>
+                                <input type="text" class="form-control" id="ville_input"  name="ville_visiteur" >
                             </div>
                             <div class="mb-3">
-                                <label for="tel_visiteur" class="form-label">Téléphone :</label>
-                                <input type="text" class="form-control" id="tel_input"  name="tel_visiteur" required>
+                                <label for="tel_visiteur" class="form-label">Téléphone (Facultatif) :</label>
+                                <input type="text" class="form-control" id="tel_input"  name="tel_visiteur">
                             </div>
 
                             <div class="mb-3">
@@ -351,5 +354,7 @@ $nbActivite = getNbActivite($conn);
 
         <!-- Custom scripts for all pages-->
         <script src="template/js/sb-admin-2.min.js"></script>
+
+        <?php echo "pute"; ?>
     </body>
 </html>
