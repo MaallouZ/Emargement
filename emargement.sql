@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 26 jan. 2024 à 14:31
+-- Généré le : mer. 31 jan. 2024 à 13:51
 -- Version du serveur : 10.5.21-MariaDB-0+deb11u1
 -- Version de PHP : 7.4.33
 
@@ -108,7 +108,63 @@ INSERT INTO `estPresent` (`idPresence`, `IDvisiteur`, `idJournee`, `present`, `i
 (78, 15, 34, 1, 1),
 (79, 15, 34, 0, 2),
 (87, 18, 34, 1, 1),
-(88, 18, 34, 1, 2);
+(88, 18, 34, 1, 2),
+(90, 11, 35, 0, 1),
+(91, 11, 35, 0, 2),
+(92, 12, 35, 0, 1),
+(93, 12, 35, 0, 2),
+(94, 13, 35, 0, 1),
+(95, 13, 35, 0, 2),
+(96, 15, 35, 0, 1),
+(97, 15, 35, 0, 2),
+(98, 18, 35, 0, 1),
+(99, 18, 35, 0, 2),
+(105, 11, 36, 0, 1),
+(106, 11, 36, 0, 2),
+(107, 12, 36, 0, 1),
+(108, 12, 36, 0, 2),
+(109, 13, 36, 0, 1),
+(110, 13, 36, 0, 2),
+(111, 15, 36, 0, 1),
+(112, 15, 36, 0, 2),
+(113, 18, 36, 0, 1),
+(114, 18, 36, 0, 2),
+(120, 11, 37, 0, 1),
+(121, 11, 37, 0, 2),
+(122, 12, 37, 0, 1),
+(123, 12, 37, 0, 2),
+(124, 13, 37, 0, 1),
+(125, 13, 37, 0, 2),
+(126, 15, 37, 0, 1),
+(127, 15, 37, 0, 2),
+(128, 18, 37, 0, 1),
+(129, 18, 37, 0, 2),
+(135, 11, 38, 0, 1),
+(136, 11, 38, 0, 2),
+(137, 12, 38, 0, 1),
+(138, 12, 38, 0, 2),
+(139, 13, 38, 1, 1),
+(140, 13, 38, 0, 2),
+(141, 15, 38, 1, 1),
+(142, 15, 38, 0, 2),
+(143, 18, 38, 0, 1),
+(144, 18, 38, 0, 2),
+(156, 21, 38, 1, 1),
+(157, 21, 38, 0, 2),
+(159, 11, 39, 0, 1),
+(160, 11, 39, 0, 2),
+(161, 12, 39, 0, 1),
+(162, 12, 39, 0, 2),
+(163, 13, 39, 0, 1),
+(164, 13, 39, 0, 2),
+(165, 15, 39, 0, 1),
+(166, 15, 39, 0, 2),
+(167, 18, 39, 0, 1),
+(168, 18, 39, 0, 2),
+(169, 19, 39, 1, 1),
+(170, 19, 39, 0, 2),
+(171, 21, 39, 0, 1),
+(172, 21, 39, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -133,7 +189,12 @@ INSERT INTO `journée` (`idJournee`, `dateJournee`) VALUES
 (31, '2024-01-19'),
 (32, '2024-01-24'),
 (33, '2024-01-25'),
-(34, '2024-01-26');
+(34, '2024-01-26'),
+(35, '2024-01-27'),
+(36, '2024-01-28'),
+(37, '2024-01-29'),
+(38, '2024-01-30'),
+(39, '2024-01-31');
 
 --
 -- Déclencheurs `journée`
@@ -157,23 +218,25 @@ CREATE TABLE `visiteur` (
   `IDvisiteur` int(11) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
-  `age` int(11) NOT NULL,
-  `ville` varchar(50) NOT NULL,
+  `DDN` date NOT NULL,
+  `ville` varchar(50) DEFAULT NULL,
   `ADH` tinyint(1) DEFAULT 0,
   `tel` varchar(20) DEFAULT NULL,
   `sexe` varchar(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `visiteur`
 --
 
-INSERT INTO `visiteur` (`IDvisiteur`, `nom`, `prenom`, `age`, `ville`, `ADH`, `tel`, `sexe`) VALUES
-(11, 'MAALLOU', 'Mehdi', 22, 'Lillebonne', 0, '0766131577', 'M'),
-(12, 'LOISON', 'Morgan', 19, 'Rouville', 0, '0649409197', 'M'),
-(13, 'LEMAISTRE', 'Mélanie', 21, 'Gravenchon', 0, '0666666666', 'F'),
-(15, 'Dupré', 'Jade', 14, 'Bolbec', 0, '061212121212', 'F'),
-(18, 'MOUSSON', 'Marine', 32, 'LILLEBONNE', 0, '0666666666', 'F');
+INSERT INTO `visiteur` (`IDvisiteur`, `nom`, `prenom`, `DDN`, `ville`, `ADH`, `tel`, `sexe`) VALUES
+(11, 'MAALLOU', 'Mehdi', '2001-08-06', 'Lillebonne', 0, '0766131577', 'M'),
+(12, 'LOISON', 'Morgan', '0000-00-00', 'Rouville', 0, '0649409197', 'M'),
+(13, 'LEMAISTRE', 'Mélanie', '0000-00-00', 'Gravenchon', 0, '0666666666', 'F'),
+(15, 'Dupré', 'Jade', '0000-00-00', 'Bolbec', 0, '061212121212', 'F'),
+(18, 'MOUSSON', 'Marine', '0000-00-00', 'LILLEBONNE', 0, '0666666666', 'F'),
+(19, 'br bttrs', 'sdtghrtshgr', '0000-00-00', 'trhtrhzh', 0, 'eqghetzghre', 'F'),
+(21, 'Gaffé', 'Alexis', '0000-00-00', 'Bolbec', 1, '', 'M');
 
 --
 -- Déclencheurs `visiteur`
@@ -236,19 +299,19 @@ ALTER TABLE `activite`
 -- AUTO_INCREMENT pour la table `estPresent`
 --
 ALTER TABLE `estPresent`
-  MODIFY `idPresence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `idPresence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT pour la table `journée`
 --
 ALTER TABLE `journée`
-  MODIFY `idJournee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idJournee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT pour la table `visiteur`
 --
 ALTER TABLE `visiteur`
-  MODIFY `IDvisiteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `IDvisiteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Contraintes pour les tables déchargées

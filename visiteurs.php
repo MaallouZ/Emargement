@@ -8,8 +8,9 @@ $nbActivite = getNbActivite($conn);
 $activite = getActivite($conn);
 
 $act = $_GET['act'];
+$jsonAct = json_encode($act);
 
-$sql = "SELECT idPresence, nom, prenom, age, sexe, ADH, ville, tel, present FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estPresent.idActivite = :act ;";
+$sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE journée.dateJournee = :date AND estPresent.idActivite = :act ;";
 $stmt = $conn -> prepare($sql);
 $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
 $stmt -> bindValue(':act',$act, PDO::PARAM_STR);
@@ -17,6 +18,8 @@ $stmt -> execute();
 
 $ndata = $stmt -> rowCount();
 $data = $stmt -> fetchAll();
+
+$jsonData = json_encode($data);
 ?>
 
 <!DOCTYPE html>
@@ -148,11 +151,12 @@ $data = $stmt -> fetchAll();
                                         <th>ADH</th>
                                         <th>Ville</th>
                                         <th>Tél</th>
-                                        <th>Présence</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                        
                                         for ($i = 0; $i < $ndata; $i++) {
                                             echo "<tr>";
                                             for ($j=1; $j < 8 ; $j++) { 
@@ -160,21 +164,18 @@ $data = $stmt -> fetchAll();
                                             }
                                             if ($data[$i][8] == 0){
                                                 echo('<td><a href="process.php?act='.$act.'&id='.$data[$i][0].'&method=presence" class="btn btn-danger btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                <span class="text">Absent</span>
-                                            </a></td>');
-                                               }
-                                               else {
+                                                <span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Absent</span></a><a href="#" class="btn btn-secondary btn-circle ms-3" onclick="openModal(\''.json_encode($i).'\')">
+                                                <i class="fas fa-pencil-alt"></i>
+                                                    <a/></td>');
+                                            }
+                                            else {
                                                 echo('<td><a href="process.php?act='.$act.'&id='.$data[$i][0].'&method=absence" class="btn btn-success btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-check"></i>
-                                                </span>
-                                                <span class="text">Present</span>
-                                            </a></td>');
-                                               }
+                                                    <span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">Present</span></a><a href="#" class="btn btn-secondary btn-circle ms-3" onclick="openModal(\''.json_encode($i).'\')">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    <a/></td>');
+                                            }
                                             echo "</tr>";
+                                            
                                         }
                                     ?>
 
@@ -184,12 +185,114 @@ $data = $stmt -> fetchAll();
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
         </div>
         <!-- End of Page Wrapper -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="editVisitor" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modifier ce visiteur</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="process.php" method="post">
+                        <div class="modal-body">
+
+                            <input id="method" name="method" type="hidden" value="editVisitor"/>
+                            <input id="idVisitor" name="idVisitor" type="hidden" value=""/>
+                            <input id="idAct" name="idAct" type="hidden" value=""/>
+
+                            <div class="mb-3">
+                                <label for="sexe_visiteur" class="form-label">Sexe :</label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="M_radio" name="sexe_visiteur" value="M" required>
+                                    <span class="form-check-label">Homme</span>
+                                </label>
+
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="F_radio" name="sexe_visiteur" value="F" required>
+                                    <span class="form-check-label">Femme</span>
+                                </label>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="nom_visiteur" class="form-label">Nom :</label>
+                                <input type="text" class="form-control" id="nom_input"  name="nom_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prenom_visiteur" class="form-label">Prénom :</label>
+                                <input type="text" class="form-control" id="prenom_input"  name="prenom_visiteur" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="DDN_visiteur" class="form-label">Date de naissance (Facultatif) :</label>
+                                <input type="date" class="form-control" id="DDN_input"  name="age_visiteur">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ville_visiteur" class="form-label">Ville (Facultatif) :</label>
+                                <input type="text" class="form-control" id="ville_input"  name="ville_visiteur" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="tel_visiteur" class="form-label">Téléphone (Facultatif) :</label>
+                                <input type="text" class="form-control" id="tel_input"  name="tel_visiteur">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ADH_visiteur" class="form-label">Adhérent :</label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio"  id="ADH_radio" name="ADH_visiteur" value="1" required>
+                                    <span class="form-check-label">Oui</span>
+                                </label>
+
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="nonADH_radio" name="ADH_visiteur" value="0" required>
+                                    <span class="form-check-label">Non</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Modifier</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End of modal -->
+        <script>
+            var data = JSON.parse('<?php echo $jsonData;?>');
+            var act = JSON.parse('<?php echo $jsonAct;?>');
+            document.getElementById('idAct').value = act;
+            console.log(data);
+            
+            function openModal(param) {
+                var i = JSON.parse(param);
+                if (data[i][4] == "M") {
+                    document.getElementById("M_radio").checked = true;
+                } else {
+                    document.getElementById("F_radio").checked = true;
+                }
+
+                document.getElementById('idVisitor').value = data[i][10];
+                document.getElementById('nom_input').value = data[i][1];
+                document.getElementById("prenom_input").value = data[i][2];
+                document.getElementById("DDN_input").value = data[i][9];
+                document.getElementById("ville_input").value = data[i][6];
+                document.getElementById("tel_input").value = data[i][7];
+
+                if (data[i][5] == 1) {
+                    document.getElementById("ADH_radio").checked = true;
+                }
+                else{
+                    document.getElementById("nonADH_radio").checked = true;
+                }
+                
+                $('#editVisitor').modal('show');
+
+            }
+        </script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="template/vendor/jquery/jquery.min.js"></script>

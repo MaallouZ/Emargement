@@ -310,8 +310,8 @@ $nbActivite = getNbActivite($conn);
                                 <input type="text" class="form-control" id="prenom_input"  name="prenom_visiteur" required>
                             </div>
                             <div class="mb-3">
-                                <label for="age_visiteur" class="form-label">Age (Facultatif) :</label>
-                                <input type="int" class="form-control" id="age_input"  name="age_visiteur">
+                                <label for="DDN_visiteur" class="form-label">DDN (Facultatif) :</label>
+                                <input type="date" class="form-control" id="age_input"  name="DDN_visiteur">
                             </div>
                             <div class="mb-3">
                                 <label for="ville_visiteur" class="form-label">Ville (Facultatif) :</label>
