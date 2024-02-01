@@ -276,7 +276,38 @@ $nbActivite = getNbActivite($conn);
         <!-- End of Page Wrapper -->
 
         <!-- Modals -->
-        
+        <div class="modal fade" id="newActivite" tabindex="-1" aria-hidden="true">
+            <div class ="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter une activité</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="process.php" method="POST">
+                        <div class="modal-body">
+                            <input type="hidden" name="method" value="addActivite">
+
+                            <div class="mb-3">
+                                <label for="nomActv">Nom de l'activité :</label>
+                                <input type="text"  class="form-control" id="libelleAct_input" name="libelleAct" required>
+                            </div>
+                            <div>
+                                <label for="dateDebut">Date de début :</label>
+                                <input type="date" class="form-control" id="dateDebut_input" name="dateDebut" required>
+                            </div>
+                            <div>
+                                <label for="dateFin">Date de fin :</label>
+                                <input type="date" class="form-control" id="dateFin_input" name="dateFin" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="newVisitor" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

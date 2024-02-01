@@ -43,7 +43,7 @@ if ($_POST['method'] == "addVisitor") {
     $stmt->bindParam(":sexe",$sexe, PDO::PARAM_STR);
     $stmt->bindParam(":nom",$nom, PDO::PARAM_STR);
     $stmt->bindParam(":prenom",$prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":DDN",$DDN, PDO::PARAM_INT);
+    $stmt->bindValue(":DDN",$DDN, PDO::PARAM_STR);
     $stmt->bindValue(":ville",$ville, PDO::PARAM_STR);
     $stmt->bindValue(":tel",$tel, PDO::PARAM_STR);
     $stmt->bindParam(":ADH", $ADH, PDO::PARAM_BOOL);
@@ -55,6 +55,28 @@ if ($_POST['method'] == "addVisitor") {
     }
 
     $_POST["method"] = NULL;
+    header('Location: http://anim.mjcbolbec.fr/index.php');
+}
+
+if ($_POST['method'] == "addActivite") {
+    
+    $libelle = htmlspecialchars($_POST['libelleAct']);
+    $dateDebut = htmlspecialchars($_POST["dateDebut"]);
+    $dateFin = htmlspecialchars($_POST["dateFin"]);
+
+    $sql = "INSERT INTO `activite` (idActivite, libelleActivite, dateDebutActivite, dateFinActivite) VALUES (NULL, :libelle , :debut , :fin );";
+    $stmt = $conn -> prepare($sql);
+    $stmt->bindValue(":libelle", $libelle, PDO::PARAM_STR);
+    $stmt->bindValue(":debut", $dateDebut, PDO::PARAM_STR);
+    $stmt->bindValue(":fin", $dateFin, PDO::PARAM_STR);
+
+    try {
+        $stmt -> execute();
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
+    }
+
+    $_POST['method'] = NULL;
     header('Location: http://anim.mjcbolbec.fr/index.php');
 }
 
