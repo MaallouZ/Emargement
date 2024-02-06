@@ -259,7 +259,7 @@ $nbActivite = getNbActivite($conn);
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exportXLS" style="text-decoration: none;">
+                            <a href="process.php?method=export" style="text-decoration: none;">
                                 <div class="card" style="background-color: #8EB1C7;">
                                     <i class="fas fa-file-export fa-8x text-white mt-4"></i>
                                     <div class="card-body">
@@ -385,7 +385,5 @@ $nbActivite = getNbActivite($conn);
 
         <!-- Custom scripts for all pages-->
         <script src="template/js/sb-admin-2.min.js"></script>
-
-        <?php echo "pute"; ?>
     </body>
 </html>

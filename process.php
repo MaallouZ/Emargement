@@ -113,4 +113,14 @@ if ($_POST['method'] == 'editVisitor') {
     $_POST['method'] = NULL;
     header('Location: http://anim.mjcbolbec.fr/visiteurs.php?act='.$_POST['idAct']);
 }
+
+
+if ($_GET['method'] == 'export') {
+    $sql = 'SELECT * FROM visiteur ORDER BY IDvisiteur ASC;';
+    $stmt = $conn -> prepare($sql);
+    $stmt->execute();
+    $visitors = $stmt -> fetchAll(PDO :: FETCH_ASSOC);
+
+    $sql = "SELECT idActivite, libelleActivite FROM activite WHERE dateDebutActivite <= CURRENT_DATE AND  dateFinActivite >= CURRENT_DATE;";
+}
 ?>
