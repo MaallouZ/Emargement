@@ -119,8 +119,29 @@ if ($_GET['method'] == 'export') {
     $sql = 'SELECT * FROM visiteur ORDER BY IDvisiteur ASC;';
     $stmt = $conn -> prepare($sql);
     $stmt->execute();
-    $visitors = $stmt -> fetchAll(PDO :: FETCH_ASSOC);
+    $visitors = $stmt -> fetchAll();
 
-    $sql = "SELECT idActivite, libelleActivite FROM activite WHERE dateDebutActivite <= CURRENT_DATE AND  dateFinActivite >= CURRENT_DATE;";
+    $sql = "SELECT idActivite, libelleActivite FROM activite WHERE dateDebutActivite BETWEEN '2023-09-01' AND DATE_ADD('2024-09-01', INTERVAL 1 YEAR);";
+    $stmt = $conn ->prepare($sql);
+    $stmt -> execute();
+    $activite  = $stmt ->fetchAll();
+
+    $dataTab = [];
+    foreach ($activite as $row) {
+
+        $sql = "SELECT V.IDvisiteur, V.nom, V.prenom, V.sexe, YEAR(CURRENT_DATE) - YEAR(V.DDN) AS age, V.ville, V.tel, V.ADH, J.dateJournee, A.libelleActivite, EP.present FROM visiteur V JOIN estPresent EP ON V.IDvisiteur = EP.IDvisiteur JOIN activite A ON EP.idActivite = A.idActivite JOIN journée J ON EP.idJournee = J.idJournee WHERE A.idActivite = " .$row[0]. " AND J.dateJournee BETWEEN '2023-09-01' AND DATE_ADD('2024-09-01', INTERVAL 1 YEAR) ORDER BY V.IDvisiteur;";
+        $stmt = $conn -> prepare($sql);
+        $stmt -> execute();
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $dataTab[$row[1]] = $result;
+    }
+
+    $jsondata = json_encode($dataTab);
+    file_put_contents("../data.txt", $jsondata);
+
+    
+
+    $_GET['method']=NULL;
 }
 ?>
