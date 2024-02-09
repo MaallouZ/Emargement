@@ -259,7 +259,7 @@ $nbActivite = getNbActivite($conn);
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="process.php?method=export" style="text-decoration: none;">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exportXlsx" style="text-decoration: none;">
                                 <div class="card" style="background-color: #8EB1C7;">
                                     <i class="fas fa-file-export fa-8x text-white mt-4"></i>
                                     <div class="card-body">
@@ -369,6 +369,53 @@ $nbActivite = getNbActivite($conn);
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                             <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Export XLSX -->
+        <div class="modal fade" id="exportXlsx" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Exporter les données en fichier Excel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="process.php" method="POST">
+                        <div class="modal-body">
+                            <input id="method" name="method" type="hidden" value="xlsx"/>
+
+                            <div class="mb-3">
+                                <label for="activite_export" class="form-label">Activités :</label>
+                                <?php 
+                                    $stmt = $conn -> prepare("SELECT a.idActivite, a.libelleActivite FROM activite AS a WHERE a.enabled = 1;");
+                                    $stmt -> execute();
+                                    $enabledAct = $stmt -> fetchAll();
+                                    $nbColumn = $stmt -> rowCount();
+
+                                    for ($i=0 ; $i < $nbColumn ; $i++) { 
+                                        echo('<label class="form-check form-check-inline">');
+                                        echo('<input class="form-check-input" type="checkbox" name="act'.$i.'" value="'.$enabledAct[$i][0].'">');
+                                        echo('<span>'.$enabledAct[$i][1].'</span>');
+                                        echo('</label>');
+                                    }
+                                ?>
+                            </div>
+                            <div class="mb-3">
+                                <label for="DDN_visiteur" class="form-label">Période :</label>
+                                </br>
+                                <span>Début :</span>
+                                <input type="date" class="form-control" id="dateDebut"  name="dateDebut">
+                                </br>
+                                <span>Fin :</span>
+                                <input type="date" class="form-control" id="dateFin"  name="dateFin">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Exporter</button>
                         </div>
                     </form>
                 </div>
