@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0,'./.local/lib/python3.9/site-packages')
+
 import xlsxwriter as xls
 from xlsxwriter.utility import xl_rowcol_to_cell
 import json
