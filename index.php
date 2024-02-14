@@ -306,6 +306,48 @@ $nbActivite = getNbActivite($conn);
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="locationForm" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nouvelle location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="process.php" method="POST">
+                        <div class="modal-body">
+                            <input type="hidden" name="method" value="newLocation">
+
+                            <div class="mb-3">
+                                <label for="nomVis">Nom du visiteur: </label>
+                                <select name="id_visiteur" id="nomVis" required>
+                                    <option selected>Sélectionner le visiteur</option>
+                                    <?php
+                                        $sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
+                                        $stmt = $conn -> prepare($sql);
+                                        $stmt->execute();
+                                        $listVis = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+                                        foreach($listVis as $row){
+                                            echo('<option value="'.$row['IDVisiteur'].'">' . $row['nom'].' '.$row['prenom'].'</option>');
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idMat">Materiel emprunté: </label>
+                                <select name="id_materiel" id="idMat" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dateRetour">Date de retour estimé: </label>
+                                <input type="date" id="dateRetour" name="date_retour" required>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="newVisitor" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

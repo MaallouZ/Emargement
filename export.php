@@ -21,7 +21,7 @@ if ($_POST['method'] == 'xlsx') {
     $dataTab = [];
     foreach ($activite as $act => $idAct) {
 
-        $sql = "SELECT V.IDvisiteur, V.nom, V.prenom, V.sexe, YEAR(CURRENT_DATE) - YEAR(V.DDN) AS age, V.ville, V.tel, V.ADH, J.dateJournee, A.libelleActivite, EP.idPresence, EP.present FROM visiteur V JOIN estPresent EP ON V.IDvisiteur = EP.IDvisiteur JOIN activite A ON EP.idActivite = A.idActivite JOIN journée J ON EP.idJournee = J.idJournee WHERE A.idActivite = $idAct AND J.dateJournee BETWEEN '" . $_POST['dateDebut'] . "' AND DATE_ADD('" . $_POST['dateFin'] . "', INTERVAL 1 YEAR) ORDER BY V.IDvisiteur;";
+        $sql = "SELECT V.IDvisiteur, V.nom, V.prenom, V.sexe, YEAR(CURRENT_DATE) - YEAR(V.DDN) AS age, V.ville, V.tel, V.ADH, J.dateJournee, A.libelleActivite, EP.idPresence, EP.present FROM visiteur V JOIN estPresent EP ON V.IDvisiteur = EP.IDvisiteur JOIN activite A ON EP.idActivite = A.idActivite JOIN journée J ON EP.idJournee = J.idJournee WHERE A.idActivite = $idAct AND J.dateJournee BETWEEN '" . $_POST['dateDebut'] . "' AND '". $_POST['dateFin']."' ORDER BY V.IDvisiteur;";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -36,32 +36,32 @@ if ($_POST['method'] == 'xlsx') {
     $allData['data'] = $data;
 
     $jsondata = json_encode($allData);
+
     file_put_contents("data.json", $jsondata);
 
     shell_exec('pip install xlsxwriter');
 
     shell_exec('pip install python-dateutil');
 
-    shell_exec('python3 /var/www/anim.mjcbolbec.fr/main.py 2>&1');
+    shell_exec('python3 /var/www/anim.mjcbolbec.fr/main.py');
+
+    sleep(3);
     
 
 
     $filename = 'statistique.xlsx';
 
     header('Content-Description: File Transfer');
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment; filename="'.basename($filename).'"');
+    header('Content-Type: octet-stream');
+    header('Content-Disposition: attachment; filename="statistique.xlsx');
     header('Expires: 0');
-    header('Cache-Control: no-store,no-cache,must-revalidate');
-    header('Pragma: public, no-cache');
-    header('Content-Length: ' . filesize($filename));
-
-        readfile($filename);
+    header('Cache-Control: public');
+    header('Content-Transfer-Encoding: binary');
+    header('Pragma: public');
+    readfile($filename);
+    exit();
 
     $_POST['method'] = NULL;
+
+}
     ?>
-    <script>
-        window.location.href='https://anim.mjcbolbec.fr/index.php';
-    </script>
-<?php }
-?>
