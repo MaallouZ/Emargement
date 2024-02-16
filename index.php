@@ -4,6 +4,12 @@ include("util.php");
 
 $activite = getActivite($conn);
 $nbActivite = getNbActivite($conn);
+
+$sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
+$stmt = $conn -> prepare($sql);
+$stmt->execute();
+$listVis = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+$visitorEncode = json_encode($listVis);
 ?>
 <!DOCTYPE html>
 
@@ -16,6 +22,7 @@ $nbActivite = getNbActivite($conn);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap-typeahead.min.js"></script>
 
 
         <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -306,6 +313,7 @@ $nbActivite = getNbActivite($conn);
                 </div>
             </div>
         </div>
+        <!-- Modal location -->
         <div class="modal fade" id="locationForm" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -316,38 +324,49 @@ $nbActivite = getNbActivite($conn);
                     <form action="process.php" method="POST">
                         <div class="modal-body">
                             <input type="hidden" name="method" value="newLocation">
+                            <input type="hidden" id="idVisLoc" name="idVisLoc">
 
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label for="nomVis">Nom du visiteur: </label>
                                 <select name="id_visiteur" id="nomVis" required>
-                                    <option selected>Sélectionner le visiteur</option>
+                                    <option selected required>Sélectionner le visiteur</option>
                                     <?php
-                                        $sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
-                                        $stmt = $conn -> prepare($sql);
-                                        $stmt->execute();
-                                        $listVis = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-                                        foreach($listVis as $row){
-                                            echo('<option value="'.$row['IDVisiteur'].'">' . $row['nom'].' '.$row['prenom'].'</option>');
-                                        }
+                                        // foreach($listVis as $row){
+                                        //     echo('<option value="'.$row['IDVisiteur'].'">' . $row['nom'].' '.$row['prenom'].'</option>');
+                                        // }
                                     ?>
                                 </select>
+                            </div> -->
+
+                            <div class="mb-3">
+                                <label for="nomVisLoc">Nom du visiteur: </label>
+                                <input type="text" class="form-control"  id="nomVisLoc" placeholder="Nom" autocomplete="off" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="idMat">Materiel emprunté: </label>
-                                <select name="id_materiel" id="idMat" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="dateRetour">Date de retour estimé: </label>
-                                <input type="date" id="dateRetour" name="date_retour" required>
+                                <input type="text" id="refMat" name="refMat" required>
                             </div>
 
+                            <div class="mb-3">
+                                <label for="dateRetour">Date de retour estimé: </label>
+                                <input type="date" id="dateRetour" name="dateRetour" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="etat">Etat actuel : </label>
+                                <textarea class="form-control" id="etatMat" name="etatMat"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Exporter</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <!-- Modal nouveau visiteur -->
         <div class="modal fade" id="newVisitor" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -463,14 +482,37 @@ $nbActivite = getNbActivite($conn);
         </div>
         <!-- End of modals -->
 
+
+        
         <!-- Bootstrap core JavaScript-->
         <script src="template/vendor/jquery/jquery.min.js"></script>
         <script src="template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="template/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="template/js/sb-admin-2.min.js"></script>
+
+        <script>
+            const listVisitors = JSON.parse('<?php echo $visitorEncode;?>');
+
+            $(document).ready(function() {
+                $('#nomVisLoc').typeahead({
+                    source: listVisitors.map(function(visiteur){
+                        return visiteur.nom + ' ' + visiteur.prenom;
+                    }),
+                    items: 4,
+                    afterSelect: function(value){
+                        const selectedVis = listVisitors.find(function(visiteur){
+                            return value === visiteur.nom + ' '+visiteur.prenom;
+                        });
+
+                        $('#idVisLoc').val(selectedVis.IDVisiteur);
+                    }
+                })
+            })
+        </script>
     </body>
 </html>
