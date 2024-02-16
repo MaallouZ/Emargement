@@ -325,27 +325,25 @@ $visitorEncode = json_encode($listVis);
                         <div class="modal-body">
                             <input type="hidden" name="method" value="newLocation">
                             <input type="hidden" id="idVisLoc" name="idVisLoc">
-
-                            <!-- <div class="mb-3">
-                                <label for="nomVis">Nom du visiteur: </label>
-                                <select name="id_visiteur" id="nomVis" required>
-                                    <option selected required>Sélectionner le visiteur</option>
-                                    <?php
-                                        // foreach($listVis as $row){
-                                        //     echo('<option value="'.$row['IDVisiteur'].'">' . $row['nom'].' '.$row['prenom'].'</option>');
-                                        // }
-                                    ?>
-                                </select>
-                            </div> -->
-
                             <div class="mb-3">
                                 <label for="nomVisLoc">Nom du visiteur: </label>
                                 <input type="text" class="form-control"  id="nomVisLoc" placeholder="Nom" autocomplete="off" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="idMat">Materiel emprunté: </label>
-                                <input type="text" id="refMat" name="refMat" required>
+                                <label for="refMat">Materiel emprunté: </label>
+                                <select class="form-select" multiple aria-label="multiple select example">
+                                    <?php
+                                        $sql = "SELECT idMateriel, referenceMateriel FROM materiel WHERE estPrete = 0;";
+                                        $stmt = $conn -> prepare($sql);
+                                        $stmt->execute();
+                                        $listMat = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+                                        foreach ($listMat as $row) {
+                                            echo('<option value="'.$row['idMateriel'].'">'.$row['referenceMateriel'].'</option>');
+                                        }
+                                    ?>
+                                </select>
                             </div>
 
                             <div class="mb-3">

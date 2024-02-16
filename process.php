@@ -114,3 +114,13 @@ if ($_GET['method'] == 'absence') {
     $_GET['method'] = NULL;
     header('Location: http://anim.mjcbolbec.fr/visiteurs.php?act=' . $_GET['act']);
 }
+
+if ($_POST['method'] == 'newLocation') {
+    
+    $id = htmlspecialchars($_POST['idVisLoc']);
+    $ref = htmlspecialchars($_POST['refMat']);
+    $dateRetour = htmlspecialchars($_POST['dateRetour']);
+    $etatMat = htmlspecialchars(json_encode($_POST['etatMat']));
+
+    $sql = "INSERT INTO emprunte ('dateEmprunt','dateRetourEstime','idVisiteur','idMateriel') VALUES ()";
+}
