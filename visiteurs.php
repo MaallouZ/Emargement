@@ -62,7 +62,13 @@ $jsonData = json_encode($data);
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tableau de bord</span></a>
+                    <span>Tableau de bord</span>
+                </a>
+                
+                <a class="nav-link" href="emprunt.php">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Emprunts</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -265,7 +271,6 @@ $jsonData = json_encode($data);
             var data = JSON.parse('<?php echo $jsonData;?>');
             var act = JSON.parse('<?php echo $jsonAct;?>');
             document.getElementById('idAct').value = act;
-            console.log(data);
             
             function openModal(param) {
                 var i = JSON.parse(param);

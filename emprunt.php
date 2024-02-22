@@ -32,8 +32,8 @@ $activite = getActivite($conn);
 
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -127,8 +127,33 @@ $activite = getActivite($conn);
                     </form>
                 </nav>
                 <!-- End of Topbar -->
-
                 
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Emprunts</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr role="row">
+                                        <th>Visiteur</th>
+                                        <th>Materiel</th>
+                                        <th>Référence du matériel</th>
+                                        <th>Date d'emprunt</th>
+                                        <th>Date de retour prévue</th>
+                                        <th>Status</th>
+                                        <th>Date de retour</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php printEmprunt($conn);?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         </div>
@@ -143,5 +168,12 @@ $activite = getActivite($conn);
 
         <!-- Custom scripts for all pages-->
         <script src="template/js/sb-admin-2.min.js"></script>
+        
+        <!-- Page level plugins -->
+        <script src="template/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="template/js/demo/datatables-demo.js"></script>
     </body>
 </html>

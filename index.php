@@ -42,7 +42,7 @@ $visitorEncode = json_encode($listVis);
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="img/MJC BOLBEC_LOGO V1.png" alt="Logo MJC Bolbec" width="75" height="75"/>
                 </div>
-                <div class="sidebar-brand-text mx-3">Emargement Esport</div>
+                <div class="sidebar-brand-text mx-3">Emargement</div>
             </a>
 
             <!-- Divider -->
@@ -52,7 +52,12 @@ $visitorEncode = json_encode($listVis);
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tableau de bord</span></a>
+                    <span>Tableau de bord</span>
+                </a>
+                <a class="nav-link" href="emprunt.php">
+                <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Emprunts</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -248,7 +253,7 @@ $visitorEncode = json_encode($listVis);
                                 <div class="card" style="background-color: #DB6C79;">
                                     <i class="fas fa-laptop fa-8x text-white mt-4"></i>
                                     <div class="card-body">
-                                        <h5 class="card-title fw-bolder text-white">Location</h5>
+                                        <h5 class="card-title fw-bolder text-white">Nouvel emprunt</h5>
                                     </div>
                                 </div>
                             </a>
@@ -327,12 +332,12 @@ $visitorEncode = json_encode($listVis);
                             <input type="hidden" id="idVisLoc" name="idVisLoc">
                             <div class="mb-3">
                                 <label for="nomVisLoc">Nom du visiteur: </label>
-                                <input type="text" class="form-control"  id="nomVisLoc" placeholder="Nom" autocomplete="off" required>
+                                <input type="text" class="form-control"  id="nomVisLoc" name="nomVisLoc" placeholder="Nom" autocomplete="off" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="refMat">Materiel emprunté: </label>
-                                <select class="form-select" multiple aria-label="multiple select example">
+                                <select class="form-select" name="idMat" multiple aria-label="multiple select example" required>
                                     <?php
                                         $sql = "SELECT idMateriel, referenceMateriel FROM materiel WHERE estPrete = 0;";
                                         $stmt = $conn -> prepare($sql);
@@ -358,7 +363,7 @@ $visitorEncode = json_encode($listVis);
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Exporter</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
                         </div>
                     </form>
                 </div>
@@ -501,16 +506,24 @@ $visitorEncode = json_encode($listVis);
                     source: listVisitors.map(function(visiteur){
                         return visiteur.nom + ' ' + visiteur.prenom;
                     }),
-                    items: 4,
-                    afterSelect: function(value){
-                        const selectedVis = listVisitors.find(function(visiteur){
-                            return value === visiteur.nom + ' '+visiteur.prenom;
-                        });
+                    items: 4
+                });
 
+                $('#nomVisLoc').on('change', function() {
+                    const selectedValue = $(this).val();
+                    const selectedVis = listVisitors.find(function(visiteur){
+                        return selectedValue === visiteur.nom + ' ' + visiteur.prenom;
+                    });
+
+                    if (selectedVis) {
                         $('#idVisLoc').val(selectedVis.IDVisiteur);
+                    } else {
+                        // Réinitialiser le champ caché si aucune correspondance n'est trouvée
+                        $('#idVisLoc').val('');
                     }
-                })
-            })
+                });
+            });
         </script>
+
     </body>
 </html>
