@@ -2,9 +2,6 @@
 require("db.php");
 include("util.php");
 
-$activite = getActivite($conn);
-$nbActivite = getNbActivite($conn);
-
 $sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
 $stmt = $conn -> prepare($sql);
 $stmt->execute();
@@ -70,25 +67,7 @@ $visitorEncode = json_encode($listVis);
 
 
             <?php
-            for ($i=0; $i < $nbActivite; $i++) { 
-            
-            echo ('<!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse'.$activite[$i][1].'"
-                    aria-expanded="true" aria-controls="collapse'.$activite[$i][1].'">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>'.$activite[$i][1].'</span>
-                </a>
-                <div id="collapse'.$activite[$i][1].'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
-                        <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>
-                        <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
-                    </div>
-                </div>
-            </li>
-            ');
-            }
+            printActivite($conn);
             ?>
             <!-- Divider -->
             <hr class="sidebar-divider">

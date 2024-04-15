@@ -93,5 +93,34 @@ function printEmprunt($conn){
         echo $ex->getMessage();
     }
 }
+
+function printActivite($conn) {
+
+    $activite = getActivite($conn);
+    $nbActivite = getNbActivite($conn);
+
+
+    for ($i=0; $i < $nbActivite; $i++) { 
+
+        $jsActivite = str_replace(' ', '-', $activite[$i][1]);
+            
+        echo ('<!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse'.$jsActivite.'"
+                aria-expanded="true" aria-controls="collapse'.$jsActivite.'">
+                <i class="fas fa-fw fa-table"></i>
+                <span>'.$activite[$i][1].'</span>
+            </a>
+            <div id="collapse'.$jsActivite.'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
+                    <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>
+                    <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
+                </div>
+            </div>
+        </li>
+        ');
+    }
+}
 ?>
 

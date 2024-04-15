@@ -6,8 +6,6 @@ addDay($conn);
 
 $tabJournée = getJournee($conn);
 $tabVisiteur = getVisiteur($conn);
-$nbActivite = getNbActivite($conn);
-$activite = getActivite($conn);
 ?>
 
 <!DOCTYPE html>
