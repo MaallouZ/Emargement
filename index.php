@@ -3,16 +3,13 @@ session_start();
 require("db.php");
 include("util.php");
 
-if (!isset($_SESSION["log"]) || $_SESSION["log"] == false) {
-    header("Location: https://anim.mjcbolbec.fr/login.php");
-    exit;
-}
-
 $sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
 $stmt = $conn -> prepare($sql);
 $stmt->execute();
 $listVis = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 $visitorEncode = json_encode($listVis);
+
+if ($_SESSION["log"]) {
 ?>
 <!DOCTYPE html>
 
@@ -489,3 +486,9 @@ $visitorEncode = json_encode($listVis);
 
     </body>
 </html>
+<?php
+}
+else{
+    header('Location: https://anim.mjcbolbec.fr/login.php');
+}
+?>

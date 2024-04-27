@@ -123,4 +123,3 @@ function printActivite($conn) {
     }
 }
 ?>
-
