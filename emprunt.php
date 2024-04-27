@@ -1,6 +1,12 @@
 <?php
+session_start();
 require("db.php");
 include("util.php");
+
+if (!isset($_SESSION["log"]) || $_SESSION["log"] == false) {
+    header("Location: https://anim.mjcbolbec.fr/login.php");
+    exit;
+}
 
 addDay($conn);
 
