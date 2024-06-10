@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION['log'] = null;
 
-    $sql = "SELECT * FROM animateur WHERE emailAnimateur = :email;";
+    $sql = "SELECT * FROM utilisateur WHERE emailUser = :email;";
 
     $stmt = $conn -> prepare($sql);
     $stmt -> bindParam(':email', $email, PDO::PARAM_STR);
@@ -18,9 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt -> fetch();
 
     if ($result != null) {
-        if (password_verify($mdp, $result["mdpAnimateur"])) {
+        if (password_verify($mdp, $result["mdpUser"])) {
             $_SESSION ['log'] = true;
-            header('Location: https://anim.mjcbolbec.fr/index.php');
+            $_SESSION ['nom'] = $result["nomUser"];
+            $_SESSION ['prenom'] = $result["prenomUser"];
+            header('Location: http://localhost/GitHub/emargement/index.php');
         } else {
             $_SESSION ['log'] = false;
             $error_message = "Mot de passe incorrect";
@@ -34,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
     <meta charset="utf-8">

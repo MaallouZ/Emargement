@@ -59,41 +59,6 @@ function getJournee($conn){
     return $tabJournée;
 }
 
-function printEmprunt($conn){
-
-    try {
-        $stmt = $conn ->prepare("SELECT idEmprunt, emprunte.idVisiteur, visiteur.nom, visiteur.prenom, emprunte.idMateriel, materiel.libelleMateriel, materiel.referenceMateriel, dateEmprunt, dateRetourEstime, materiel.estPrete, dateRetour FROM emprunte INNER JOIN materiel ON emprunte.idMateriel = materiel.idMateriel INNER JOIN visiteur ON emprunte.idVisiteur = visiteur.IDvisiteur;");
-        $stmt -> execute();
-        $tabEmprunt = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($tabEmprunt as $row) {
-            echo "<tr>";
-            echo "<td>".$row['nom']. ' '.$row['prenom']."</td>";
-            echo "<td>".$row['libelleMateriel']."</td>";
-            echo "<td>".$row['referenceMateriel']."</td>";
-            echo "<td>".$row['dateEmprunt']."</td>";
-            echo "<td>".$row['dateRetourEstime']."</td>";
-
-            if ($row['estPrete'] == 1) {
-
-                if ($row['dateRetourEstime'] > (date('Y-m-d', strtotime('-3 days')))) {
-                    echo ('<td><a href="#" class="btn btn-warning btn-circle btn-lg"></a></td>');
-                }
-                else{
-                    echo ('<td><a href="#" class="btn btn-danger btn-circle btn-lg"></a></td>');
-                }
-            } else {
-                echo ('<td><a href="#" class="btn btn-success btn-circle btn-lg"></a></td>');
-            }
-
-            echo "<td>".$row['dateRetour']."</td>";
-            echo  '</tr>';
-        }
-    } catch (Exception $ex) {
-        echo $ex->getMessage();
-    }
-}
-
 function printActivite($conn) {
 
     $activite = getActivite($conn);
@@ -113,10 +78,10 @@ function printActivite($conn) {
             </a>
             <div id="collapse'.$jsActivite.'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
-                    <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>
-                    <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
-                </div>
+                    <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>'.
+                    // <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
+                    // <a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
+                '</div>
             </div>
         </li>
         ');
