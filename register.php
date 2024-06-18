@@ -3,16 +3,16 @@ require('db.php');
 include('param.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = htmlspecialchars($_POST["nomAnimateur"]);
-    $prenom = htmlspecialchars($_POST["prenomAnimateur"]);
-    $email = htmlspecialchars($_POST["emailAnimateur"]);
-    $mdp = htmlspecialchars($_POST["mdpAnimateur"]);
+    $nom = htmlspecialchars($_POST["nomUser"]);
+    $prenom = htmlspecialchars($_POST["prenomUser"]);
+    $email = htmlspecialchars($_POST["emailUser"]);
+    $mdp = htmlspecialchars($_POST["mdpUser"]);
     $mdpConf = htmlspecialchars($_POST["mdpConf"]);
 
     if ($mdp == $mdpConf) {
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
             
-        $stmt = $conn -> prepare("INSERT INTO animateur (nomAnimateur, prenomAnimateur, emailAnimateur, mdpAnimateur) VALUES (:nom, :prenom, :email, :mdp);");
+        $stmt = $conn -> prepare("INSERT INTO utilisateur (nomUser, prenomUser, emailUser, mdpUser) VALUES (:nom, :prenom, :email, :mdp);");
         $stmt ->bindParam(":nom", $nom, PDO::PARAM_STR);
         $stmt ->bindParam(":prenom", $prenom, PDO::PARAM_STR);
         $stmt ->bindParam(":email", $email, PDO::PARAM_STR);
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             $stmt->execute();
+            header("http://localhost/GitHub/emargement/login.php");
         } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
@@ -72,22 +73,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input id="method" name="method" type="hidden" value="register"/>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" name="nomAnimateur"
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" name="nomUser"
                                             placeholder="Nom" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" name="prenomAnimateur"
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" name="prenomUser"
                                             placeholder="Prénom" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="emailAnimateur"
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="emailUser"
                                         placeholder="Email" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" name="mdpAnimateur" placeholder="Mot de passe" required>
+                                            id="exampleInputPassword" name="mdpUser" placeholder="Mot de passe" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"

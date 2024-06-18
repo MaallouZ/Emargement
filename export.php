@@ -2,7 +2,7 @@
 require('db.php');
 include('param.php');
 
-shell_exec('rm /var/www/anim.mjcbolbec.fr/statistique.xlsx');
+shell_exec('sudo rm /var/www/anim.mjcbolbec.fr/statistique.xlsx');
 
 if ($_POST['method'] == 'xlsx') {
 
@@ -43,7 +43,7 @@ if ($_POST['method'] == 'xlsx') {
 
     shell_exec('pip install python-dateutil');
 
-    shell_exec('python3 /var/www/anim.mjcbolbec.fr/main.py');
+    shell_exec('python /var/www/anim.mjcbolbec.fr/main.py');
 
     sleep(3);
     
@@ -64,4 +64,4 @@ if ($_POST['method'] == 'xlsx') {
     $_POST['method'] = NULL;
 
 }
-    ?>
+?>

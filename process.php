@@ -3,6 +3,19 @@ require('db.php');
 include('param.php');
 include('logger.php');
 
+if ($_GET['method'] == "retour") {
+    $idEmprunt = htmlspecialchars($_GET['emprunt']);
+    $dateRetour = date("Y-m-d");
+    $sql = 'UPDATE emprunte INNER JOIN materiel ON emprunte.idMateriel = materiel.idMateriel SET emprunte.dateRetour = :dateRetour , materiel.estPrete = 0, rendu = 1 WHERE idEmprunt = :idEmprunt ;';
+    $stmt = $conn -> prepare($sql);
+    $stmt -> bindParam(":dateRetour", $dateRetour, PDO::PARAM_STR);
+    $stmt -> bindParam(":idEmprunt", $idEmprunt, PDO::PARAM_INT);
+    $stmt -> execute();
+
+    $_GET['method'] = null;
+    header('Location: https://anim.mjcbolbec.fr/emprunt.php');
+}
+
 if ($_POST['method'] == "addVisitor") {
     $sexe = $_POST["sexe_visiteur"];
     $nom = htmlspecialchars($_POST["nom_visiteur"]);
@@ -51,7 +64,7 @@ if ($_POST['method'] == "addActivite") {
     }
 
     $_POST['method'] = NULL;
-    header('Location: http://anim.mjcbolbec.fr/index.php');
+    header('Location: https://anim.mjcbolbec.fr/index.php');
 }
 
 
@@ -85,7 +98,7 @@ if ($_POST['method'] == 'editVisitor') {
     }
 
     $_POST['method'] = NULL;
-    header('Location: http://anim.mjcbolbec.fr/visiteurs.php?act=' . $_POST['idAct']);
+    header('Location: https://anim.mjcbolbec.fr/visiteurs.php?act=' . $_POST['idAct']);
 }
 
 if ($_GET['method'] == 'presence') {
@@ -99,7 +112,7 @@ if ($_GET['method'] == 'presence') {
         echo $ex->getMessage();
     }
     $_GET['method'] = NULL;
-    header('Location: http://anim.mjcbolbec.fr/visiteurs.php?act=' . $_GET['act']);
+    header('Location: https://anim.mjcbolbec.fr/visiteurs.php?act=' . $_GET['act']);
 }
 
 if ($_GET['method'] == 'absence') {
@@ -113,7 +126,7 @@ if ($_GET['method'] == 'absence') {
     }
 
     $_GET['method'] = NULL;
-    header('Location: http://anim.mjcbolbec.fr/visiteurs.php?act=' . $_GET['act']);
+    header('Location: https://anim.mjcbolbec.fr/visiteurs.php?act=' . $_GET['act']);
 }
 
 if ($_POST['method'] == 'newLocation') {
@@ -142,20 +155,22 @@ if ($_POST['method'] == 'newLocation') {
     $req2 -> execute() or die(print_r($req2 -> errorInfo()));
 
     $_POST['method'] = NULL;
-    header('Location: http://anim.mjcbolbec.fr/emprunt.php');
+    header('Location: https://anim.mjcbolbec.fr/emprunt.php');
 }
 
-if ($_GET['method'] == "retour") {
-    $idEmprunt = htmlspecialchars($_GET['emprunt']);
-    $dateRetour = date("Y-m-d");
-    $sql = 'UPDATE emprunte INNER JOIN materiel ON emprunte.idMateriel = materiel.idMateriel SET emprunte.dateRetour = :dateRetour , materiel.estPrete = 0, rendu = 1 WHERE idEmprunt = :idEmprunt ;';
+if ($_POST['method'] == "prolongEmprunt") {
+    $idEmprunt = htmlspecialchars($_POST['idEmprunt']);
+    $date = htmlspecialchars($_POST['dateProlong']);
+
+    $sql = "UPDATE emprunte SET dateRetourEstime = :dateRetourEstime WHERE idEmprunt = :idEmprunt;";
+
     $stmt = $conn -> prepare($sql);
-    $stmt -> bindParam(":dateRetour", $dateRetour, PDO::PARAM_STR);
-    $stmt -> bindParam("idEmprunt", $idEmprunt, PDO::PARAM_INT);
+    $stmt -> bindParam(":dateRetourEstime", $date, PDO::PARAM_STR);
+    $stmt -> bindParam(":idEmprunt", $idEmprunt, PDO::PARAM_INT);
     $stmt -> execute();
 
-    $_GET['method'] = null;
-    header('Location: http://anim.mjcbolbec.fr/emprunt.php');
+    $_POST['method'] = null;
+    header('Location: https://anim.mjcbolbec.fr/emprunt.php');
 }
 
 if ($_GET['method'] == "preter") {
@@ -166,5 +181,6 @@ if ($_GET['method'] == "preter") {
     $stmt -> execute();
 
     $_GET['method'] = null;
-    header('Location: http://anim.mjcbolbec.fr/emprunt.php');
+    header('Location: https://anim.mjcbolbec.fr/emprunt.php');
 }
+
