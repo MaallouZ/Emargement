@@ -42,7 +42,7 @@ if ($_POST['method'] == "addVisitor") {
     }
 
     $_POST["method"] = NULL;
-    header('Location: https://anim.mjcbolbec.fr/index.php');
+    header('Location: http://localhost/GitHub/emargement/index.php');
 }
 
 if ($_POST['method'] == "addActivite") {
@@ -184,3 +184,4 @@ if ($_GET['method'] == "preter") {
     header('Location: https://anim.mjcbolbec.fr/emprunt.php');
 }
 
+?>
