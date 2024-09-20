@@ -1,5 +1,5 @@
 template
-node_modules
+node_modules/
 blank.php
 param.php
 package-lock.json
