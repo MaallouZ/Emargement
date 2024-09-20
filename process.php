@@ -1,7 +1,6 @@
 <?php
 require('db.php');
 include('param.php');
-include('logger.php');
 
 if ($_GET['method'] == "retour") {
     $idEmprunt = htmlspecialchars($_GET['emprunt']);
@@ -42,7 +41,7 @@ if ($_POST['method'] == "addVisitor") {
     }
 
     $_POST["method"] = NULL;
-    header('Location: http://localhost/GitHub/emargement/index.php');
+    header('Location: https://anim.mjcbolbec.fr/index.php');
 }
 
 if ($_POST['method'] == "addActivite") {

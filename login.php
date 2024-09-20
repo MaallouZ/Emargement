@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION ['log'] = true;
             $_SESSION ['nom'] = $result["nomUser"];
             $_SESSION ['prenom'] = $result["prenomUser"];
-            header('Location: http://localhost/GitHub/emargement/index.php');
+            header('Location: https://anim.mjcbolbec.fr/index.php');
         } else {
             $_SESSION ['log'] = false;
             $error_message = "Mot de passe incorrect";
