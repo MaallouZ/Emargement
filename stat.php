@@ -138,9 +138,7 @@ if ($_SESSION["log"]) {
                                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Total de visiteurs</div>
                                                     <div id="totalVisiteur" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                                 </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -154,9 +152,7 @@ if ($_SESSION["log"]) {
                                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total d'hommes</div>
                                                     <div id="total_H" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                                 </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -170,8 +166,19 @@ if ($_SESSION["log"]) {
                                                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"> Total de femmes</div>
                                                     <div id="total_F" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                                 </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Moyenne -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Moyenne de visites par jour</div>
+                                                    <div id="moyenne" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,6 +220,7 @@ if ($_SESSION["log"]) {
                                     $("#totalVisiteur").text(response.totalVisiteur);
                                     $("#total_H").text(response.total_H);
                                     $("#total_F").text(response.total_F);
+                                    $("#moyenne").text(response.moyenne);
                                 } else {
                                     
                                 }
