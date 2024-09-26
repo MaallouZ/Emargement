@@ -76,8 +76,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(":dateFin", $dateFin, PDO::PARAM_STR);
         $stmt->execute();
 
-        $frequentation = $stmt->fetchAll();
+        $freq = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $labels = [];
+        $data = [];
 
+        for ($i = 0; $i < count($freq); $i++) {
+            $time = strtotime($freq[$i]["dateJournee"]);
+            array_push($labels, date("j M",$time));
+            array_push($data, $freq[$i]["COUNT(*)"]);
+        }
         //Moyenne visiteur/jour
         $sqlMoyenne = "SELECT AVG(nb_present) AS moyenne_presences FROM (
                             SELECT COUNT(*) AS nb_present
@@ -102,7 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "totalVisiteur" => $totalVisiteur[0],
             "total_H" => $total_H[1],
             "total_F" => $total_F[1],
-            "frequentation" => $frequentation,
+            "labels" => $labels,
+            "data" => $data,
             "moyenne" => floatval($moyenne[0])
         ];
 

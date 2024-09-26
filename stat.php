@@ -24,8 +24,8 @@ if ($_SESSION["log"]) {
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="freq.js"></script>
                 <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
                 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -152,7 +152,6 @@ if ($_SESSION["log"]) {
                                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total d'hommes</div>
                                                     <div id="total_H" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -185,7 +184,18 @@ if ($_SESSION["log"]) {
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- Area Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Fréquentation</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="freqChart"></canvas>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,6 +231,9 @@ if ($_SESSION["log"]) {
                                     $("#total_H").text(response.total_H);
                                     $("#total_F").text(response.total_F);
                                     $("#moyenne").text(response.moyenne);
+
+                                    console.log(response.labels);
+                                    updateChart(response.labels, response.data);
                                 } else {
                                     
                                 }
