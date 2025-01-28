@@ -226,10 +226,10 @@ if ($_SESSION["log"]) {
                             dataType: 'json',
                             success: function(response){
                                 if (response.status === "success") {
-                                    $("#totalVisiteur").text(response.totalVisiteur);
-                                    $("#total_H").text(response.total_H);
-                                    $("#total_F").text(response.total_F);
-                                    $("#moyenne").text(response.moyenne);
+                                    $("#totalVisiteur").text(response.totalVisitors);
+                                    $("#total_H").text(response.totalMen);
+                                    $("#total_F").text(response.totalWomen);
+                                    $("#moyenne").text(response.average);
 
                                     console.log(response.labels);
                                     updateChart(response.labels, response.data);

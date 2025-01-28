@@ -3,7 +3,6 @@ session_start();
 require("db.php");
 include("util.php");
 
-$tabJournée = getJournee($conn);
 $tabVisiteur = getVisiteur($conn);
 
 $act = $_GET['act'];

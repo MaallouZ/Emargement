@@ -30,26 +30,6 @@ function getVisiteur($conn){
     return $tabVisiteur;
 }
 
-function getActivite($conn){
-    global $date;
-
-    $stmt = $conn -> prepare("SELECT idActivite, libelleActivite FROM activite WHERE activite.dateDebutActivite <= :date AND activite.dateFinActivite >= :date;");
-    $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
-    $stmt -> execute();
-    $activite = $stmt -> fetchAll();
-    return $activite;
-}
-
-function getNbActivite($conn){
-    global $date;
-
-    $stmt = $conn -> prepare("SELECT idActivite, libelleActivite FROM activite WHERE activite.dateDebutActivite <= :date AND activite.dateFinActivite >= :date;");
-    $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
-    $stmt -> execute();
-    $nbActivite = $stmt -> rowCount();
-    return $nbActivite;
-}
-
 function getJournee($conn){
     global $date;
     $stmt = $conn -> prepare("SELECT * FROM journée;");
@@ -58,33 +38,3 @@ function getJournee($conn){
 
     return $tabJournée;
 }
-
-function printActivite($conn) {
-
-    $activite = getActivite($conn);
-    $nbActivite = getNbActivite($conn);
-
-
-    for ($i=0; $i < $nbActivite; $i++) { 
-
-        $jsActivite = str_replace(' ', '-', $activite[$i][1]);
-            
-        echo ('<!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse'.$jsActivite.'"
-                aria-expanded="true" aria-controls="collapse'.$jsActivite.'">
-                <i class="fas fa-fw fa-table"></i>
-                <span>'.$activite[$i][1].'</span>
-            </a>
-            <div id="collapse'.$jsActivite.'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="visiteurs.php?act='.$activite[$i][0].'">Visiteurs</a>'.
-                    // <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
-                    '<a class="collapse-item" href="stat.php?act='.$activite[$i][0].'">Statistiques</a>
-                </div>
-            </div>
-        </li>
-        ');
-    }
-}
-?>

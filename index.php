@@ -1,695 +1,78 @@
 <?php
 session_start();
-require("db.php");
-include("util.php");
 
-$sql = "SELECT IDVisiteur, nom, prenom FROM visiteur;";
-$stmt = $conn -> prepare($sql);
-$stmt->execute();
-$listVis = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-$visitorEncode = json_encode($listVis);
+require 'src/controller/homepage.php';
+require 'src/controller/visitors.php';
+require 'src/controller/login.php';
+require 'src/controller/logout.php';
+require 'src/controller/404.php';
+require 'src/controller/stats.php';
 
-if ($_SESSION["log"]) {
-?>
-<!DOCTYPE html>
+// Translating date in Fr for all the app
+$date = new DateTime();
+$formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, IntlDateFormatter::GREGORIAN, 'EEE d MMMM y');
+$formattedDate = $formatter->format($date);
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tableau de bord</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap-typeahead.min.js"></script>
+$db = Database::getInstance();
+$repoActi = new ActivityRepository($db);
+$repoVis = new VisitorRepository($db);
 
+try {
+    if (isset($_GET['action'])) {
+        $action = $_GET['action'] ?? null;
 
-        <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link href="template/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
-    </head>
-    <body id="page-top">
-        
-        <!-- Page Wrapper -->
-        <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        if (isset($_SESSION['log']) && $_SESSION['log']) {
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
-                    <img src="img/MJC BOLBEC_LOGO V1.png" alt="Logo MJC Bolbec" width="75" height="75"/>
-                </div>
-                <div class="sidebar-brand-text mx-3">Emargement</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tableau de bord</span>
-                </a>
-                <a class="nav-link" href="emprunt.php">
-                <i class="fas fa-fw fa-list-alt"></i>
-                    <span>Emprunts</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-
-            <?php
-            printActivite($conn);
-            ?>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search 
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo($_SESSION["nom"]." ".$_SESSION["prenom"]) ?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <!--<a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>-->
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.php">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Déconnexion
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
-                    </div>
-
-                    <div class="row">
-                        <!-- Date du jour -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Date du jour</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo date("D j F Y", strtotime($date)); ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Visiteurs -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Visiteurs</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee WHERE dateJournee = :date AND present = 1;";
-                                                    $req = $conn -> prepare($sql);
-                                                    $req -> bindValue(":date",$date,PDO::PARAM_STR);
-                                                    $req->execute();
-
-                                                    $visitors = $req -> fetch()[0];
-                                                    echo $visitors;
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- HOMME -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Homme</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'M';";
-                                                    $stmt = $conn -> prepare($sql);
-                                                    $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
-                                                    $stmt -> execute();
-
-                                                    $homme = $stmt -> fetch()[0];
-                                                    echo $homme;
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FEMME -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Femme</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                    $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN journée ON estPresent.idJournee = journée.idJournee INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE dateJournee = :date AND present = 1 AND sexe = 'F';";
-                                                    $stmt = $conn -> prepare($sql);
-                                                    $stmt -> bindValue(":date", $date, PDO::PARAM_STR);
-                                                    $stmt -> execute();
-
-                                                    $femme = $stmt -> fetch()[0];
-                                                    echo $femme;
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
-                        <div class="col text-center">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" style="text-decoration: none;">
-                                <div class="card" style="background-color: #525B76;">
-                                    <i class="fas fa-user fa-8x text-white mt-4"></i>
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bolder text-white">Nouveau visiteur</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col text-center">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#locationForm" style="text-decoration: none;">
-                                <div class="card" style="background-color: #DB6C79;">
-                                    <i class="fas fa-laptop fa-8x text-white mt-4"></i>
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bolder text-white">Nouvel emprunt</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col text-center">
-                            <a href="#" data-bs-toggle="modal"  data-bs-target="#newActivite" style="text-decoration: none;">
-                                <div class="card" style="background-color: #87D68D;">
-                                    <i class="fas fa-plane fa-8x text-white mt-4"></i>
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bolder text-white">Nouvelle activité</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col text-center">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exportXlsx" style="text-decoration: none;">
-                                <div class="card" style="background-color: #8EB1C7;">
-                                    <i class="fas fa-file-export fa-8x text-white mt-4"></i>
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bolder text-white">Export format Excel</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Modals -->
-        <div class="modal fade" id="newActivite" tabindex="-1" aria-hidden="true">
-            <div class ="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ajouter une activité</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="process.php" method="POST">
-                        <div class="modal-body">
-                            <input type="hidden" name="method" value="addActivite">
-
-                            <div class="mb-3">
-                                <label for="nomActv">Nom de l'activité :</label>
-                                <input type="text"  class="form-control" id="libelleAct_input" name="libelleAct" required>
-                            </div>
-                            <div>
-                                <label for="dateDebut">Date de début :</label>
-                                <input type="date" class="form-control" id="dateDebut_input" name="dateDebut" required>
-                            </div>
-                            <div>
-                                <label for="dateFin">Date de fin :</label>
-                                <input type="date" class="form-control" id="dateFin_input" name="dateFin" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Modal location -->
-        <div class="modal fade" id="locationForm" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Nouvelle location</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="process.php" method="POST">
-                        <div class="modal-body">
-                            <input type="hidden" name="method" value="newLocation">
-                            <input type="hidden" id="idVisLoc" name="idVisLoc">
-                            <div class="mb-3">
-                                <label for="nomVisLoc">Nom du visiteur: </label>
-                                <input type="text" class="form-control"  id="nomVisLoc" name="nomVisLoc" placeholder="Nom" autocomplete="off" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="refMat">Materiel emprunté: </label>
-                                <select class="form-select" name="idMat" multiple aria-label="multiple select example" required>
-                                    <?php
-                                        $sql = "SELECT idMateriel, referenceMateriel FROM materiel WHERE estPrete = 0;";
-                                        $stmt = $conn -> prepare($sql);
-                                        $stmt->execute();
-                                        $listMat = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-                                        foreach ($listMat as $row) {
-                                            echo('<option value="'.$row['idMateriel'].'">'.$row['referenceMateriel'].'</option>');
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="dateRetour">Date de retour estimé: </label>
-                                <input type="date" id="dateRetour" name="dateRetour" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="etat">Etat actuel : </label>
-                                <textarea class="form-control" id="etatMat" name="etatMat"></textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Modal nouveau visiteur -->
-        <div class="modal fade" id="newVisitor" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ajouter un nouveau visiteur</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="process.php" method="post">
-                        <div class="modal-body">
-
-                            <input id="method" name="method" type="hidden" value="addVisitor"/>
-                        
-                            <div class="mb-3">
-                                <label for="sexe_visiteur" class="form-label">Sexe :</label>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio"  name="sexe_visiteur" value="M" required>
-                                    <span class="form-check-label">Homme</span>
-                                </label>
-
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio"  name="sexe_visiteur" value="F" required>
-                                    <span class="form-check-label">Femme</span>
-                                </label>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nom_visiteur" class="form-label">Nom :</label>
-                                <input type="text" class="form-control" id="nom_input"  name="nom_visiteur" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="prenom_visiteur" class="form-label">Prénom :</label>
-                                <input type="text" class="form-control" id="prenom_input"  name="prenom_visiteur" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="DDN_visiteur" class="form-label">DDN (Facultatif) :</label>
-                                <input type="date" class="form-control" id="age_input"  name="DDN_visiteur">
-                            </div>
-                            <div class="mb-3">
-                                <label for="ville_visiteur" class="form-label">Ville (Facultatif) :</label>
-                                <input type="text" class="form-control" id="ville_input"  name="ville_visiteur" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="tel_visiteur" class="form-label">Téléphone (Facultatif) :</label>
-                                <input type="text" class="form-control" id="tel_input"  name="tel_visiteur">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="ADH_visiteur" class="form-label">Adhérent :</label>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio"  name="ADH_visiteur" value="1" required>
-                                    <span class="form-check-label">Oui</span>
-                                </label>
-
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio"  name="ADH_visiteur" value="0" required>
-                                    <span class="form-check-label">Non</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Export XLSX -->
-        <div class="modal fade" id="exportXlsx" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Exporter les données en fichier Excel</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="export.php" method="POST">
-                        <div class="modal-body">
-                            <input id="method" name="method" type="hidden" value="xlsx"/>
-
-                            <div class="mb-3">
-                                <label for="activite_export" class="form-label">Activités :</label>
-                                <?php 
-                                    $stmt = $conn -> prepare("SELECT a.idActivite, a.libelleActivite FROM activite AS a WHERE a.enabled = 1;");
-                                    $stmt -> execute();
-                                    $enabledAct = $stmt -> fetchAll();
-                                    $nbColumn = $stmt -> rowCount();
-
-                                    for ($i=0 ; $i < $nbColumn ; $i++) { 
-                                        echo('<label class="form-check form-check-inline">');
-                                        echo('<input class="form-check-input" type="checkbox" name="act'.$i.'" value="'.$enabledAct[$i][0].'">');
-                                        echo('<span>'.$enabledAct[$i][1].'</span>');
-                                        echo('</label>');
-                                    }
-                                ?>
-                            </div>
-                            <div class="mb-3">
-                                <label for="DDN_visiteur" class="form-label">Période :</label>
-                                </br>
-                                <span>Début :</span>
-                                <input type="date" class="form-control" id="dateDebut"  name="dateDebut">
-                                </br>
-                                <span>Fin :</span>
-                                <input type="date" class="form-control" id="dateFin"  name="dateFin">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary">Exporter</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- End of modals -->
-
-
-        
-        <!-- Bootstrap core JavaScript-->
-        <script src="template/vendor/jquery/jquery.min.js"></script>
-        <script src="template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="template/vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="template/js/sb-admin-2.min.js"></script>
-
-        <script>
-            const listVisitors = JSON.parse('<?php echo $visitorEncode;?>');
-
-            $(document).ready(function() {
-                $('#nomVisLoc').typeahead({
-                    source: listVisitors.map(function(visiteur){
-                        return visiteur.nom + ' ' + visiteur.prenom;
-                    }),
-                    items: 4
-                });
-
-                $('#nomVisLoc').on('change', function() {
-                    const selectedValue = $(this).val();
-                    const selectedVis = listVisitors.find(function(visiteur){
-                        return selectedValue === visiteur.nom + ' ' + visiteur.prenom;
-                    });
-
-                    if (selectedVis) {
-                        $('#idVisLoc').val(selectedVis.IDVisiteur);
-                    } else {
-                        // Réinitialiser le champ caché si aucune correspondance n'est trouvée
-                        $('#idVisLoc').val('');
-                    }
-                });
-            });
-        </script>
-
-    </body>
-</html>
-<?php
+            switch ($action) {
+                case 'login':
+                    login();
+                    break;
+                case 'homepage':
+                    homepage($repoVis);
+                    break;
+                case 'logout':
+                    logout();
+                    break;
+                case 'visitors':
+                    visitors($repoVis);
+                    break;
+                case 'visitorsActivity':
+                    visitorsActivity($repoVis);
+                    break;
+                case 'setValid':
+                    setValid($repoVis, $_GET['id']);
+                    break;
+                case 'setUnvalid':
+                    setUnvalid($repoVis, $_GET['id']);
+                    break;
+                case 'setPresent':
+                    setPresent($repoVis, $_GET['act'], $_GET['id']);
+                    break;
+                case 'setAbsent':
+                    setAbsent($repoVis, $_GET['act'], $_GET['id']);
+                    break;
+                case 'newVisitor':
+                    newVisitor($repoVis);
+                    break;
+                case 'editVisitor':
+                    editVisitor($repoVis);
+                    break;
+                case 'newActivity':
+                    newActivity($repoActi);
+                    break;
+                case 'stat':
+                    stats($repoActi, $repoVis);
+                    break;
+                default:
+                    error404();
+                    exit();
+            }
+        } else {
+            login();
+        }
+    } else {
+        login();
+    }
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
 }
-else{
-    header('Location: https://anim.mjcbolbec.fr/login.php');
-}
-?>
