@@ -5,18 +5,32 @@ require_once 'src/lib/Database.php';
 
 function visitors(VisitorRepository $repo){
     $listVisitors = $repo -> getVisitors();
+    $jsonData = json_encode($listVisitors->fetchAll());
     $tab = $repo -> printTabVisitors($listVisitors);
     require 'template/visitors.php';
 }
 
 function visitorsActivity(VisitorRepository $repo){
     $activityID = $_GET['act'];
-    $jsonAct = json_encode($activityID);
     $listStmt = $repo -> getVisitorsByActivity($activityID);
     $listStmt -> execute();
-    $jsonData = json_encode($listStmt->fetchAll());
     $tab = $repo -> printTabVisitorsActivity($activityID, $listStmt);
     require 'template/visitorsActivity.php';
+}
+
+function newVisitor(VisitorRepository $repo){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $sexe = $_POST["sexe_visiteur"];
+        $nom = htmlspecialchars($_POST["nom_visiteur"]);
+        $prenom = htmlspecialchars($_POST["prenom_visiteur"]);
+        $DDN = htmlspecialchars($_POST["DDN_visiteur"]) ?? null;
+        $ville = htmlspecialchars($_POST["ville_visiteur"]) ?? null;
+        $tel = htmlspecialchars($_POST["tel_visiteur"]) ?? null;
+        $ADH = $_POST["ADH_visiteur"];
+        $repo -> newVisitor($sexe, $nom, $prenom, $DDN, $ville, $tel, $ADH);
+
+        header('Location: index.php?action=visitors');
+    }
 }
 
 function setPresent(VisitorRepository $repo, int $act, int $id){

@@ -58,7 +58,7 @@ ob_start();
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-mars fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ ob_start();
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-venus fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>

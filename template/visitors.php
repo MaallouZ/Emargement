@@ -63,45 +63,45 @@ ob_start();
                     <div class="mb-3">
                         <label for="sexe_visiteur" class="form-label">Sexe :</label>
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sexe_visiteur" value="M" required>
+                            <input class="form-check-input" type="radio" name="new_sexe" value="M" required>
                             <span class="form-check-label">Homme</span>
                         </label>
 
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sexe_visiteur" value="F" required>
+                            <input class="form-check-input" type="radio" name="new_sex" value="F" required>
                             <span class="form-check-label">Femme</span>
                         </label>
                     </div>
                     <div class="mb-3">
                         <label for="nom_visiteur" class="form-label">Nom :</label>
-                        <input type="text" class="form-control" id="nom_input" name="nom_visiteur" required>
+                        <input type="text" class="form-control" id="nom_input" name="new_nom" required>
                     </div>
                     <div class="mb-3">
                         <label for="prenom_visiteur" class="form-label">Prénom :</label>
-                        <input type="text" class="form-control" id="prenom_input" name="prenom_visiteur" required>
+                        <input type="text" class="form-control" id="prenom_input" name="new_prenom" required>
                     </div>
                     <div class="mb-3">
-                        <label for="DDN_visiteur" class="form-label">DDN (Facultatif) :</label>
-                        <input type="date" class="form-control" id="age_input" name="DDN_visiteur">
+                        <label for="DDN_visiteur" class="form-label">Date de Naissance :</label>
+                        <input type="date" class="form-control" id="age_input" name="new_DDN" required>
                     </div>
                     <div class="mb-3">
-                        <label for="ville_visiteur" class="form-label">Ville (Facultatif) :</label>
-                        <input type="text" class="form-control" id="ville_input" name="ville_visiteur">
+                        <label for="ville_visiteur" class="form-label">Ville :</label>
+                        <input type="text" class="form-control" id="ville_input" name="new_ville" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tel_visiteur" class="form-label">Téléphone (Facultatif) :</label>
-                        <input type="text" class="form-control" id="tel_input" name="tel_visiteur">
+                        <label for="tel_visiteur" class="form-label">Téléphone :</label>
+                        <input type="text" class="form-control" id="tel_input" name="new_tel" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="ADH_visiteur" class="form-label">Adhérent :</label>
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ADH_visiteur" value="1" required>
+                            <input class="form-check-input" type="radio" name="new_ADH" value="1" required>
                             <span class="form-check-label">Oui</span>
                         </label>
 
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ADH_visiteur" value="0" required>
+                            <input class="form-check-input" type="radio" name="new_ADH" value="0" required>
                             <span class="form-check-label">Non</span>
                         </label>
                     </div>
@@ -126,52 +126,51 @@ ob_start();
                 <div class="modal-body">
 
                     <input id="method" name="method" type="hidden" value="editVisitor" />
-                    <input id="idVisitor" name="idVisitor" type="hidden" value="" />
-                    <input id="idAct" name="idAct" type="hidden" value="" />
+                    <input id="edit_idVisitor" name="idVisitor" type="hidden" value="" />
 
                     <div class="mb-3">
                         <label for="sexe_visiteur" class="form-label">Sexe :</label>
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="M_radio" name="sexe_visiteur" value="M" required>
+                            <input class="form-check-input" type="radio" id="edit_M" name="sexe_visiteur" value="M" required>
                             <span class="form-check-label">Homme</span>
                         </label>
 
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="F_radio" name="sexe_visiteur" value="F" required>
+                            <input class="form-check-input" type="radio" id="edit_F" name="sexe_visiteur" value="F" required>
                             <span class="form-check-label">Femme</span>
                         </label>
                     </div>
 
                     <div class="mb-3">
                         <label for="nom_visiteur" class="form-label">Nom :</label>
-                        <input type="text" class="form-control" id="nom_input" name="nom_visiteur" required>
+                        <input type="text" class="form-control" id="edit_nom" name="nom_visiteur" required>
                     </div>
                     <div class="mb-3">
                         <label for="prenom_visiteur" class="form-label">Prénom :</label>
-                        <input type="text" class="form-control" id="prenom_input" name="prenom_visiteur" required>
+                        <input type="text" class="form-control" id="edit_prenom" name="prenom_visiteur" required>
                     </div>
                     <div class="mb-3">
                         <label for="DDN_visiteur" class="form-label">Date de naissance :</label>
-                        <input type="date" class="form-control" id="DDN_input" name="DDN_visiteur">
+                        <input type="date" class="form-control" id="edit_DDN" name="DDN_visiteur">
                     </div>
                     <div class="mb-3">
                         <label for="ville_visiteur" class="form-label">Ville :</label>
-                        <input type="text" class="form-control" id="ville_input" name="ville_visiteur">
+                        <input type="text" class="form-control" id="edit_ville" name="ville_visiteur">
                     </div>
                     <div class="mb-3">
                         <label for="tel_visiteur" class="form-label">Téléphone :</label>
-                        <input type="text" class="form-control" id="tel_input" name="tel_visiteur">
+                        <input type="text" class="form-control" id="edit_tel" name="tel_visiteur">
                     </div>
 
                     <div class="mb-3">
                         <label for="ADH_visiteur" class="form-label">Adhérent :</label>
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="ADH_radio" name="ADH_visiteur" value="1" required>
+                            <input class="form-check-input" type="radio" id="edit_ADH" name="ADH_visiteur" value="1" required>
                             <span class="form-check-label">Oui</span>
                         </label>
 
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="nonADH_radio" name="ADH_visiteur" value="0" required>
+                            <input class="form-check-input" type="radio" id="edit_nonADH" name="ADH_visiteur" value="0" required>
                             <span class="form-check-label">Non</span>
                         </label>
                     </div>
@@ -187,28 +186,26 @@ ob_start();
 <!-- End of modal -->
 <script>
     var data = JSON.parse('<?php echo $jsonData; ?>');
-    var act = JSON.parse('<?php echo $jsonAct; ?>');
-    document.getElementById('idAct').value = act;
 
     function openModal(param) {
         var i = JSON.parse(param);
         if (data[i][4] == "M") {
-            document.getElementById("M_radio").checked = true;
+            document.getElementById("edit_M").checked = true;
         } else {
-            document.getElementById("F_radio").checked = true;
+            document.getElementById("edit_F").checked = true;
         }
 
-        document.getElementById('idVisitor').value = data[i][10];
-        document.getElementById('nom_input').value = data[i][1];
-        document.getElementById("prenom_input").value = data[i][2];
-        document.getElementById("DDN_input").value = data[i][9];
-        document.getElementById("ville_input").value = data[i][6];
-        document.getElementById("tel_input").value = data[i][7];
+        document.getElementById('edit_idVisitor').value = data[i][0];
+        document.getElementById('edit_nom').value = data[i][1];
+        document.getElementById("edit_prenom").value = data[i][2];
+        document.getElementById("edit_DDN").value = data[i][9];
+        document.getElementById("edit_ville").value = data[i][6];
+        document.getElementById("edit_tel").value = data[i][7];
 
         if (data[i][5] == 1) {
-            document.getElementById("ADH_radio").checked = true;
+            document.getElementById("edit_ADH").checked = true;
         } else {
-            document.getElementById("nonADH_radio").checked = true;
+            document.getElementById("edit_nonADH").checked = true;
         }
 
         $('#editVisitor').modal('show');

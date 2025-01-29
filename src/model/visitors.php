@@ -36,7 +36,7 @@ class VisitorRepository extends Repository
 
     public function getVisitors()
     {
-        $sql = "SELECT IDVisiteur, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid FROM visiteur;";
+        $sql = "SELECT IDVisiteur, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
