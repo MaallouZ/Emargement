@@ -63,7 +63,7 @@ ob_start();
                     <div class="mb-3">
                         <label for="sexe_visiteur" class="form-label">Sexe :</label>
                         <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="new_sexe" value="M" required>
+                            <input class="form-check-input" type="radio" name="new_sex" value="M" required>
                             <span class="form-check-label">Homme</span>
                         </label>
 

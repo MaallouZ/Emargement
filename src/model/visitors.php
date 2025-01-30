@@ -6,7 +6,7 @@ class VisitorRepository extends Repository
 
     public function getAllVisitsOnDay(): ?int
     {
-        $sql = "SELECT COUNT(*) FROM estPresent WHERE estPresent.date = CURRENT_DATE AND present = 1;";
+        $sql = "SELECT COUNT(*) FROM visiteur WHERE valid = 1;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
@@ -16,7 +16,7 @@ class VisitorRepository extends Repository
 
     public function getMaleVisitsOnDay(): ?int
     {
-        $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = CURRENT_DATE AND present = 1 AND sexe = 'M';";
+        $sql = "SELECT COUNT(*) FROM visiteur WHERE valid = 1 AND sexe = 'M';";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
@@ -26,7 +26,7 @@ class VisitorRepository extends Repository
 
     public function getFemaleVisitsOnDay(): ?int
     {
-        $sql = "SELECT COUNT(*) FROM estPresent INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = CURRENT_DATE AND present = 1 AND sexe = 'F';";
+        $sql = "SELECT COUNT(*) FROM visiteur WHERE valid = 1 AND sexe = 'F';";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 

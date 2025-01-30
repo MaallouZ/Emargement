@@ -20,13 +20,13 @@ function visitorsActivity(VisitorRepository $repo){
 
 function newVisitor(VisitorRepository $repo){
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $sexe = $_POST["sexe_visiteur"];
-        $nom = htmlspecialchars($_POST["nom_visiteur"]);
-        $prenom = htmlspecialchars($_POST["prenom_visiteur"]);
-        $DDN = htmlspecialchars($_POST["DDN_visiteur"]) ?? null;
-        $ville = htmlspecialchars($_POST["ville_visiteur"]) ?? null;
-        $tel = htmlspecialchars($_POST["tel_visiteur"]) ?? null;
-        $ADH = $_POST["ADH_visiteur"];
+        $sexe = $_POST["new_sex"];
+        $nom = htmlspecialchars($_POST["new_nom"]);
+        $prenom = htmlspecialchars($_POST["new_prenom"]);
+        $DDN = htmlspecialchars($_POST["new_DDN"]) ?? null;
+        $ville = htmlspecialchars($_POST["new_ville"]) ?? null;
+        $tel = htmlspecialchars($_POST["new_tel"]) ?? null;
+        $ADH = $_POST["new_ADH"];
         $repo -> newVisitor($sexe, $nom, $prenom, $DDN, $ville, $tel, $ADH);
 
         header('Location: index.php?action=visitors');
