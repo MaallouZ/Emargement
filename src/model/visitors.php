@@ -33,21 +33,79 @@ class VisitorRepository extends Repository
         $female = $stmt->fetch()[0];
         return $female;
     }
+    public function getAllVisitsOnDayByActivity(int $act, string $date): ?int
+    {
+        $sql = "SELECT COUNT(*)
+            FROM estPresent AS eP
+            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            WHERE eP.present = 1
+            AND eP.idActivite = :act
+            AND eP.date = :date;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $visitors = $stmt->fetch()[0];
+        return $visitors;
+    }
+
+    public function getMaleVisitsOnDayByActivity(int $act, string $date): ?int
+    {
+        $sql = "SELECT COUNT(*)
+            FROM estPresent AS eP
+            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            WHERE eP.present = 1
+            AND eP.idActivite = :act
+            AND eP.date = :date
+            AND v.sexe = 'M';";
+        $stmt = $this->conn->prepare($sql);
+        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $male = $stmt->fetch()[0];
+        return $male;
+    }
+
+    public function getFemaleVisitsOnDayByActivity(int $act, string $date): ?int
+    {
+        $sql = "SELECT COUNT(*)
+            FROM estPresent AS eP
+            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            WHERE eP.present = 1
+            AND eP.idActivite = :act
+            AND eP.date = :date
+            AND v.sexe = 'F';";
+        $stmt = $this->conn->prepare($sql);
+        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $female = $stmt->fetch()[0];
+        return $female;
+    }
 
     public function getVisitors()
     {
-        $sql = "SELECT IDVisiteur, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur;";
+        $sql = "SELECT IDVisiteur, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur ORDER BY nom;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
     }
 
-    public function getVisitorsByActivity(int $activityID): PDOStatement
+    public function getVisitorsByActivity(int $activityID, string $date): PDOStatement
     {
-        $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1 ;";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
-
+        if ($date === date('Y-m-d')) {
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
+        } else {
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
+            $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+        }
         return $stmt;
     }
 
@@ -89,10 +147,10 @@ class VisitorRepository extends Repository
         for ($i = 0; $i < $ndata; $i++) {
             echo "<tr>";
             if ($data[$i][8] == 0) {
-                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i][0] . '" class="btn btn-danger btn-icon-split">
+                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i][0] . '&date='.$_GET['date'].'" class="btn btn-danger btn-icon-split">
                 <span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Absent</span></a></td>');
             } else {
-                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i][0] . '" class="btn btn-success btn-icon-split">
+                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i][0] . '&date='.$_GET['date'].'" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">Present</span></a></td>');
             }
             for ($j = 1; $j < 8; $j++) {

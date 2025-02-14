@@ -46,10 +46,10 @@ try {
                     setUnvalid($repoVis, $_GET['id']);
                     break;
                 case 'setPresent':
-                    setPresent($repoVis, $_GET['act'], $_GET['id']);
+                    setPresent($repoVis, $_GET['act'], $_GET['id'], $_GET['date']);
                     break;
                 case 'setAbsent':
-                    setAbsent($repoVis, $_GET['act'], $_GET['id']);
+                    setAbsent($repoVis, $_GET['act'], $_GET['id'], $_GET['date']);
                     break;
                 case 'newVisitor':
                     newVisitor($repoVis);

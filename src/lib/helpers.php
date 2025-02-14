@@ -25,8 +25,7 @@ function printMenu(): string {
             </a>
             <div id="collapse'.$jsActivite.'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="index.php?action=visitorsActivity&act='.$activite[$i][0].'">Visiteurs</a>'.
-                    // <a class="collapse-item" href="historique.php?act='.$activite[$i][0].'">Historique</a>
+                    <a class="collapse-item" href="index.php?action=visitorsActivity&act='.$activite[$i][0].'&date='.date('Y-m-d').'">Visiteurs</a>'.
                     '<a class="collapse-item" href="index.php?action=stat&act='.$activite[$i][0].'">Statistiques</a>
                 </div>
             </div>

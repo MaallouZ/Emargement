@@ -12,7 +12,11 @@ function visitors(VisitorRepository $repo){
 
 function visitorsActivity(VisitorRepository $repo){
     $activityID = $_GET['act'];
-    $listStmt = $repo -> getVisitorsByActivity($activityID);
+    $date = $_GET['date'];
+    $total = $repo -> getAllVisitsOnDayByActivity($activityID, $date);
+    $men = $repo -> getMaleVisitsOnDayByActivity($activityID, $date);
+    $women = $repo -> getFemaleVisitsOnDayByActivity($activityID, $date);
+    $listStmt = $repo -> getVisitorsByActivity($activityID, $date);
     $listStmt -> execute();
     $tab = $repo -> printTabVisitorsActivity($activityID, $listStmt);
     require 'template/visitorsActivity.php';
@@ -33,11 +37,11 @@ function newVisitor(VisitorRepository $repo){
     }
 }
 
-function setPresent(VisitorRepository $repo, int $act, int $id){
-    if (isset($act) && $act !== 0) {
+function setPresent(VisitorRepository $repo, int $act, int $id, string $date){
+    if ((isset($act) && $act !== 0) && (isset($date) && $date !== '0000-00-00')) {
         if (isset($id) && $id !== 0) {
             $repo -> setPresent($id);
-            header('Location: index.php?action=visitorsActivity&act=' . $_GET['act']);
+            header('Location: index.php?action=visitorsActivity&act=' . $_GET['act'].'&date='.$date);
         }
         else {
             throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);
@@ -48,11 +52,11 @@ function setPresent(VisitorRepository $repo, int $act, int $id){
     }
 }
 
-function setAbsent(VisitorRepository $repo, int $act, int $id){
-    if (isset($act) && $act !== 0) {
+function setAbsent(VisitorRepository $repo, int $act, int $id, string $date){
+    if ((isset($act) && $act !== 0) && (isset($date) && $date !== '0000-00-00')) {
         if (isset($id) && $id !== 0) {
             $repo -> setAbsent($id);
-            header('Location: index.php?action=visitorsActivity&act=' . $_GET['act']);
+            header('Location: index.php?action=visitorsActivity&act=' . $_GET['act'].'&date='.$date);
         }
         else {
             throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);

@@ -69,7 +69,7 @@ class ActivityRepository extends Repository
     {
         $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors'
         FROM estPresent
-        WHERE idActivite = 1
+        WHERE idActivite = :idActivite
         AND present = 1
         AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
         GROUP BY estPresent.date;";
