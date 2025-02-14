@@ -16,7 +16,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Date</div>
-                        <input type="date" class="form-control" id="date_input" name="date" value="<?= $_GET['date']?>" onchange="location = 'index.php?action=visitorsActivity&act=1&date=' + this.value">
+                        <input type="date" class="form-control" id="date_input" name="date" value="<?= $_GET['date']?>" onchange="location = 'index.php?action=visitorsActivity&act=<?=$_GET['act'] ?>&date=' + this.value">
                     </div>
                 </div>
             </div>
