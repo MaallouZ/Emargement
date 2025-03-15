@@ -6,13 +6,13 @@ class ActivityRepository extends Repository
 
     public function getActivityByAccess(int $idUser): array
     {
-        $stmt = $this->conn->prepare("SELECT act.idActivite, act.libelleActivite
+        $stmt = $this->conn->prepare("SELECT act.id, act.libelle
             FROM access as acc
-            INNER JOIN activite AS act ON acc.idActivite = act.idActivite
-            INNER JOIN `user` AS u ON acc.idUser = u.idUser
-            WHERE u.idUser = :idUser
-            AND act.dateDebutActivite <= CURRENT_DATE()
-            AND act.dateFinActivite >= CURRENT_DATE();");
+            INNER JOIN activite AS act ON acc.idActivite = act.id
+            INNER JOIN `user` AS u ON acc.idUser = u.id
+            WHERE u.id = :idUser
+            AND act.dateDebut <= CURRENT_DATE()
+            AND act.dateFin >= CURRENT_DATE();");
         $stmt->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
         $activite = $stmt->fetchAll();
@@ -21,13 +21,13 @@ class ActivityRepository extends Repository
 
     public function getNbActivity(int $idUser): int
     {
-        $stmt = $this->conn->prepare("SELECT act.idActivite, act.libelleActivite
+        $stmt = $this->conn->prepare("SELECT act.id, act.libelle
             FROM access as acc
-            INNER JOIN activite AS act ON acc.idActivite = act.idActivite
-            INNER JOIN `user` AS u ON acc.idUser = u.idUser
-            WHERE u.idUser = :idUser
-            AND act.dateDebutActivite <= CURRENT_DATE()
-            AND act.dateFinActivite >= CURRENT_DATE();");
+            INNER JOIN activite AS act ON acc.idActivite = act.id
+            INNER JOIN `user` AS u ON acc.idUser = u.id
+            WHERE u.id = :idUser
+            AND act.dateDebut <= CURRENT_DATE()
+            AND act.dateFin >= CURRENT_DATE();");
         $stmt->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
         $nbActivite = $stmt->rowCount();
@@ -37,7 +37,7 @@ class ActivityRepository extends Repository
     public function updateActivityStatus(): void
     {
         try {
-            $sql = "UPDATE activite AS a SET a.enabled = 0 WHERE a.dateFinActivite <= CURRENT_DATE;";
+            $sql = "UPDATE activite AS a SET a.enabled = 0 WHERE a.dateFin <= CURRENT_DATE;";
             $stmt = $this->conn->prepare($sql);
 
             if ($stmt->execute()) {
@@ -53,7 +53,7 @@ class ActivityRepository extends Repository
     public function newActivity(string $libelle, string $dateDebut, string $dateFin): void
     {
         try {
-            $sql = "INSERT INTO `activite` (idActivite, libelleActivite, dateDebutActivite, dateFinActivite) VALUES (NULL, :libelle , :debut , :fin );";
+            $sql = "INSERT INTO `activite` (id, libelle, dateDebut, dateFin) VALUES (NULL, :libelle , :debut , :fin );";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(":libelle", $libelle, PDO::PARAM_STR);
             $stmt->bindValue(":debut", $dateDebut, PDO::PARAM_STR);

@@ -168,6 +168,7 @@ $dynamicMenu = printMenu();
 
     <!-- Page level custom scripts -->
     <script src="BTS5/js/demo/datatables-demo.js"></script>
+    <script src="/js/datatable.js"></script>
 </body>
 
 </html>

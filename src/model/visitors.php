@@ -37,7 +37,7 @@ class VisitorRepository extends Repository
     {
         $sql = "SELECT COUNT(*)
             FROM estPresent AS eP
-            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            INNER JOIN visiteur AS v ON eP.idVisiteur = v.id 
             WHERE eP.present = 1
             AND eP.idActivite = :act
             AND eP.date = :date;";
@@ -54,7 +54,7 @@ class VisitorRepository extends Repository
     {
         $sql = "SELECT COUNT(*)
             FROM estPresent AS eP
-            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            INNER JOIN visiteur AS v ON eP.idVisiteur = v.id 
             WHERE eP.present = 1
             AND eP.idActivite = :act
             AND eP.date = :date
@@ -72,7 +72,7 @@ class VisitorRepository extends Repository
     {
         $sql = "SELECT COUNT(*)
             FROM estPresent AS eP
-            INNER JOIN visiteur AS v ON eP.IDvisiteur = v.IDvisiteur 
+            INNER JOIN visiteur AS v ON eP.idVisiteur = v.id
             WHERE eP.present = 1
             AND eP.idActivite = :act
             AND eP.date = :date
@@ -88,7 +88,7 @@ class VisitorRepository extends Repository
 
     public function getVisitors()
     {
-        $sql = "SELECT IDVisiteur, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur ORDER BY nom;";
+        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur ORDER BY nom;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
@@ -97,11 +97,11 @@ class VisitorRepository extends Repository
     public function getVisitorsByActivity(int $activityID, string $date): PDOStatement
     {
         if ($date === date('Y-m-d')) {
-            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
         } else {
-            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.IDvisiteur FROM visiteur INNER JOIN estPresent ON estPresent.IDvisiteur = visiteur.IDvisiteur WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
             $stmt->bindValue(':date', $date, PDO::PARAM_STR);
@@ -188,7 +188,7 @@ class VisitorRepository extends Repository
     }
 
     public function setValid(int $idVisitor): void{
-        $sql = "UPDATE visiteur SET valid = 1 WHERE IDVisiteur = :idVisitor;";
+        $sql = "UPDATE visiteur SET valid = 1 WHERE id = :idVisitor;";
         $stmt = $this -> conn -> prepare($sql);
         $stmt -> bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
 
@@ -200,7 +200,7 @@ class VisitorRepository extends Repository
     }
 
     public function setUnvalid(int $idVisitor): void{
-        $sql = "UPDATE visiteur SET valid = 0 WHERE IDVisiteur = :idVisitor;";
+        $sql = "UPDATE visiteur SET valid = 0 WHERE id = :idVisitor;";
         $stmt = $this -> conn -> prepare($sql);
         $stmt -> bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
 
@@ -214,7 +214,7 @@ class VisitorRepository extends Repository
     public function newVisitor(string $sexe, string $nom, string $prenom, string $DDN, string $ville, string $tel, bool $ADH)
     {
         try {
-            $sql = "INSERT INTO `visiteur` (`IDvisiteur`, `nom`, `prenom`, `DDN`, `ville`, `ADH`, `tel`, `sexe`) VALUES (NULL, :nom , :prenom , :DDN , :ville , :ADH , :tel , :sexe );";
+            $sql = "INSERT INTO `visiteur` (`id`, `nom`, `prenom`, `DDN`, `ville`, `ADH`, `tel`, `sexe`) VALUES (NULL, :nom , :prenom , :DDN , :ville , :ADH , :tel , :sexe );";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":sexe", $sexe, PDO::PARAM_STR);
             $stmt->bindParam(":nom", $nom, PDO::PARAM_STR);
@@ -233,7 +233,7 @@ class VisitorRepository extends Repository
     public function editVisitor(string $sexe, string $nom, string $prenom, string $DDN, string $ville, string $tel, bool $ADH, int $idVisitor)
     {
         try {
-            $sql = "UPDATE `visiteur` SET `nom` = :nom , `prenom` = :prenom , `DDN` = :DDN , `ville` = :ville , `ADH` = :ADH , `tel` = :tel , `sexe` = :sexe WHERE IDvisiteur = :idVisitor;";
+            $sql = "UPDATE `visiteur` SET `nom` = :nom , `prenom` = :prenom , `DDN` = :DDN , `ville` = :ville , `ADH` = :ADH , `tel` = :tel , `sexe` = :sexe WHERE id = :idVisitor;";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":sexe", $sexe, PDO::PARAM_STR);
@@ -270,7 +270,7 @@ class VisitorRepository extends Repository
     {
         $sqlHF = "SELECT visiteur.sexe, COUNT(DISTINCT estPresent.IDvisiteur)
         FROM estPresent
-        INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur
+        INNER JOIN visiteur ON estPresent.idVisiteur = visiteur.id
         WHERE idActivite = :idActivite
         AND present = 1
         AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
@@ -286,9 +286,9 @@ class VisitorRepository extends Repository
 
     public function countWomen(int $idActivity): int
     {
-        $sqlHF = "SELECT visiteur.sexe, COUNT(DISTINCT estPresent.IDvisiteur)
+        $sqlHF = "SELECT visiteur.sexe, COUNT(DISTINCT estPresent.idVisiteur)
         FROM estPresent
-        INNER JOIN visiteur ON estPresent.IDvisiteur = visiteur.IDvisiteur
+        INNER JOIN visiteur ON estPresent.idVisiteur = visiteur.id
         WHERE idActivite = :idActivite
         AND present = 1
         AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE

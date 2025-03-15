@@ -36,7 +36,7 @@ class User
     public function getPWD(): string{
         return $this->pwd;
     }
-    public function getPerm(): ?string{
+    public function getPerm(): string{
         return $this->perm;
     }
 
@@ -66,7 +66,7 @@ class UserRepository extends Repository
     // Methods
     public function findUserByEmail(string $email): ?User{
 
-        $stmt = $this -> conn -> prepare('SELECT * FROM user WHERE emailUser = :email');
+        $stmt = $this -> conn -> prepare('SELECT * FROM user WHERE email = :email');
         $stmt -> bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -74,11 +74,11 @@ class UserRepository extends Repository
 
         if ($result) {
             $user = new User(
-                $result['idUser'],
-                $result['nomUser'],
-                $result['prenomUser'],
-                $result['emailUser'],
-                $result['mdpUser'],
+                $result['id'],
+                $result['nom'],
+                $result['prenom'],
+                $result['email'],
+                $result['mdp'],
                 $result['perm']
             );
 
@@ -90,7 +90,7 @@ class UserRepository extends Repository
 
     public function setToken(int $id, string $token){
 
-        $stmt = $this -> conn -> prepare('UPDATE user SET token = :token WHERE user.idUser = :idUser ;');
+        $stmt = $this -> conn -> prepare('UPDATE user SET token = :token WHERE user.id = :idUser ;');
         $stmt -> bindParam('idUser', $id, PDO::PARAM_INT);
         $stmt -> bindParam('token', $token, PDO::PARAM_STR);
 

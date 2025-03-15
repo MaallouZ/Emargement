@@ -17,10 +17,14 @@ function login() {
             $user = authenticate($email, $pwd, $db);
 
             if ($user) {
-                $_SESSION['user'] = $user;
-                $_SESSION['log'] = true;
-                header("Location: index.php?action=homepage");
-                exit();
+                if ($user['perm'] != 0) {
+                    $_SESSION['user'] = $user;
+                    $_SESSION['log'] = true;
+                    header("Location: index.php?action=homepage");
+                    exit();
+                } else {
+                    $error_message = "Vos accès sont temporairement suspendus.";
+                }
             } else {
                 $error_message = "Email ou mot de passe incorrect.";
             }
