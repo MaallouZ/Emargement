@@ -7,12 +7,14 @@ ob_start();
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Accueil</h1>
 </div>
+<?php if(permHelper::hasEqualPerm('acc.add') || permHelper::hasEqualPerm('act.view') ||permHelper::hasEqualPerm('admin')) :?>
 <a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" class="btn btn-primary btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>
     <span class="text">Ajouter un visiteur</span>
 </a>
+<?php endif ?>
 <!-- Tableau d'appel -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -29,8 +31,10 @@ ob_start();
                         <th>Age</th>
                         <th>Sexe</th>
                         <th>ADH</th>
+                        <?php if (permHelper::hasDiffPerm('SC.acc.pres')) :?>
                         <th>Ville</th>
                         <th>Tél</th>
+                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>

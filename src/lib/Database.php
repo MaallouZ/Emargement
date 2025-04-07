@@ -1,5 +1,5 @@
 <?php
-require_once 'src/lib/config.php';
+require 'src/lib/config.php';
 
 class Database
 {

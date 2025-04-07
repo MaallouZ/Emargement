@@ -88,7 +88,15 @@ class VisitorRepository extends Repository
 
     public function getVisitors()
     {
-        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur ORDER BY nom;";
+        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid FROM visiteur ORDER BY nom;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function getMinVisitors()
+    {
+        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, valid FROM visiteur ORDER BY nom;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
@@ -97,11 +105,26 @@ class VisitorRepository extends Repository
     public function getVisitorsByActivity(int $activityID, string $date): PDOStatement
     {
         if ($date === date('Y-m-d')) {
-            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
         } else {
-            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, DDN, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, present, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
+            $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+        }
+        return $stmt;
+    }
+
+    public function getMinVisitorsByActivity(int $activityID, string $date): PDOStatement
+    {
+        if ($date === date('Y-m-d')) {
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, present, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = CURRENT_DATE AND estPresent.idActivite = :act AND visiteur.valid = 1  ORDER BY nom;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
+        } else {
+            $sql = "SELECT idPresence, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, present, visiteur.id FROM visiteur INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id WHERE estPresent.date = :date AND estPresent.idActivite = :act ORDER BY nom;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':act', $activityID, PDO::PARAM_INT);
             $stmt->bindValue(':date', $date, PDO::PARAM_STR);
@@ -117,19 +140,40 @@ class VisitorRepository extends Repository
 
         ob_start();
         for ($i = 0; $i < $ndata; $i++) {
+    
             echo "<tr>";
-            if ($data[$i][8] == 0) {
-                echo ('<td><a href="index.php?action=setValid&id=' . $data[$i][0] . '" class="btn btn-danger btn-icon-split">
-                <span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Absent</span></a><a href="#" class="btn btn-secondary btn-circle ms-3" onclick="openModal(\'' . json_encode($i) . '\')">
-                <i class="fas fa-pencil-alt"></i>
-                    <a/></td>');
+            if ($data[$i]['valid'] == 0) {
+                echo ('<td>
+                        <a href="index.php?action=setValid&id=' . $data[$i]['id'] . '" class="btn btn-danger btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-times"></i>
+                            </span>
+                            <span class="text">Absent</span>
+                        </a>
+                        <a href="#" class="btn btn-warning btn-icon-split" onclick="openModal(\'' . json_encode($i) . '\')">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                            <span class="text">Modifier</span>
+                        </a>
+                        </td>');
             } else {
-                echo ('<td><a href="index.php?action=setUnvalid&id=' . $data[$i][0] . '" class="btn btn-success btn-icon-split">
-                    <span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">Present</span></a><a href="#" class="btn btn-secondary btn-circle ms-3" onclick="openModal(\'' . json_encode($i) . '\')">
-                    <i class="fas fa-pencil-alt"></i>
-                    <a/></td>');
+                echo ('<td>
+                        <a href="index.php?action=setUnvalid&id=' . $data[$i]['id'] . '" class="btn btn-success btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Present</span>
+                        </a>
+                        <a href="#" class="btn btn-warning btn-icon-split" onclick="openModal(\'' . json_encode($i) . '\')">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                            <span class="text">Modifier</span>
+                        </a>
+                        </td>');
             }
-            for ($j = 1; $j < 8; $j++) {
+            for ($j = 1; $j < ((count($data[$i]) / 2) - 1); $j++) {
                 echo ("<td>" . $data[$i][$j] . "</td>");
             }
             echo "</tr>";
@@ -146,14 +190,14 @@ class VisitorRepository extends Repository
         ob_start();
         for ($i = 0; $i < $ndata; $i++) {
             echo "<tr>";
-            if ($data[$i][8] == 0) {
-                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i][0] . '&date='.$_GET['date'].'" class="btn btn-danger btn-icon-split">
-                <span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Absent</span></a></td>');
+            if ($data[$i]['present'] == 0) {
+                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date='.$_GET['date'].'" class="btn btn-danger btn-icon-split">
+                <span class="icon text-white-50"><i class="fas fa-times"></i></span><span class="text">Absent</span></a></td>');
             } else {
-                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i][0] . '&date='.$_GET['date'].'" class="btn btn-success btn-icon-split">
+                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date='.$_GET['date'].'" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">Present</span></a></td>');
             }
-            for ($j = 1; $j < 8; $j++) {
+            for ($j = 1; $j < ((count($data[$i]) / 2) - 2); $j++) {
                 echo ("<td>" . $data[$i][$j] . "</td>");
             }
             echo "</tr>";

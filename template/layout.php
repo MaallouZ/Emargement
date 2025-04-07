@@ -1,6 +1,13 @@
 <?php
 require_once 'src/lib/helpers.php';
-$dynamicMenu = printMenu();
+
+// Verifie si l'utilisateur n'a pas des accès restreint
+if (permHelper::hasDiffPerm('login')) {
+    $dynamicMenu = printMenu();
+}
+else {
+    $dynamicMenu = "Vos accès sont restreints pour l'instant";
+}
 ?>
 <!DOCTYPE html>
 
@@ -16,7 +23,6 @@ $dynamicMenu = printMenu();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/chart.js"></script>
-
     <link href="BTS5/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -143,7 +149,9 @@ $dynamicMenu = printMenu();
                     <div id="content">
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-                            <?= $content ?>
+                        <?php if(permHelper::hasDiffPerm("login")):
+                            echo $content;
+                        endif?>
                         </div>
                     </div>
                 </div>
@@ -151,7 +159,9 @@ $dynamicMenu = printMenu();
         </div>
     </div>
     <!-- End of Page Wrapper -->
-    <?= $modals ?>
+    <?php if(permHelper::hasDiffPerm("login")):
+        echo $modals;
+    endif?>
     <!-- Bootstrap core JavaScript-->
     <script src="BTS5/vendor/jquery/jquery.min.js"></script>
     <script src="BTS5/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -167,7 +177,7 @@ $dynamicMenu = printMenu();
     <script src="BTS5/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="BTS5/js/demo/datatables-demo.js"></script>
+    <!-- <script src="BTS5/js/demo/datatables-demo.js"></script> -->
     <script src="/js/datatable.js"></script>
 </body>
 

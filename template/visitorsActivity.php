@@ -78,8 +78,11 @@ ob_start();
                         <th>Age</th>
                         <th>Sexe</th>
                         <th>ADH</th>
+                        <?php
+                        if((permHelper::hasSupPerm("act.histo.edit") || permHelper::hasSupPerm("acc.view")) || permHelper::hasEqualPerm("admin")): ?>
                         <th>Ville</th>
                         <th>Tél</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
                 <tbody>

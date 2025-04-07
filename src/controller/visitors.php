@@ -4,10 +4,24 @@ require_once 'src/model/visitors.php';
 require_once 'src/lib/Database.php';
 
 function visitors(VisitorRepository $repo){
-    $listVisitors = $repo -> getVisitors();
-    $jsonData = json_encode($listVisitors->fetchAll());
-    $tab = $repo -> printTabVisitors($listVisitors);
-    require 'template/visitors.php';
+    
+    if (permHelper::hasBetweenPerm("SC.acc.pres","acc.add") || permHelper::hasEqualPerm("act.view") || permHelper::hasEqualPerm("admin")){
+        if (permHelper::hasEqualPerm('SC.acc.pres')) {
+            $listVisitors = $repo -> getMinVisitors();
+            $jsonData = json_encode($listVisitors->fetchAll());
+            $tab = $repo -> printTabVisitors($listVisitors);
+            require 'template/visitors.php';
+        }
+        else {
+            $listVisitors = $repo -> getVisitors();
+            $jsonData = json_encode($listVisitors->fetchAll());
+            $tab = $repo -> printTabVisitors($listVisitors);
+            require 'template/visitors.php';
+        }
+    }
+    else {
+        header('index.php?action=homepage');
+    }
 }
 
 function visitorsActivity(VisitorRepository $repo){
@@ -16,9 +30,17 @@ function visitorsActivity(VisitorRepository $repo){
     $total = $repo -> getAllVisitsOnDayByActivity($activityID, $date);
     $men = $repo -> getMaleVisitsOnDayByActivity($activityID, $date);
     $women = $repo -> getFemaleVisitsOnDayByActivity($activityID, $date);
-    $listStmt = $repo -> getVisitorsByActivity($activityID, $date);
-    $listStmt -> execute();
-    $tab = $repo -> printTabVisitorsActivity($activityID, $listStmt);
+    if (permHelper::hasSupPerm("act.histo.edit") || permHelper::hasEqualPerm("admin")) {
+        $listStmt = $repo -> getVisitorsByActivity($activityID, $date);
+        $listStmt -> execute();
+        $tab = $repo -> printTabVisitorsActivity($activityID, $listStmt);
+    } else {
+        $listStmt = $repo -> getMinVisitorsByActivity($activityID, $date);
+        $listStmt -> execute();
+        $tab = $repo -> printTabVisitorsActivity($activityID, $listStmt);
+    }
+
+    
     require 'template/visitorsActivity.php';
 }
 
@@ -84,22 +106,31 @@ function editVisitor(VisitorRepository $repo){
     }
 }
 
-function setValid(VisitorRepository $repo, int $idVisitor){
-    if (isset($idVisitor) && $idVisitor !== 0) {
-        $repo -> setValid($idVisitor);
-        header('Location: index.php?action=visitors');
-    }
-    else {
-        throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);
+function setValid(VisitorRepository $repo, int $idVisitor, int $perm){
+    if ($perm > 3 || $perm < -1) {
+        if (isset($idVisitor) && $idVisitor !== 0) {
+            $repo -> setValid($idVisitor);
+            header('Location: index.php?action=visitors');
+        }
+        else {
+            throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);
+        }
+    } else {
+        throw new Exception("Vous n'avez pas cette permission");
     }
 }
 
-function setUnvalid(VisitorRepository $repo, int $idVisitor){
-    if (isset($idVisitor) && $idVisitor !== 0) {
-        $repo -> setUnvalid($idVisitor);
-        header('Location: index.php?action=visitors');
-    }
-    else {
-        throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);
+function setUnvalid(VisitorRepository $repo, int $idVisitor, int $perm){
+
+    if ($perm > 3 || $perm < -1) {
+        if (isset($idVisitor) && $idVisitor !== 0) {
+            $repo -> setUnvalid($idVisitor);
+            header('Location: index.php?action=visitors');
+        }
+        else {
+            throw new Exception("L'identifiant du visiteur n'est pas reconnu.", 1);
+        }
+    } else {
+        throw new Exception("Vous n'avez pas cette permission");
     }
 }
