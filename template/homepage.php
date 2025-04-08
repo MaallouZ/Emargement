@@ -337,7 +337,7 @@ ob_start();
 <!-- End of modals -->
 <script>
     function checkPerm(event) {
-        <?php if ((permHelper::hasBetweenPerm("SC.acc.pres","acc.add") || permHelper::hasEqualPerm("act.view") || permHelper::hasEqualPerm("admin")) || ($date->format('w') == 6 && permHelper::hasSupPerm("act.histo.view"))):?>
+        <?php if ((permHelper::hasBetweenPerm("SC.acc.pres","acc.add") || permHelper::hasEqualPerm("act.view") || permHelper::hasEqualPerm("admin"))):?>
             window.location.href = "index.php?action=visitors";
         <?php else: ?>
             event.preventDefault();
