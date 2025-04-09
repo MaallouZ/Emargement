@@ -102,7 +102,7 @@ function editVisitor(VisitorRepository $repo){
         $repo -> editVisitor($sexe, $nom, $prenom, $DDN, $ville, $tel, $ADH, $idVisitor);
 
         $act = $_POST['idAct'];
-        header('Location: index.php?action=visitors&act='.$act);
+        header('Location: index.php?action=visitors');
     }
 }
 

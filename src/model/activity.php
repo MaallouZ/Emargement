@@ -65,36 +65,40 @@ class ActivityRepository extends Repository
         }
     }
 
-    public function getAttendance(int $idActivity): array
+    public function getAttendance(int $idActivity, string $debutDate, string $endDate): array
     {
         $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors'
         FROM estPresent
         WHERE idActivite = :idActivite
         AND present = 1
-        AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+        AND estPresent.date BETWEEN :debutDate AND :endDate
         GROUP BY estPresent.date;";
 
         $stmt = $this->conn->prepare($sqlAttendance);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $attendance = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $attendance;
     }
 
-    public function getAverageVisits(int $idActivity): float
+    public function getAverageVisits(int $idActivity, string $debutDate, string $endDate): float
     {
         $sqlMoyenne = "SELECT AVG(nb_present) AS moyenne_presences FROM (
             SELECT COUNT(*) AS nb_present
             FROM estPresent
             WHERE estPresent.idActivite = :idActivite
             AND estPresent.present = 1
-            AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+            AND estPresent.date BETWEEN :debutDate AND :endDate
             GROUP BY estPresent.date
         ) AS t;";
 
         $stmt = $this->conn->prepare($sqlMoyenne);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $avg = $stmt->fetch()[0];

@@ -88,7 +88,7 @@ class VisitorRepository extends Repository
 
     public function getVisitors()
     {
-        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid FROM visiteur ORDER BY nom;";
+        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville, tel, valid, DDN FROM visiteur ORDER BY nom;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
@@ -96,7 +96,7 @@ class VisitorRepository extends Repository
 
     public function getMinVisitors()
     {
-        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, valid FROM visiteur ORDER BY nom;";
+        $sql = "SELECT id, nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, valid, DDN FROM visiteur ORDER BY nom;";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
@@ -173,7 +173,7 @@ class VisitorRepository extends Repository
                         </a>
                         </td>');
             }
-            for ($j = 1; $j < ((count($data[$i]) / 2) - 1); $j++) {
+            for ($j = 1; $j < ((count($data[$i]) / 2) - 2); $j++) {
                 echo ("<td>" . $data[$i][$j] . "</td>");
             }
             echo "</tr>";
@@ -294,52 +294,59 @@ class VisitorRepository extends Repository
         }
     }
 
-    public function countVisitorsOnPeriod(int $idActivity): int
+    public function countVisitorsOnPeriod(int $idActivity, string $debutDate, string $endDate): int
     {
         $sqlTotalVisiteur = 'SELECT COUNT(*) 
         FROM estPresent  
         WHERE idActivite = :idActivite
-        AND present = 1 
-        AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE;';
+        AND present = 1
+        AND estPresent.date BETWEEN :debutDate AND :endDate;';
 
         $stmt = $this->conn->prepare($sqlTotalVisiteur);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindValue(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindValue(":endDate", $endDate, PDO::PARAM_STR);
+        
         $stmt->execute();
 
         $totalVisiteur = $stmt->fetch();
         return $totalVisiteur[0];
     }
 
-    public function countMen(int $idActivity): int
+    public function countMen(int $idActivity, string $debutDate, string $endDate): int
     {
         $sqlHF = "SELECT visiteur.sexe, COUNT(DISTINCT estPresent.IDvisiteur)
         FROM estPresent
         INNER JOIN visiteur ON estPresent.idVisiteur = visiteur.id
         WHERE idActivite = :idActivite
         AND present = 1
-        AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+        AND estPresent.date BETWEEN :debutDate AND :endDate
         AND visiteur.sexe = 'M';";
 
         $stmt = $this->conn->prepare($sqlHF);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $total_M = $stmt->fetch();
         return $total_M[1];
     }
 
-    public function countWomen(int $idActivity): int
+    public function countWomen(int $idActivity, string $debutDate, string $endDate): int
     {
         $sqlHF = "SELECT visiteur.sexe, COUNT(DISTINCT estPresent.idVisiteur)
         FROM estPresent
         INNER JOIN visiteur ON estPresent.idVisiteur = visiteur.id
         WHERE idActivite = :idActivite
         AND present = 1
-        AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+        AND estPresent.date BETWEEN :debutDate AND :endDate
         AND visiteur.sexe = 'F';";
 
         $stmt = $this->conn->prepare($sqlHF);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $total_W = $stmt->fetch();

@@ -64,7 +64,9 @@ try {
                     newActivity($repoActi);
                     break;
                 case 'stat':
-                    stats($repoActi, $repoVis);
+                    $debut = $_POST['debutStat'] ?? date('Y-m-d', strtotime('-1 month'));
+                    $end = $_POST['endStat'] ?? date('Y-m-d');
+                    stats($repoActi, $repoVis, $debut, $end);
                     break;
                 default:
                     error404();
