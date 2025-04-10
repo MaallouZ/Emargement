@@ -6,13 +6,13 @@ class ActivityRepository extends Repository
 
     public function getActivityByAccess(int $idUser): array
     {
-        $stmt = $this->conn->prepare("SELECT act.idActivite, act.libelleActivite
+        $stmt = $this->conn->prepare("SELECT act.id, act.libelle
             FROM access as acc
-            INNER JOIN activite AS act ON acc.idActivite = act.idActivite
-            INNER JOIN `user` AS u ON acc.idUser = u.idUser
-            WHERE u.idUser = :idUser
-            AND act.dateDebutActivite <= CURRENT_DATE()
-            AND act.dateFinActivite >= CURRENT_DATE();");
+            INNER JOIN activite AS act ON acc.idActivite = act.id
+            INNER JOIN `user` AS u ON acc.idUser = u.id
+            WHERE u.id = :idUser
+            AND act.dateDebut <= CURRENT_DATE()
+            AND act.dateFin >= CURRENT_DATE();");
         $stmt->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
         $activite = $stmt->fetchAll();
@@ -21,13 +21,13 @@ class ActivityRepository extends Repository
 
     public function getNbActivity(int $idUser): int
     {
-        $stmt = $this->conn->prepare("SELECT act.idActivite, act.libelleActivite
+        $stmt = $this->conn->prepare("SELECT act.id, act.libelle
             FROM access as acc
-            INNER JOIN activite AS act ON acc.idActivite = act.idActivite
-            INNER JOIN `user` AS u ON acc.idUser = u.idUser
-            WHERE u.idUser = :idUser
-            AND act.dateDebutActivite <= CURRENT_DATE()
-            AND act.dateFinActivite >= CURRENT_DATE();");
+            INNER JOIN activite AS act ON acc.idActivite = act.id
+            INNER JOIN `user` AS u ON acc.idUser = u.id
+            WHERE u.id = :idUser
+            AND act.dateDebut <= CURRENT_DATE()
+            AND act.dateFin >= CURRENT_DATE();");
         $stmt->bindValue(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
         $nbActivite = $stmt->rowCount();
@@ -37,7 +37,7 @@ class ActivityRepository extends Repository
     public function updateActivityStatus(): void
     {
         try {
-            $sql = "UPDATE activite AS a SET a.enabled = 0 WHERE a.dateFinActivite <= CURRENT_DATE;";
+            $sql = "UPDATE activite AS a SET a.enabled = 0 WHERE a.dateFin <= CURRENT_DATE;";
             $stmt = $this->conn->prepare($sql);
 
             if ($stmt->execute()) {
@@ -53,7 +53,7 @@ class ActivityRepository extends Repository
     public function newActivity(string $libelle, string $dateDebut, string $dateFin): void
     {
         try {
-            $sql = "INSERT INTO `activite` (idActivite, libelleActivite, dateDebutActivite, dateFinActivite) VALUES (NULL, :libelle , :debut , :fin );";
+            $sql = "INSERT INTO `activite` (id, libelle, dateDebut, dateFin) VALUES (NULL, :libelle , :debut , :fin );";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(":libelle", $libelle, PDO::PARAM_STR);
             $stmt->bindValue(":debut", $dateDebut, PDO::PARAM_STR);
@@ -65,36 +65,40 @@ class ActivityRepository extends Repository
         }
     }
 
-    public function getAttendance(int $idActivity): array
+    public function getAttendance(int $idActivity, string $debutDate, string $endDate): array
     {
         $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors'
         FROM estPresent
         WHERE idActivite = :idActivite
         AND present = 1
-        AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+        AND estPresent.date BETWEEN :debutDate AND :endDate
         GROUP BY estPresent.date;";
 
         $stmt = $this->conn->prepare($sqlAttendance);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $attendance = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $attendance;
     }
 
-    public function getAverageVisits(int $idActivity): float
+    public function getAverageVisits(int $idActivity, string $debutDate, string $endDate): float
     {
         $sqlMoyenne = "SELECT AVG(nb_present) AS moyenne_presences FROM (
             SELECT COUNT(*) AS nb_present
             FROM estPresent
             WHERE estPresent.idActivite = :idActivite
             AND estPresent.present = 1
-            AND estPresent.date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH) AND CURRENT_DATE
+            AND estPresent.date BETWEEN :debutDate AND :endDate
             GROUP BY estPresent.date
         ) AS t;";
 
         $stmt = $this->conn->prepare($sqlMoyenne);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
         $stmt->execute();
 
         $avg = $stmt->fetch()[0];

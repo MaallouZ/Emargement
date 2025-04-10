@@ -1,7 +1,7 @@
-template
+BTS5/
 node_modules/
 blank.php
-param.php
+config.php
 package-lock.json
 package.json
 request.sql

@@ -30,6 +30,9 @@ try {
                 case 'homepage':
                     homepage($repoVis);
                     break;
+                // case 'finalStats':
+                //     finalStats();
+                //     break;
                 case 'logout':
                     logout();
                     break;
@@ -40,16 +43,16 @@ try {
                     visitorsActivity($repoVis);
                     break;
                 case 'setValid':
-                    setValid($repoVis, $_GET['id']);
+                    setValid($repoVis, $_GET['id'], $_SESSION['user']['perm']);
                     break;
                 case 'setUnvalid':
-                    setUnvalid($repoVis, $_GET['id']);
+                    setUnvalid($repoVis, $_GET['id'], $_SESSION['user']['perm']);
                     break;
                 case 'setPresent':
-                    setPresent($repoVis, $_GET['act'], $_GET['id'], $_GET['date']);
+                    setPresent($repoVis, $_GET['act'], $_GET['id'], $_GET['date'], $_SESSION['user']['perm']);
                     break;
                 case 'setAbsent':
-                    setAbsent($repoVis, $_GET['act'], $_GET['id'], $_GET['date']);
+                    setAbsent($repoVis, $_GET['act'], $_GET['id'], $_GET['date'], $_SESSION['user']['perm']);
                     break;
                 case 'newVisitor':
                     newVisitor($repoVis);
@@ -61,7 +64,9 @@ try {
                     newActivity($repoActi);
                     break;
                 case 'stat':
-                    stats($repoActi, $repoVis);
+                    $debut = $_POST['debutStat'] ?? date('Y-m-d', strtotime('-1 month'));
+                    $end = $_POST['endStat'] ?? date('Y-m-d');
+                    stats($repoActi, $repoVis, $debut, $end);
                     break;
                 default:
                     error404();

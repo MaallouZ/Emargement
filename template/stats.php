@@ -9,6 +9,30 @@ ob_start();
 </div>
 
 <div class="row">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Période</h6>
+        </div>
+        <div class="card-body">
+            <form action="index.php" method="GET">
+                <input type="hidden" name="action" value="stat">
+                <input type="hidden" name="act" value="<?= htmlspecialchars($_GET['act'])?>">
+                <div class="d-flex align-items-end flex-wrap gap-3">
+                    <div>
+                        <label for="debutStat" class="form-label">Date de début :</label>
+                        <input type="date" class="form-control" id="debutStat" name="debutStat">
+                    </div>
+                    <div>
+                        <label for="endStat" class="form-label">Date de fin :</label>
+                        <input type="date" class="form-control" id="endStat" name="endStat">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Rechercher</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Total Visiteurs -->
     <div class="col-xl-3 col-md-6 mb-4">
@@ -17,7 +41,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total de visiteurs</div>
-                        <div id="totalVisitors" class="h5 mb-0 font-weight-bold text-gray-800"><?=$totalVisitors?></div>
+                        <div id="totalVisitors" class="h5 mb-0 font-weight-bold text-gray-800"><?= $totalVisitors ?></div>
                     </div>
 
                 </div>
@@ -31,7 +55,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total d'hommes</div>
-                        <div id="totalMen" class="h5 mb-0 font-weight-bold text-gray-800"><?=$totalMen?></div>
+                        <div id="totalMen" class="h5 mb-0 font-weight-bold text-gray-800"><?= $totalMen ?></div>
                     </div>
                 </div>
             </div>
@@ -44,7 +68,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total de femmes</div>
-                        <div id="totalWomen" class="h5 mb-0 font-weight-bold text-gray-800"><?=$totalWomen?></div>
+                        <div id="totalWomen" class="h5 mb-0 font-weight-bold text-gray-800"><?= $totalWomen ?></div>
                     </div>
 
                 </div>
@@ -58,7 +82,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Moyenne de visites par jour</div>
-                        <div id="average" class="h5 mb-0 font-weight-bold text-gray-800"><?=$average?></div>
+                        <div id="average" class="h5 mb-0 font-weight-bold text-gray-800"><?= $average ?></div>
                     </div>
                 </div>
             </div>

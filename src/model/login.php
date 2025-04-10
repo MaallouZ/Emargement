@@ -15,6 +15,7 @@ function authenticate(string $email, string $pwd, Database $db): ?array
             'lastName' => $user->getLastName(),
             'firstName' => $user->getFirstName(),
             'email' => $user->getEmail(),
+            'perm' => $user-> getPerm()
         ];
     } else {
         return NULL;

@@ -26,7 +26,6 @@ ob_start();
             </div>
         </div>
     </div>
-
     <!-- Visiteurs -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
@@ -84,10 +83,10 @@ ob_start();
         </div>
     </div>
 </div>
-
+<?php if(permHelper::hasDiffPerm("login")):?>
 <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col text-center">
-        <a href="index.php?action=visitors" style="text-decoration: none;">
+        <a href="#" onclick="checkPerm(event)" style="text-decoration: none;">
             <div class="card" style="background-color: #525B76;">
                 <i class="fas fa-user fa-8x text-white mt-4"></i>
                 <div class="card-body">
@@ -133,6 +132,7 @@ ob_start();
 </div>
 <!-- End of Page Wrapper -->
 <?php
+endif;
 $content = ob_get_clean();
 ob_start();
 ?>
@@ -335,6 +335,16 @@ ob_start();
     </div>
 </div>
 <!-- End of modals -->
+<script>
+    function checkPerm(event) {
+        <?php if ((permHelper::hasBetweenPerm("SC.acc.pres","acc.add") || permHelper::hasEqualPerm("act.view") || permHelper::hasEqualPerm("admin"))):?>
+            window.location.href = "index.php?action=visitors";
+        <?php else: ?>
+            event.preventDefault();
+            alert("Vous n'avez pas la permission d'accéder à cet espace.");
+        <?php endif; ?>
+    }
+</script>
 
 <script>
     const listVisitors = JSON.parse('<?php echo $visitorEncode; ?>');
@@ -362,7 +372,6 @@ ob_start();
         });
     });
 </script>
-
 <?php
 $modals = ob_get_clean();
 require 'template/layout.php';

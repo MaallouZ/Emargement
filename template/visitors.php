@@ -7,12 +7,14 @@ ob_start();
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Accueil</h1>
 </div>
+<?php if(permHelper::hasEqualPerm('acc.add') || permHelper::hasEqualPerm('act.view') ||permHelper::hasEqualPerm('admin')) :?>
 <a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" class="btn btn-primary btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>
     <span class="text">Ajouter un visiteur</span>
 </a>
+<?php endif ?>
 <!-- Tableau d'appel -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -29,8 +31,10 @@ ob_start();
                         <th>Age</th>
                         <th>Sexe</th>
                         <th>ADH</th>
+                        <?php if (permHelper::hasDiffPerm('SC.acc.pres')) :?>
                         <th>Ville</th>
                         <th>Tél</th>
+                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -189,20 +193,20 @@ ob_start();
 
     function openModal(param) {
         var i = JSON.parse(param);
-        if (data[i][4] == "M") {
+        if (data[i]['sexe'] == "M") {
             document.getElementById("edit_M").checked = true;
         } else {
             document.getElementById("edit_F").checked = true;
         }
 
-        document.getElementById('edit_idVisitor').value = data[i][0];
-        document.getElementById('edit_nom').value = data[i][1];
-        document.getElementById("edit_prenom").value = data[i][2];
-        document.getElementById("edit_DDN").value = data[i][9];
-        document.getElementById("edit_ville").value = data[i][6];
-        document.getElementById("edit_tel").value = data[i][7];
+        document.getElementById('edit_idVisitor').value = data[i]['id'];
+        document.getElementById('edit_nom').value = data[i]['nom'];
+        document.getElementById("edit_prenom").value = data[i]['prenom'];
+        document.getElementById("edit_DDN").value = data[i]['DDN'];
+        document.getElementById("edit_ville").value = data[i]['ville'];
+        document.getElementById("edit_tel").value = data[i]['tel'];
 
-        if (data[i][5] == 1) {
+        if (data[i]['ADH'] == 1) {
             document.getElementById("edit_ADH").checked = true;
         } else {
             document.getElementById("edit_nonADH").checked = true;
