@@ -2,7 +2,34 @@
 $title = "Accueil";
 ob_start();
 ?>
+<script>
+    var data = <?= $jsonData ?>;
 
+
+    function openModal(param) {
+        var i = JSON.parse(param);
+        if (data[i]['sexe'] == "M") {
+            document.getElementById("edit_M").checked = true;
+        } else {
+            document.getElementById("edit_F").checked = true;
+        }
+
+        document.getElementById('edit_idVisitor').value = data[i]['id'];
+        document.getElementById('edit_nom').value = data[i]['nom'];
+        document.getElementById("edit_prenom").value = data[i]['prenom'];
+        document.getElementById("edit_DDN").value = data[i]['DDN'];
+        document.getElementById("edit_ville").value = data[i]['ville'];
+        document.getElementById("edit_tel").value = data[i]['tel'];
+
+        if (data[i]['ADH'] == 1) {
+            document.getElementById("edit_ADH").checked = true;
+        } else {
+            document.getElementById("edit_nonADH").checked = true;
+        }
+
+        $('#editVisitor').modal('show');
+    }
+</script>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Accueil</h1>
@@ -188,33 +215,6 @@ ob_start();
     </div>
 </div>
 <!-- End of modal -->
-<script>
-    var data = JSON.parse('<?php echo $jsonData; ?>');
-
-    function openModal(param) {
-        var i = JSON.parse(param);
-        if (data[i]['sexe'] == "M") {
-            document.getElementById("edit_M").checked = true;
-        } else {
-            document.getElementById("edit_F").checked = true;
-        }
-
-        document.getElementById('edit_idVisitor').value = data[i]['id'];
-        document.getElementById('edit_nom').value = data[i]['nom'];
-        document.getElementById("edit_prenom").value = data[i]['prenom'];
-        document.getElementById("edit_DDN").value = data[i]['DDN'];
-        document.getElementById("edit_ville").value = data[i]['ville'];
-        document.getElementById("edit_tel").value = data[i]['tel'];
-
-        if (data[i]['ADH'] == 1) {
-            document.getElementById("edit_ADH").checked = true;
-        } else {
-            document.getElementById("edit_nonADH").checked = true;
-        }
-
-        $('#editVisitor').modal('show');
-    }
-</script>
 <?php
 $modals = ob_get_clean();
 require 'template/layout.php';
