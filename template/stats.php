@@ -107,9 +107,14 @@ $content = ob_get_clean();
 ob_start();
 ?>
 <script>
+    // get visitors datas
     var labels = JSON.parse('<?= $JSONlabels ?>');
-    var data = JSON.parse('<?= $JSONdata ?>');
-    updateChart(labels, data);
+    var dataV = JSON.parse('<?= $JSONdataV ?>');
+    var dataM = JSON.parse('<?= $JSONdataM ?>');
+    var dataF = JSON.parse('<?= $JSONdataF ?>');
+    var dataA = JSON.parse('<?= $JSONdataA ?>');
+
+    updateChart(labels, dataV, dataM, dataF, dataA);
 </script>
 <?php
 $modals = ob_get_clean();

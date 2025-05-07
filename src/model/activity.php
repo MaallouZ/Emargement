@@ -67,8 +67,9 @@ class ActivityRepository extends Repository
 
     public function getAttendance(int $idActivity, string $debutDate, string $endDate): array
     {
-        $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors'
+        $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors', SUM(visiteur.sexe = 'M') AS 'nbHomme', SUM(visiteur.sexe = 'F') AS 'nbFemme', SUM(visiteur.ADH = 1) AS 'nbAdh'
         FROM estPresent
+        INNER JOIN visiteur ON estPresent.idVisiteur = visiteur.id
         WHERE idActivite = :idActivite
         AND present = 1
         AND estPresent.date BETWEEN :debutDate AND :endDate
