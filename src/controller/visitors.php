@@ -2,6 +2,11 @@
 require_once 'src/model/activity.php';
 require_once 'src/model/visitors.php';
 require_once 'src/lib/Database.php';
+require_once 'vendor/autoload.php';
+
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 function visitors(VisitorRepository $repo){
     
@@ -27,6 +32,10 @@ function visitors(VisitorRepository $repo){
 function visitorsActivity(VisitorRepository $repo){
     $activityID = $_GET['act'];
     $date = $_GET['date'];
+    $nextDay = new DateTime($date);
+    $nextDay -> modify('+1 day');
+    $previousDay = new DateTime($date);
+    $previousDay -> modify('-1 day');
     $total = $repo -> getAllVisitsOnDayByActivity($activityID, $date);
     $men = $repo -> getMaleVisitsOnDayByActivity($activityID, $date);
     $women = $repo -> getFemaleVisitsOnDayByActivity($activityID, $date);
@@ -133,4 +142,43 @@ function setUnvalid(VisitorRepository $repo, int $idVisitor, int $perm){
     } else {
         throw new Exception("Vous n'avez pas cette permission");
     }
+}
+
+function getExcel(ActivityRepository $repo, int $idActivite, string $date){
+    $data = $repo->getExcelData($idActivite, $date);
+
+    $actName = $repo -> getActivityName($idActivite);
+    $title = (string) $actName . ' ' . $date;
+
+
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+
+    $sheet->setTitle($title);
+
+    $headers = ['Nom', 'Prénom', 'Âge', 'Sexe', 'ADH', 'Ville'];
+    $col = 'A';
+    foreach ($headers as $header) {
+        $sheet->setCellValue($col . '1', $header);
+        $col++;
+    }
+
+    $row = 2;
+    foreach ($data as $personne) {
+        $sheet->setCellValue('A' . $row, $personne['nom']);
+        $sheet->setCellValue('B' . $row, $personne['prenom']);
+        $sheet->setCellValue('C' . $row, $personne['age']);
+        $sheet->setCellValue('D' . $row, $personne['sexe']);
+        $sheet->setCellValue('E' . $row, $personne['ADH']);
+        $sheet->setCellValue('F' . $row, $personne['ville']);
+        $row++;
+    }
+
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header("Content-Disposition: attachment; filename=\"{$title}.xlsx\"");
+    header('Cache-Control: max-age=0');
+
+    $writer = new Xlsx($spreadsheet);
+    $writer->save('php://output');
+    header('Location: index.php?action=visitorsActivity&act='.$idActivite.'&date='.$date);
 }

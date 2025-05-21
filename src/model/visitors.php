@@ -42,8 +42,8 @@ class VisitorRepository extends Repository
             AND eP.idActivite = :act
             AND eP.date = :date;";
         $stmt = $this->conn->prepare($sql);
-        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
-        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt->bindValue(':date', $date, PDO::PARAM_STR);
         $stmt->execute();
 
         $visitors = $stmt->fetch()[0];
@@ -60,8 +60,8 @@ class VisitorRepository extends Repository
             AND eP.date = :date
             AND v.sexe = 'M';";
         $stmt = $this->conn->prepare($sql);
-        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
-        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt->bindValue(':date', $date, PDO::PARAM_STR);
         $stmt->execute();
 
         $male = $stmt->fetch()[0];
@@ -78,8 +78,8 @@ class VisitorRepository extends Repository
             AND eP.date = :date
             AND v.sexe = 'F';";
         $stmt = $this->conn->prepare($sql);
-        $stmt -> bindValue(':act', $act, PDO::PARAM_INT);
-        $stmt -> bindValue(':date', $date, PDO::PARAM_STR);
+        $stmt->bindValue(':act', $act, PDO::PARAM_INT);
+        $stmt->bindValue(':date', $date, PDO::PARAM_STR);
         $stmt->execute();
 
         $female = $stmt->fetch()[0];
@@ -140,7 +140,7 @@ class VisitorRepository extends Repository
 
         ob_start();
         for ($i = 0; $i < $ndata; $i++) {
-    
+
             echo "<tr>";
             if ($data[$i]['valid'] == 0) {
                 echo ('<td>
@@ -191,10 +191,10 @@ class VisitorRepository extends Repository
         for ($i = 0; $i < $ndata; $i++) {
             echo "<tr>";
             if ($data[$i]['present'] == 0) {
-                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date='.$_GET['date'].'" class="btn btn-danger btn-icon-split">
+                echo ('<td><a href="index.php?action=setPresent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date=' . $_GET['date'] . '" class="btn btn-danger btn-icon-split">
                 <span class="icon text-white-50"><i class="fas fa-times"></i></span><span class="text">Absent</span></a></td>');
             } else {
-                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date='.$_GET['date'].'" class="btn btn-success btn-icon-split">
+                echo ('<td><a href="index.php?action=setAbsent&act=' . $activityID . '&id=' . $data[$i]['idPresence'] . '&date=' . $_GET['date'] . '" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">Present</span></a></td>');
             }
             for ($j = 1; $j < ((count($data[$i]) / 2) - 2); $j++) {
@@ -231,10 +231,11 @@ class VisitorRepository extends Repository
         }
     }
 
-    public function setValid(int $idVisitor): void{
+    public function setValid(int $idVisitor): void
+    {
         $sql = "UPDATE visiteur SET valid = 1 WHERE id = :idVisitor;";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt -> bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
 
         try {
             $stmt->execute();
@@ -243,10 +244,11 @@ class VisitorRepository extends Repository
         }
     }
 
-    public function setUnvalid(int $idVisitor): void{
+    public function setUnvalid(int $idVisitor): void
+    {
         $sql = "UPDATE visiteur SET valid = 0 WHERE id = :idVisitor;";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt -> bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":idVisitor", $idVisitor, PDO::PARAM_INT);
 
         try {
             $stmt->execute();
@@ -294,6 +296,18 @@ class VisitorRepository extends Repository
         }
     }
 
+    public function countVisitors(): int
+    {
+        $sql = "SELECT COUNT(*)
+        FROM visiteur;";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $visitors = $stmt->fetch()[0];
+
+        return $visitors;
+    }
     public function countVisitorsOnPeriod(int $idActivity, string $debutDate, string $endDate): int
     {
         $sqlTotalVisiteur = 'SELECT COUNT(*) 
@@ -306,7 +320,7 @@ class VisitorRepository extends Repository
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
         $stmt->bindValue(":debutDate", $debutDate, PDO::PARAM_STR);
         $stmt->bindValue(":endDate", $endDate, PDO::PARAM_STR);
-        
+
         $stmt->execute();
 
         $totalVisiteur = $stmt->fetch();
@@ -351,5 +365,131 @@ class VisitorRepository extends Repository
 
         $total_W = $stmt->fetch();
         return $total_W[1];
+    }
+
+    public function countAdh(): int
+    {
+        $sql = "SELECT COUNT(*)
+        FROM visiteur
+        WHERE ADH = 1;";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $adh = $stmt->fetch()[0];
+
+        return $adh;
+    }
+
+    public function getAttendanceWednesday(string $y1Debut, string $y1End, string $y2Debut, string $y2End)
+    {
+        $sql = "SELECT
+            m.mois_nom,
+            COALESCE(y1.nb_visiteurs, 0) AS visiteursY1,
+            COALESCE(y2.nb_visiteurs, 0) AS visiteursY2
+            FROM
+            (
+                SELECT 'septembre' AS mois_nom, 9 AS mois_num UNION ALL
+                SELECT 'octobre', 10 UNION ALL
+                SELECT 'novembre', 11 UNION ALL
+                SELECT 'décembre', 12 UNION ALL
+                SELECT 'janvier', 1 UNION ALL
+                SELECT 'février', 2 UNION ALL
+                SELECT 'mars', 3 UNION ALL
+                SELECT 'avril', 4 UNION ALL
+                SELECT 'mai', 5 UNION ALL
+                SELECT 'juin', 6 UNION ALL
+                SELECT 'juillet', 7 UNION ALL
+                SELECT 'août', 8
+            ) AS m
+            LEFT JOIN (
+            SELECT
+                MONTH(date) AS mois,
+                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
+            FROM estPresent
+            WHERE present = 1
+                AND DATE_FORMAT(date, '%w') = '3'
+                AND date BETWEEN ':y1D' AND ':y1E'
+            GROUP BY mois
+            ) AS y1 ON y1.mois = m.mois_num
+            LEFT JOIN (
+            SELECT
+                MONTH(date) AS mois,
+                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
+            FROM estPresent
+            WHERE present = 1
+                AND DATE_FORMAT(date, '%w') = '3'
+                AND date BETWEEN ':y2D' AND ':y2E'
+            GROUP BY mois
+            ) AS y2 ON y2.mois = m.mois_num
+            ORDER BY FIELD(m.mois_num, 9,10,11,12,1,2,3,4,5,6,7,8);";
+
+        $stmt = $this -> conn -> prepare($sql);
+        $stmt -> bindParam(":y1D", $y1Debut, PDO::PARAM_STR);
+        $stmt -> bindParam(":y1E", $y1End, PDO::PARAM_STR);
+        $stmt -> bindParam(":y2D", $y2Debut, PDO::PARAM_STR);
+        $stmt -> bindParam(":y2E", $y2End, PDO::PARAM_STR);
+
+        $stmt -> execute();
+
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+        public function getAttendanceSaturday(string $y1Debut, string $y1End, string $y2Debut, string $y2End)
+    {
+        $sql = "SELECT
+            m.mois_nom,
+            COALESCE(y1.nb_visiteurs, 0) AS visiteursY1,
+            COALESCE(y2.nb_visiteurs, 0) AS visiteursY2
+            FROM
+            (
+                SELECT 'septembre' AS mois_nom, 9 AS mois_num UNION ALL
+                SELECT 'octobre', 10 UNION ALL
+                SELECT 'novembre', 11 UNION ALL
+                SELECT 'décembre', 12 UNION ALL
+                SELECT 'janvier', 1 UNION ALL
+                SELECT 'février', 2 UNION ALL
+                SELECT 'mars', 3 UNION ALL
+                SELECT 'avril', 4 UNION ALL
+                SELECT 'mai', 5 UNION ALL
+                SELECT 'juin', 6 UNION ALL
+                SELECT 'juillet', 7 UNION ALL
+                SELECT 'août', 8
+            ) AS m
+            LEFT JOIN (
+            SELECT
+                MONTH(date) AS mois,
+                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
+            FROM estPresent
+            WHERE present = 1
+                AND DATE_FORMAT(date, '%w') = '6'
+                AND date BETWEEN :y1D AND :y1E
+            GROUP BY mois
+            ) AS y1 ON y1.mois = m.mois_num
+            LEFT JOIN (
+            SELECT
+                MONTH(date) AS mois,
+                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
+            FROM estPresent
+            WHERE present = 1
+                AND DATE_FORMAT(date, '%w') = '6'
+                AND date BETWEEN :y2D AND :y2E
+            GROUP BY mois
+            ) AS y2 ON y2.mois = m.mois_num
+            ORDER BY FIELD(m.mois_num, 9,10,11,12,1,2,3,4,5,6,7,8);";
+
+        $stmt = $this -> conn -> prepare($sql);
+        $stmt -> bindParam(":y1D", $y1Debut, PDO::PARAM_STR);
+        $stmt -> bindParam(":y1E", $y1End, PDO::PARAM_STR);
+        $stmt -> bindParam(":y2D", $y2Debut, PDO::PARAM_STR);
+        $stmt -> bindParam(":y2E", $y2End, PDO::PARAM_STR);
+
+        $stmt -> execute();
+
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
     }
 }

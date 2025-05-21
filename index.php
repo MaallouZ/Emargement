@@ -7,6 +7,7 @@ require 'src/controller/login.php';
 require 'src/controller/logout.php';
 require 'src/controller/404.php';
 require 'src/controller/stats.php';
+require 'src/controller/finalStats.php';
 
 // Translating date in Fr for all the app
 $date = new DateTime();
@@ -30,9 +31,13 @@ try {
                 case 'homepage':
                     homepage($repoVis);
                     break;
-                // case 'finalStats':
-                //     finalStats();
-                //     break;
+                case 'finalStats':
+                    if (permHelper::hasInfPerm('ban')) {
+                        finalStats($repoVis);
+                    } else {
+                        homepage($repoVis);
+                    }
+                    break;
                 case 'logout':
                     logout();
                     break;
@@ -67,6 +72,9 @@ try {
                     $debut = $_POST['debutStat'] ?? date('Y-m-d', strtotime('-1 month'));
                     $end = $_POST['endStat'] ?? date('Y-m-d');
                     stats($repoActi, $repoVis, $debut, $end);
+                    break;
+                case 'getExcel':
+                    getExcel($repoActi,$_GET['act'],$_GET['date']);
                     break;
                 default:
                     error404();

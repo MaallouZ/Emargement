@@ -106,9 +106,43 @@ class ActivityRepository extends Repository
 
         if (isset($avg)) {
             return $avg;
-        }
-        else{
+        } else {
             return 0;
         }
+    }
+
+    public function getExcelData(int $act, string $date)
+    {
+        $sql = "SELECT nom, prenom, TIMESTAMPDIFF(YEAR, DDN, CURDATE()) AS age, sexe, ADH, ville
+            FROM visiteur 
+            INNER JOIN estPresent ON estPresent.idVisiteur = visiteur.id 
+            WHERE estPresent.date = :date 
+            AND estPresent.idActivite = :act
+            AND estPresent.present = 1
+            ORDER BY nom;";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+        $stmt->bindParam(':act', $act, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function getActivityName(int $act)
+    {
+        $sql = "SELECT libelle
+        FROM activite
+        WHERE id = :act;";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt -> bindParam(':act', $act, PDO::PARAM_INT);
+        $stmt -> execute();
+
+        $result = $stmt -> fetch();
+
+        return $result[0];
     }
 }

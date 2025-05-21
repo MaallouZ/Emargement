@@ -16,7 +16,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Date</div>
-                        <input type="date" class="form-control" id="date_input" name="date" value="<?= $_GET['date']?>" onchange="location = 'index.php?action=visitorsActivity&act=<?=$_GET['act'] ?>&date=' + this.value">
+                        <input type="date" class="form-control" id="date_input" name="date" value="<?= $_GET['date'] ?>" onchange="location = 'index.php?action=visitorsActivity&act=<?= $_GET['act'] ?>&date=' + this.value">
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total à ce jour</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$total?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total ?></div>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Hommes</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$men?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $men ?></div>
                     </div>
                 </div>
             </div>
@@ -55,13 +55,32 @@ ob_start();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Femmes</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$women?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $women ?></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="row mb-4">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <a href="index.php?action=visitorsActivity&act=<?= $_GET['act'] ?>&date=<?= $previousDay->format('Y-m-d') ?>" class="btn btn-secondary btn-circle">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <?php if (permHelper::hasEqualPerm("act.export") | permHelper::hasEqualPerm("admin")) :?>
+        <a href="index.php?action=getExcel&act=<?= $_GET['act'] ?>&date=<?= $_GET['date'] ?>">
+            <button type="button" class="btn btn-primary">
+                Liste des présents
+            </button>
+        </a>
+        <?php endif; ?>
+        <a href="index.php?action=visitorsActivity&act=<?= $_GET['act'] ?>&date=<?= $nextDay->format('Y-m-d') ?>" class="btn btn-secondary btn-circle">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
 <!-- Tableau d'appel -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -79,9 +98,9 @@ ob_start();
                         <th>Sexe</th>
                         <th>ADH</th>
                         <?php
-                        if((permHelper::hasSupPerm("act.histo.edit") || permHelper::hasSupPerm("acc.view")) || permHelper::hasEqualPerm("admin")): ?>
-                        <th>Ville</th>
-                        <th>Tél</th>
+                        if ((permHelper::hasSupPerm("act.histo.edit") || permHelper::hasSupPerm("acc.view")) || permHelper::hasEqualPerm("admin")): ?>
+                            <th>Ville</th>
+                            <th>Tél</th>
                         <?php endif; ?>
                     </tr>
                 </thead>

@@ -14,7 +14,8 @@ class permHelper {
         "SC.act.histo.view" => 6,   //Permission service civique pour accéder à l'historique des présence des activités
         "act.histo.edit" => 7,  //Permission d'éditer les présences dans l'historique d'une activité
         "act.view" => 8,    //Permission de voir les données personnels des visiteurs ainsi que les stats d'une activité
-        "emprunt" => 9      //Permission de gérer les emprunts de matériel.
+        "act.export" => 9,  //Permission d'exporter les listes de présence 
+        "emprunt" => 10      //Permission de gérer les emprunts de matériel.
     ];
 
     // Return true if user permissions is above parameter
