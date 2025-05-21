@@ -114,7 +114,7 @@ ob_start();
     var dataF = JSON.parse('<?= $JSONdataF ?>');
     var dataA = JSON.parse('<?= $JSONdataA ?>');
 
-    updateChart(labels, dataV, dataM, dataF, dataA);
+    updateStatChart(labels, dataV, dataM, dataF, dataA);
 </script>
 <?php
 $modals = ob_get_clean();

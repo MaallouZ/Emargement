@@ -4,8 +4,7 @@ require_once 'src/lib/helpers.php';
 // Verifie si l'utilisateur n'a pas des accès restreint
 if (permHelper::hasDiffPerm('login')) {
     $dynamicMenu = printMenu();
-}
-else {
+} else {
     $dynamicMenu = "Vos accès sont restreints pour l'instant";
 }
 ?>
@@ -68,7 +67,7 @@ else {
                 Interface
             </div>
 
-            <?= $dynamicMenu?>
+            <?= $dynamicMenu ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -94,32 +93,19 @@ else {
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search 
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        
-
+                        <?php if (permHelper::hasInfPerm('ban')): ?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.php?action=finalStats">Statistique global</a>
+                            </li>
+                        <?php endif; ?>
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ($_SESSION['user']['lastName']. " " . $_SESSION['user']['firstName']) ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ($_SESSION['user']['lastName'] . " " . $_SESSION['user']['firstName']) ?></span>
                                 <img class="img-profile rounded-circle" src="public/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -149,9 +135,9 @@ else {
                     <div id="content">
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-                        <?php if(permHelper::hasDiffPerm("login")):
-                            echo $content;
-                        endif?>
+                            <?php if (permHelper::hasDiffPerm("login")):
+                                echo $content;
+                            endif ?>
                         </div>
                     </div>
                 </div>
@@ -159,9 +145,9 @@ else {
         </div>
     </div>
     <!-- End of Page Wrapper -->
-    <?php if(permHelper::hasDiffPerm("login")):
+    <?php if (permHelper::hasDiffPerm("login")):
         echo $modals;
-    endif?>
+    endif ?>
     <!-- Bootstrap core JavaScript-->
     <script src="BTS5/vendor/jquery/jquery.min.js"></script>
     <script src="BTS5/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
