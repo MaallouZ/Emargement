@@ -180,5 +180,5 @@ function getExcel(ActivityRepository $repo, int $idActivite, string $date){
 
     $writer = new Xlsx($spreadsheet);
     $writer->save('php://output');
-    header('Location: index.php?action=visitorsActivity&act='.$idActivite.'&date='.$date);
+    exit();
 }
