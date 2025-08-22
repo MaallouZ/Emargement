@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8">
@@ -54,8 +55,8 @@
                                     </form>
                                     <?php
                                     if (isset($error_message)) {
-                                        echo('<hr>');
-                                        echo('<div class="text-center text-danger">'.$error_message.'</div>');
+                                        echo ('<hr>');
+                                        echo ('<div class="text-center text-danger">' . $error_message . '</div>');
                                     }
                                     ?>
                                     <hr>

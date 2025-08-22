@@ -16,7 +16,7 @@ ob_start();
         <div class="card-body">
             <form action="index.php" method="GET">
                 <input type="hidden" name="action" value="stat">
-                <input type="hidden" name="act" value="<?= htmlspecialchars($_GET['act'])?>">
+                <input type="hidden" name="act" value="<?= htmlspecialchars($_GET['act']) ?>">
                 <div class="d-flex align-items-end flex-wrap gap-3">
                     <div>
                         <label for="debutStat" class="form-label">Date de début :</label>
@@ -90,9 +90,19 @@ ob_start();
     </div>
 </div>
 <!-- Area Chart -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
+<div class="card shadow mb-9">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Fréquentation</h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">Options:</div>
+                <a class="dropdown-item" href="#" onclick="updateStatChart(labels, dataV, dataM, dataF, dataA);">Par jour</a>
+                <a class="dropdown-item" href="#" onclick="updateStatChart(Mlabels, MdataV, MdataM, MdataF, MdataA);">Par mois</a>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="chart-area">
@@ -113,6 +123,12 @@ ob_start();
     var dataM = JSON.parse('<?= $JSONdataM ?>');
     var dataF = JSON.parse('<?= $JSONdataF ?>');
     var dataA = JSON.parse('<?= $JSONdataA ?>');
+
+    var Mlabels = JSON.parse('<?= $JSONMlabels ?>');
+    var MdataV = JSON.parse('<?= $JSONMdataV ?>');
+    var MdataM = JSON.parse('<?= $JSONMdataM ?>');
+    var MdataF = JSON.parse('<?= $JSONMdataF ?>');
+    var MdataA = JSON.parse('<?= $JSONMdataA ?>');
 
     updateStatChart(labels, dataV, dataM, dataF, dataA);
 </script>

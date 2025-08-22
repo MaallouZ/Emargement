@@ -14,9 +14,12 @@ $date = new DateTime();
 $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, IntlDateFormatter::GREGORIAN, 'EEE d MMMM y');
 $formattedDate = $formatter->format($date);
 
-$db = Database::getInstance();
+
+
+$db = Database::getInstance($_SESSION['selectedDb']);
 $repoActi = new ActivityRepository($db);
 $repoVis = new VisitorRepository($db);
+$repoStat = new StatsRespository($db);
 
 try {
     if (isset($_GET['action'])) {
@@ -33,7 +36,7 @@ try {
                     break;
                 case 'finalStats':
                     if (permHelper::hasInfPerm('ban')) {
-                        finalStats($repoVis);
+                        finalStats($repoActi,$repoVis, $repoStat);
                     } else {
                         homepage($repoVis);
                     }

@@ -35,7 +35,7 @@ ob_start();
     <h1 class="h3 mb-0 text-gray-800">Accueil</h1>
 </div>
 <?php if(permHelper::hasEqualPerm('acc.add') || permHelper::hasEqualPerm('act.view') ||permHelper::hasEqualPerm('admin')) :?>
-<a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" class="btn btn-primary btn-icon-split">
+<a href="#" data-bs-toggle="modal" data-bs-target="#newVisitor" class="btn mb-3 btn-primary btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>

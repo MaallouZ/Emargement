@@ -302,7 +302,7 @@ class VisitorRepository extends Repository
         FROM visiteur;";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+         $stmt->execute();
 
         $visitors = $stmt->fetch()[0];
 
@@ -379,117 +379,5 @@ class VisitorRepository extends Repository
         $adh = $stmt->fetch()[0];
 
         return $adh;
-    }
-
-    public function getAttendanceWednesday(string $y1Debut, string $y1End, string $y2Debut, string $y2End)
-    {
-        $sql = "SELECT
-            m.mois_nom,
-            COALESCE(y1.nb_visiteurs, 0) AS visiteursY1,
-            COALESCE(y2.nb_visiteurs, 0) AS visiteursY2
-            FROM
-            (
-                SELECT 'septembre' AS mois_nom, 9 AS mois_num UNION ALL
-                SELECT 'octobre', 10 UNION ALL
-                SELECT 'novembre', 11 UNION ALL
-                SELECT 'décembre', 12 UNION ALL
-                SELECT 'janvier', 1 UNION ALL
-                SELECT 'février', 2 UNION ALL
-                SELECT 'mars', 3 UNION ALL
-                SELECT 'avril', 4 UNION ALL
-                SELECT 'mai', 5 UNION ALL
-                SELECT 'juin', 6 UNION ALL
-                SELECT 'juillet', 7 UNION ALL
-                SELECT 'août', 8
-            ) AS m
-            LEFT JOIN (
-            SELECT
-                MONTH(date) AS mois,
-                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
-            FROM estPresent
-            WHERE present = 1
-                AND DATE_FORMAT(date, '%w') = '3'
-                AND date BETWEEN ':y1D' AND ':y1E'
-            GROUP BY mois
-            ) AS y1 ON y1.mois = m.mois_num
-            LEFT JOIN (
-            SELECT
-                MONTH(date) AS mois,
-                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
-            FROM estPresent
-            WHERE present = 1
-                AND DATE_FORMAT(date, '%w') = '3'
-                AND date BETWEEN ':y2D' AND ':y2E'
-            GROUP BY mois
-            ) AS y2 ON y2.mois = m.mois_num
-            ORDER BY FIELD(m.mois_num, 9,10,11,12,1,2,3,4,5,6,7,8);";
-
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt -> bindParam(":y1D", $y1Debut, PDO::PARAM_STR);
-        $stmt -> bindParam(":y1E", $y1End, PDO::PARAM_STR);
-        $stmt -> bindParam(":y2D", $y2Debut, PDO::PARAM_STR);
-        $stmt -> bindParam(":y2E", $y2End, PDO::PARAM_STR);
-
-        $stmt -> execute();
-
-        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
-    }
-
-        public function getAttendanceSaturday(string $y1Debut, string $y1End, string $y2Debut, string $y2End)
-    {
-        $sql = "SELECT
-            m.mois_nom,
-            COALESCE(y1.nb_visiteurs, 0) AS visiteursY1,
-            COALESCE(y2.nb_visiteurs, 0) AS visiteursY2
-            FROM
-            (
-                SELECT 'septembre' AS mois_nom, 9 AS mois_num UNION ALL
-                SELECT 'octobre', 10 UNION ALL
-                SELECT 'novembre', 11 UNION ALL
-                SELECT 'décembre', 12 UNION ALL
-                SELECT 'janvier', 1 UNION ALL
-                SELECT 'février', 2 UNION ALL
-                SELECT 'mars', 3 UNION ALL
-                SELECT 'avril', 4 UNION ALL
-                SELECT 'mai', 5 UNION ALL
-                SELECT 'juin', 6 UNION ALL
-                SELECT 'juillet', 7 UNION ALL
-                SELECT 'août', 8
-            ) AS m
-            LEFT JOIN (
-            SELECT
-                MONTH(date) AS mois,
-                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
-            FROM estPresent
-            WHERE present = 1
-                AND DATE_FORMAT(date, '%w') = '6'
-                AND date BETWEEN :y1D AND :y1E
-            GROUP BY mois
-            ) AS y1 ON y1.mois = m.mois_num
-            LEFT JOIN (
-            SELECT
-                MONTH(date) AS mois,
-                COUNT(DISTINCT idVisiteur) AS nb_visiteurs
-            FROM estPresent
-            WHERE present = 1
-                AND DATE_FORMAT(date, '%w') = '6'
-                AND date BETWEEN :y2D AND :y2E
-            GROUP BY mois
-            ) AS y2 ON y2.mois = m.mois_num
-            ORDER BY FIELD(m.mois_num, 9,10,11,12,1,2,3,4,5,6,7,8);";
-
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt -> bindParam(":y1D", $y1Debut, PDO::PARAM_STR);
-        $stmt -> bindParam(":y1E", $y1End, PDO::PARAM_STR);
-        $stmt -> bindParam(":y2D", $y2Debut, PDO::PARAM_STR);
-        $stmt -> bindParam(":y2E", $y2End, PDO::PARAM_STR);
-
-        $stmt -> execute();
-
-        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
     }
 }

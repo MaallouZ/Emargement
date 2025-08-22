@@ -14,7 +14,7 @@ function login() {
         if (!$email || !$pwd) {
             $error_message = "Veuillez remplir tous les champs.";
         } else {
-            $db = Database::getInstance();
+            $db = Database::getInstance("emargement");
             $user = authenticate($email, $pwd, $db);
 
             if ($user) {

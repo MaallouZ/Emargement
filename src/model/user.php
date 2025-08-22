@@ -8,7 +8,7 @@ class User
     private string $firstName;
     private string $email;
     private string $pwd;
-    private ?string $perm;
+    private string $perm;
 
     //Constructor
     public function __construct(int $id, string $lastName, string $firstName, string $email, string $pwd, ?string $perm = null){

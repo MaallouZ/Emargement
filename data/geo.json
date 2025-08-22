@@ -1,0 +1,5658 @@
+[
+  {
+    "nom": "Allouville-Bellefosse",
+    "code": "76001",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6636, 49.5956]
+    }
+  },
+  {
+    "nom": "Alvimare",
+    "code": "76002",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6306, 49.6066]
+    }
+  },
+  {
+    "nom": "Ambrumesnil",
+    "code": "76004",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.983, 49.8591]
+    }
+  },
+  {
+    "nom": "Amfreville-la-Mi-Voie",
+    "code": "76005",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1275, 49.4053]
+    }
+  },
+  {
+    "nom": "Amfreville-les-Champs",
+    "code": "76006",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8269, 49.698]
+    }
+  },
+  {
+    "nom": "Anceaumeville",
+    "code": "76007",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0621, 49.5692]
+    }
+  },
+  {
+    "nom": "Ancourt",
+    "code": "76008",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1835, 49.911]
+    }
+  },
+  {
+    "nom": "Ancourteville-sur-Héricourt",
+    "code": "76009",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6613, 49.6914]
+    }
+  },
+  {
+    "nom": "Ancretiéville-Saint-Victor",
+    "code": "76010",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9681, 49.6555]
+    }
+  },
+  {
+    "nom": "Ancretteville-sur-Mer",
+    "code": "76011",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5037, 49.7891]
+    }
+  },
+  {
+    "nom": "Angerville-Bailleul",
+    "code": "76012",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4527, 49.6681]
+    }
+  },
+  {
+    "nom": "Angerville-la-Martel",
+    "code": "76013",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5037, 49.7672]
+    }
+  },
+  {
+    "nom": "Angerville-l'Orcher",
+    "code": "76014",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2951, 49.5847]
+    }
+  },
+  {
+    "nom": "Angiens",
+    "code": "76015",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8021, 49.8336]
+    }
+  },
+  {
+    "nom": "Anglesqueville-la-Bras-Long",
+    "code": "76016",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7827, 49.7797]
+    }
+  },
+  {
+    "nom": "Anglesqueville-l'Esneval",
+    "code": "76017",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2346, 49.6318]
+    }
+  },
+  {
+    "nom": "Val-de-Saâne",
+    "code": "76018",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9613, 49.7066]
+    }
+  },
+  {
+    "nom": "Anneville-sur-Scie",
+    "code": "76019",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0935, 49.8394]
+    }
+  },
+  {
+    "nom": "Anneville-Ambourville",
+    "code": "76020",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.896, 49.4518]
+    }
+  },
+  {
+    "nom": "Annouville-Vilmesnil",
+    "code": "76021",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4335, 49.6789]
+    }
+  },
+  {
+    "nom": "Anquetierville",
+    "code": "76022",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6356, 49.5369]
+    }
+  },
+  {
+    "nom": "Anvéville",
+    "code": "76023",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.751, 49.7003]
+    }
+  },
+  {
+    "nom": "Ardouval",
+    "code": "76024",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2729, 49.7397]
+    }
+  },
+  {
+    "nom": "Argueil",
+    "code": "76025",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5331, 49.548]
+    }
+  },
+  {
+    "nom": "Arques-la-Bataille",
+    "code": "76026",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1539, 49.8789]
+    }
+  },
+  {
+    "nom": "Aubéguimont",
+    "code": "76028",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6816, 49.8097]
+    }
+  },
+  {
+    "nom": "Aubermesnil-aux-Érables",
+    "code": "76029",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.569, 49.81]
+    }
+  },
+  {
+    "nom": "Aubermesnil-Beaumais",
+    "code": "76030",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1208, 49.8493]
+    }
+  },
+  {
+    "nom": "Auberville-la-Manuel",
+    "code": "76032",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5835, 49.8288]
+    }
+  },
+  {
+    "nom": "Auberville-la-Renault",
+    "code": "76033",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3797, 49.6868]
+    }
+  },
+  {
+    "nom": "Val-de-Scie",
+    "code": "76034",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1339, 49.7147]
+    }
+  },
+  {
+    "nom": "Aumale",
+    "code": "76035",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7555, 49.7725]
+    }
+  },
+  {
+    "nom": "Auppegard",
+    "code": "76036",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0279, 49.8323]
+    }
+  },
+  {
+    "nom": "Authieux-Ratiéville",
+    "code": "76038",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1471, 49.5972]
+    }
+  },
+  {
+    "nom": "Les Authieux-sur-le-Port-Saint-Ouen",
+    "code": "76039",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1314, 49.3398]
+    }
+  },
+  {
+    "nom": "Autigny",
+    "code": "76040",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.854, 49.7963]
+    }
+  },
+  {
+    "nom": "Les Hauts-de-Caux",
+    "code": "76041",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7542, 49.656]
+    }
+  },
+  {
+    "nom": "Auvilliers",
+    "code": "76042",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5739, 49.7572]
+    }
+  },
+  {
+    "nom": "Auzebosc",
+    "code": "76043",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7331, 49.6013]
+    }
+  },
+  {
+    "nom": "Auzouville-l'Esneval",
+    "code": "76045",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8862, 49.6315]
+    }
+  },
+  {
+    "nom": "Auzouville-sur-Ry",
+    "code": "76046",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3071, 49.4387]
+    }
+  },
+  {
+    "nom": "Auzouville-sur-Saâne",
+    "code": "76047",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9314, 49.7422]
+    }
+  },
+  {
+    "nom": "Avesnes-en-Bray",
+    "code": "76048",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6749, 49.4737]
+    }
+  },
+  {
+    "nom": "Avesnes-en-Val",
+    "code": "76049",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4052, 49.9157]
+    }
+  },
+  {
+    "nom": "Avremesnil",
+    "code": "76050",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9336, 49.8503]
+    }
+  },
+  {
+    "nom": "Bacqueville-en-Caux",
+    "code": "76051",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0055, 49.7932]
+    }
+  },
+  {
+    "nom": "Bailleul-Neuville",
+    "code": "76052",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4282, 49.8082]
+    }
+  },
+  {
+    "nom": "Baillolet",
+    "code": "76053",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4322, 49.7903]
+    }
+  },
+  {
+    "nom": "Bailly-en-Rivière",
+    "code": "76054",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3534, 49.9061]
+    }
+  },
+  {
+    "nom": "Baons-le-Comte",
+    "code": "76055",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7594, 49.6403]
+    }
+  },
+  {
+    "nom": "Bardouville",
+    "code": "76056",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9223, 49.4293]
+    }
+  },
+  {
+    "nom": "Barentin",
+    "code": "76057",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9549, 49.5431]
+    }
+  },
+  {
+    "nom": "Baromesnil",
+    "code": "76058",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.411, 49.9846]
+    }
+  },
+  {
+    "nom": "Bazinval",
+    "code": "76059",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5457, 49.9481]
+    }
+  },
+  {
+    "nom": "Beaubec-la-Rosière",
+    "code": "76060",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5098, 49.6471]
+    }
+  },
+  {
+    "nom": "Beaumont-le-Hareng",
+    "code": "76062",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2196, 49.6652]
+    }
+  },
+  {
+    "nom": "Beauval-en-Caux",
+    "code": "76063",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0275, 49.7374]
+    }
+  },
+  {
+    "nom": "Beaurepaire",
+    "code": "76064",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2136, 49.6599]
+    }
+  },
+  {
+    "nom": "Beaussault",
+    "code": "76065",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5701, 49.6873]
+    }
+  },
+  {
+    "nom": "Beautot",
+    "code": "76066",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.048, 49.6348]
+    }
+  },
+  {
+    "nom": "Beauvoir-en-Lyons",
+    "code": "76067",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5852, 49.487]
+    }
+  },
+  {
+    "nom": "Bec-de-Mortagne",
+    "code": "76068",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4507, 49.7039]
+    }
+  },
+  {
+    "nom": "Belbeuf",
+    "code": "76069",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1415, 49.382]
+    }
+  },
+  {
+    "nom": "Bellencombre",
+    "code": "76070",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2361, 49.7183]
+    }
+  },
+  {
+    "nom": "Bellengreville",
+    "code": "76071",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2294, 49.9091]
+    }
+  },
+  {
+    "nom": "Belleville-en-Caux",
+    "code": "76072",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9861, 49.7048]
+    }
+  },
+  {
+    "nom": "La Bellière",
+    "code": "76074",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6014, 49.6062]
+    }
+  },
+  {
+    "nom": "Belmesnil",
+    "code": "76075",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0473, 49.7671]
+    }
+  },
+  {
+    "nom": "Bénarville",
+    "code": "76076",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4881, 49.6726]
+    }
+  },
+  {
+    "nom": "Bénesville",
+    "code": "76077",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8277, 49.7536]
+    }
+  },
+  {
+    "nom": "Bénouville",
+    "code": "76079",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2452, 49.7197]
+    }
+  },
+  {
+    "nom": "Bernières",
+    "code": "76082",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4756, 49.6227]
+    }
+  },
+  {
+    "nom": "Bertheauville",
+    "code": "76083",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5915, 49.7553]
+    }
+  },
+  {
+    "nom": "Bertreville",
+    "code": "76084",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5784, 49.7664]
+    }
+  },
+  {
+    "nom": "Bertreville-Saint-Ouen",
+    "code": "76085",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.042, 49.8128]
+    }
+  },
+  {
+    "nom": "Bertrimont",
+    "code": "76086",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9976, 49.6702]
+    }
+  },
+  {
+    "nom": "Berville-en-Caux",
+    "code": "76087",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8378, 49.713]
+    }
+  },
+  {
+    "nom": "Berville-sur-Seine",
+    "code": "76088",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8952, 49.4728]
+    }
+  },
+  {
+    "nom": "Beuzeville-la-Grenier",
+    "code": "76090",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4203, 49.5934]
+    }
+  },
+  {
+    "nom": "Beuzeville-la-Guérard",
+    "code": "76091",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6121, 49.7089]
+    }
+  },
+  {
+    "nom": "Beuzevillette",
+    "code": "76092",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5501, 49.5734]
+    }
+  },
+  {
+    "nom": "Bézancourt",
+    "code": "76093",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6113, 49.4342]
+    }
+  },
+  {
+    "nom": "Bierville",
+    "code": "76094",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.275, 49.5369]
+    }
+  },
+  {
+    "nom": "Bihorel",
+    "code": "76095",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1288, 49.4634]
+    }
+  },
+  {
+    "nom": "Biville-la-Baignarde",
+    "code": "76096",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.047, 49.7223]
+    }
+  },
+  {
+    "nom": "Biville-la-Rivière",
+    "code": "76097",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.918, 49.776]
+    }
+  },
+  {
+    "nom": "Blacqueville",
+    "code": "76099",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8457, 49.5599]
+    }
+  },
+  {
+    "nom": "Blainville-Crevon",
+    "code": "76100",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.293, 49.5071]
+    }
+  },
+  {
+    "nom": "Blangy-sur-Bresle",
+    "code": "76101",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6316, 49.9163]
+    }
+  },
+  {
+    "nom": "Bonsecours",
+    "code": "76103",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1353, 49.4251]
+    }
+  },
+  {
+    "nom": "Blosseville",
+    "code": "76104",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8047, 49.8536]
+    }
+  },
+  {
+    "nom": "Le Bocasse",
+    "code": "76105",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0722, 49.6101]
+    }
+  },
+  {
+    "nom": "Bois-d'Ennebourg",
+    "code": "76106",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2575, 49.4259]
+    }
+  },
+  {
+    "nom": "Bois-Guilbert",
+    "code": "76107",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4155, 49.5389]
+    }
+  },
+  {
+    "nom": "Bois-Guillaume",
+    "code": "76108",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1194, 49.4729]
+    }
+  },
+  {
+    "nom": "Bois-Héroult",
+    "code": "76109",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4093, 49.5691]
+    }
+  },
+  {
+    "nom": "Bois-Himont",
+    "code": "76110",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.686, 49.58]
+    }
+  },
+  {
+    "nom": "Bois-l'Évêque",
+    "code": "76111",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2525, 49.4543]
+    }
+  },
+  {
+    "nom": "Le Bois-Robert",
+    "code": "76112",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1469, 49.8395]
+    }
+  },
+  {
+    "nom": "Boissay",
+    "code": "76113",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3602, 49.5191]
+    }
+  },
+  {
+    "nom": "Bolbec",
+    "code": "76114",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.483, 49.5755]
+    }
+  },
+  {
+    "nom": "Bolleville",
+    "code": "76115",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5662, 49.6065]
+    }
+  },
+  {
+    "nom": "Boos",
+    "code": "76116",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2047, 49.3762]
+    }
+  },
+  {
+    "nom": "Bordeaux-Saint-Clair",
+    "code": "76117",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2445, 49.6953]
+    }
+  },
+  {
+    "nom": "Bornambusc",
+    "code": "76118",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3532, 49.6251]
+    }
+  },
+  {
+    "nom": "Bosc-Bérenger",
+    "code": "76119",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2532, 49.6359]
+    }
+  },
+  {
+    "nom": "Bosc-Bordel",
+    "code": "76120",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4121, 49.6075]
+    }
+  },
+  {
+    "nom": "Bosc-Édeline",
+    "code": "76121",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.429, 49.5751]
+    }
+  },
+  {
+    "nom": "Callengeville",
+    "code": "76122",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5214, 49.8283]
+    }
+  },
+  {
+    "nom": "Bosc-Guérard-Saint-Adrien",
+    "code": "76123",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1232, 49.5412]
+    }
+  },
+  {
+    "nom": "Bosc-Hyons",
+    "code": "76124",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6491, 49.4516]
+    }
+  },
+  {
+    "nom": "Bosc-le-Hard",
+    "code": "76125",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.187, 49.6217]
+    }
+  },
+  {
+    "nom": "Bosc-Mesnil",
+    "code": "76126",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3458, 49.6688]
+    }
+  },
+  {
+    "nom": "Bosville",
+    "code": "76128",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.681, 49.7603]
+    }
+  },
+  {
+    "nom": "Boudeville",
+    "code": "76129",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8728, 49.7204]
+    }
+  },
+  {
+    "nom": "Bouelles",
+    "code": "76130",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4968, 49.7216]
+    }
+  },
+  {
+    "nom": "La Bouille",
+    "code": "76131",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9342, 49.3513]
+    }
+  },
+  {
+    "nom": "Bourdainville",
+    "code": "76132",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9385, 49.6751]
+    }
+  },
+  {
+    "nom": "Le Bourg-Dun",
+    "code": "76133",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8864, 49.871]
+    }
+  },
+  {
+    "nom": "Bourville",
+    "code": "76134",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8222, 49.7955]
+    }
+  },
+  {
+    "nom": "Bouville",
+    "code": "76135",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8943, 49.5599]
+    }
+  },
+  {
+    "nom": "Brachy",
+    "code": "76136",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9487, 49.8168]
+    }
+  },
+  {
+    "nom": "Bracquetuit",
+    "code": "76138",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.171, 49.665]
+    }
+  },
+  {
+    "nom": "Bradiancourt",
+    "code": "76139",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.386, 49.6592]
+    }
+  },
+  {
+    "nom": "Brametot",
+    "code": "76140",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8715, 49.7811]
+    }
+  },
+  {
+    "nom": "Bréauté",
+    "code": "76141",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.402, 49.6252]
+    }
+  },
+  {
+    "nom": "Brémontier-Merval",
+    "code": "76142",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6195, 49.5141]
+    }
+  },
+  {
+    "nom": "Bretteville-du-Grand-Caux",
+    "code": "76143",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3878, 49.6636]
+    }
+  },
+  {
+    "nom": "Bretteville-Saint-Laurent",
+    "code": "76144",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8667, 49.7682]
+    }
+  },
+  {
+    "nom": "Buchy",
+    "code": "76146",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3394, 49.5859]
+    }
+  },
+  {
+    "nom": "Bully",
+    "code": "76147",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3582, 49.7183]
+    }
+  },
+  {
+    "nom": "Bures-en-Bray",
+    "code": "76148",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3356, 49.7777]
+    }
+  },
+  {
+    "nom": "Butot",
+    "code": "76149",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.024, 49.6123]
+    }
+  },
+  {
+    "nom": "Cailleville",
+    "code": "76151",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7358, 49.8368]
+    }
+  },
+  {
+    "nom": "Cailly",
+    "code": "76152",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2299, 49.5869]
+    }
+  },
+  {
+    "nom": "Calleville-les-Deux-Églises",
+    "code": "76153",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.02, 49.7026]
+    }
+  },
+  {
+    "nom": "Campneuseville",
+    "code": "76154",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6608, 49.8629]
+    }
+  },
+  {
+    "nom": "Canehan",
+    "code": "76155",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3434, 49.9788]
+    }
+  },
+  {
+    "nom": "Canouville",
+    "code": "76156",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5945, 49.808]
+    }
+  },
+  {
+    "nom": "Canteleu",
+    "code": "76157",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0173, 49.4323]
+    }
+  },
+  {
+    "nom": "Canville-les-Deux-Églises",
+    "code": "76158",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8354, 49.7729]
+    }
+  },
+  {
+    "nom": "Cany-Barville",
+    "code": "76159",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6314, 49.78]
+    }
+  },
+  {
+    "nom": "Carville-la-Folletière",
+    "code": "76160",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8181, 49.5599]
+    }
+  },
+  {
+    "nom": "Carville-Pot-de-Fer",
+    "code": "76161",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.723, 49.7198]
+    }
+  },
+  {
+    "nom": "Le Catelier",
+    "code": "76162",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1564, 49.7579]
+    }
+  },
+  {
+    "nom": "Catenay",
+    "code": "76163",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3279, 49.5102]
+    }
+  },
+  {
+    "nom": "Rives-en-Seine",
+    "code": "76164",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7184, 49.5266]
+    }
+  },
+  {
+    "nom": "Caudebec-lès-Elbeuf",
+    "code": "76165",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0227, 49.2821]
+    }
+  },
+  {
+    "nom": "Le Caule-Sainte-Beuve",
+    "code": "76166",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5886, 49.7731]
+    }
+  },
+  {
+    "nom": "Cauville-sur-Mer",
+    "code": "76167",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1421, 49.594]
+    }
+  },
+  {
+    "nom": "Les Cent-Acres",
+    "code": "76168",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1439, 49.7704]
+    }
+  },
+  {
+    "nom": "La Cerlangue",
+    "code": "76169",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4203, 49.4844]
+    }
+  },
+  {
+    "nom": "La Chapelle-du-Bourgay",
+    "code": "76170",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1467, 49.8244]
+    }
+  },
+  {
+    "nom": "La Chapelle-Saint-Ouen",
+    "code": "76171",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4297, 49.5197]
+    }
+  },
+  {
+    "nom": "La Chapelle-sur-Dun",
+    "code": "76172",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8451, 49.8585]
+    }
+  },
+  {
+    "nom": "La Chaussée",
+    "code": "76173",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.121, 49.8196]
+    }
+  },
+  {
+    "nom": "Cideville",
+    "code": "76174",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8863, 49.6117]
+    }
+  },
+  {
+    "nom": "Clais",
+    "code": "76175",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4702, 49.8137]
+    }
+  },
+  {
+    "nom": "Clasville",
+    "code": "76176",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6208, 49.7933]
+    }
+  },
+  {
+    "nom": "Claville-Motteville",
+    "code": "76177",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1838, 49.5848]
+    }
+  },
+  {
+    "nom": "Cléon",
+    "code": "76178",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0393, 49.3155]
+    }
+  },
+  {
+    "nom": "Clères",
+    "code": "76179",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1007, 49.5902]
+    }
+  },
+  {
+    "nom": "Cleuville",
+    "code": "76180",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.65, 49.7046]
+    }
+  },
+  {
+    "nom": "Cléville",
+    "code": "76181",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6184, 49.6202]
+    }
+  },
+  {
+    "nom": "Cliponville",
+    "code": "76182",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6599, 49.6708]
+    }
+  },
+  {
+    "nom": "Colleville",
+    "code": "76183",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4595, 49.7538]
+    }
+  },
+  {
+    "nom": "Colmesnil-Manneville",
+    "code": "76184",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0289, 49.8473]
+    }
+  },
+  {
+    "nom": "Compainville",
+    "code": "76185",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5636, 49.6569]
+    }
+  },
+  {
+    "nom": "Conteville",
+    "code": "76186",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6389, 49.6962]
+    }
+  },
+  {
+    "nom": "Contremoulins",
+    "code": "76187",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4378, 49.7256]
+    }
+  },
+  {
+    "nom": "Cottévrard",
+    "code": "76188",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2245, 49.6385]
+    }
+  },
+  {
+    "nom": "Crasville-la-Mallet",
+    "code": "76189",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7169, 49.8044]
+    }
+  },
+  {
+    "nom": "Crasville-la-Rocquefort",
+    "code": "76190",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8752, 49.8024]
+    }
+  },
+  {
+    "nom": "Criel-sur-Mer",
+    "code": "76192",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3215, 50.0221]
+    }
+  },
+  {
+    "nom": "La Crique",
+    "code": "76193",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2051, 49.6929]
+    }
+  },
+  {
+    "nom": "Criquebeuf-en-Caux",
+    "code": "76194",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3332, 49.7401]
+    }
+  },
+  {
+    "nom": "Criquetot-le-Mauconduit",
+    "code": "76195",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5623, 49.7901]
+    }
+  },
+  {
+    "nom": "Criquetot-l'Esneval",
+    "code": "76196",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2689, 49.6344]
+    }
+  },
+  {
+    "nom": "Criquetot-sur-Longueville",
+    "code": "76197",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0752, 49.782]
+    }
+  },
+  {
+    "nom": "Criquetot-sur-Ouville",
+    "code": "76198",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8484, 49.6712]
+    }
+  },
+  {
+    "nom": "Criquiers",
+    "code": "76199",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7052, 49.6758]
+    }
+  },
+  {
+    "nom": "Critot",
+    "code": "76200",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2445, 49.6127]
+    }
+  },
+  {
+    "nom": "Croisy-sur-Andelle",
+    "code": "76201",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4085, 49.46]
+    }
+  },
+  {
+    "nom": "Croixdalle",
+    "code": "76202",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3731, 49.8021]
+    }
+  },
+  {
+    "nom": "Croix-Mare",
+    "code": "76203",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8341, 49.5996]
+    }
+  },
+  {
+    "nom": "Cropus",
+    "code": "76204",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1474, 49.7339]
+    }
+  },
+  {
+    "nom": "Crosville-sur-Scie",
+    "code": "76205",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0835, 49.8199]
+    }
+  },
+  {
+    "nom": "Cuverville",
+    "code": "76206",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2666, 49.6666]
+    }
+  },
+  {
+    "nom": "Cuverville-sur-Yères",
+    "code": "76207",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3893, 49.9516]
+    }
+  },
+  {
+    "nom": "Cuy-Saint-Fiacre",
+    "code": "76208",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6865, 49.5113]
+    }
+  },
+  {
+    "nom": "Dampierre-en-Bray",
+    "code": "76209",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6618, 49.5341]
+    }
+  },
+  {
+    "nom": "Dampierre-Saint-Nicolas",
+    "code": "76210",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2053, 49.8556]
+    }
+  },
+  {
+    "nom": "Dancourt",
+    "code": "76211",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5432, 49.8998]
+    }
+  },
+  {
+    "nom": "Darnétal",
+    "code": "76212",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1534, 49.4468]
+    }
+  },
+  {
+    "nom": "Daubeuf-Serville",
+    "code": "76213",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4854, 49.6951]
+    }
+  },
+  {
+    "nom": "Dénestanville",
+    "code": "76214",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0915, 49.808]
+    }
+  },
+  {
+    "nom": "Déville-lès-Rouen",
+    "code": "76216",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0495, 49.4673]
+    }
+  },
+  {
+    "nom": "Dieppe",
+    "code": "76217",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0838, 49.9199]
+    }
+  },
+  {
+    "nom": "Doudeauville",
+    "code": "76218",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6978, 49.5671]
+    }
+  },
+  {
+    "nom": "Doudeville",
+    "code": "76219",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7843, 49.7273]
+    }
+  },
+  {
+    "nom": "Douvrend",
+    "code": "76220",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.317, 49.8709]
+    }
+  },
+  {
+    "nom": "Drosay",
+    "code": "76221",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7366, 49.7945]
+    }
+  },
+  {
+    "nom": "Duclair",
+    "code": "76222",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8701, 49.4859]
+    }
+  },
+  {
+    "nom": "Écalles-Alix",
+    "code": "76223",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8102, 49.6172]
+    }
+  },
+  {
+    "nom": "Écrainville",
+    "code": "76224",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3122, 49.6473]
+    }
+  },
+  {
+    "nom": "Écretteville-lès-Baons",
+    "code": "76225",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6713, 49.6299]
+    }
+  },
+  {
+    "nom": "Écretteville-sur-Mer",
+    "code": "76226",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4851, 49.7917]
+    }
+  },
+  {
+    "nom": "Ectot-l'Auber",
+    "code": "76227",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9287, 49.6539]
+    }
+  },
+  {
+    "nom": "Ectot-lès-Baons",
+    "code": "76228",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8072, 49.6443]
+    }
+  },
+  {
+    "nom": "Elbeuf-en-Bray",
+    "code": "76229",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6582, 49.4946]
+    }
+  },
+  {
+    "nom": "Elbeuf-sur-Andelle",
+    "code": "76230",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3824, 49.4788]
+    }
+  },
+  {
+    "nom": "Elbeuf",
+    "code": "76231",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9974, 49.2773]
+    }
+  },
+  {
+    "nom": "Életot",
+    "code": "76232",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4566, 49.792]
+    }
+  },
+  {
+    "nom": "Ellecourt",
+    "code": "76233",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7273, 49.8017]
+    }
+  },
+  {
+    "nom": "Émanville",
+    "code": "76234",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9583, 49.6218]
+    }
+  },
+  {
+    "nom": "Envermeu",
+    "code": "76235",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2634, 49.898]
+    }
+  },
+  {
+    "nom": "Envronville",
+    "code": "76236",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6694, 49.6586]
+    }
+  },
+  {
+    "nom": "Épinay-sur-Duclair",
+    "code": "76237",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8322, 49.5253]
+    }
+  },
+  {
+    "nom": "Épouville",
+    "code": "76238",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2286, 49.5654]
+    }
+  },
+  {
+    "nom": "Épretot",
+    "code": "76239",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3139, 49.5378]
+    }
+  },
+  {
+    "nom": "Épreville",
+    "code": "76240",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3668, 49.7051]
+    }
+  },
+  {
+    "nom": "Ermenouville",
+    "code": "76241",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7843, 49.8041]
+    }
+  },
+  {
+    "nom": "Ernemont-la-Villette",
+    "code": "76242",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7111, 49.4543]
+    }
+  },
+  {
+    "nom": "Ernemont-sur-Buchy",
+    "code": "76243",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3607, 49.5421]
+    }
+  },
+  {
+    "nom": "Esclavelles",
+    "code": "76244",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3882, 49.7042]
+    }
+  },
+  {
+    "nom": "Eslettes",
+    "code": "76245",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0481, 49.5466]
+    }
+  },
+  {
+    "nom": "Esteville",
+    "code": "76247",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2167, 49.6085]
+    }
+  },
+  {
+    "nom": "Étaimpuis",
+    "code": "76249",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1422, 49.6379]
+    }
+  },
+  {
+    "nom": "Étainhus",
+    "code": "76250",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3062, 49.5665]
+    }
+  },
+  {
+    "nom": "Étalleville",
+    "code": "76251",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.826, 49.7322]
+    }
+  },
+  {
+    "nom": "Étalondes",
+    "code": "76252",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3902, 50.0325]
+    }
+  },
+  {
+    "nom": "Étoutteville",
+    "code": "76253",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7825, 49.6704]
+    }
+  },
+  {
+    "nom": "Étretat",
+    "code": "76254",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2038, 49.7048]
+    }
+  },
+  {
+    "nom": "Eu",
+    "code": "76255",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4303, 50.042]
+    }
+  },
+  {
+    "nom": "Fallencourt",
+    "code": "76257",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5652, 49.8673]
+    }
+  },
+  {
+    "nom": "Terres-de-Caux",
+    "code": "76258",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6039, 49.6517]
+    }
+  },
+  {
+    "nom": "Fécamp",
+    "code": "76259",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4012, 49.7479]
+    }
+  },
+  {
+    "nom": "Ferrières-en-Bray",
+    "code": "76260",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.758, 49.4863]
+    }
+  },
+  {
+    "nom": "La Ferté-Saint-Samson",
+    "code": "76261",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5389, 49.5769]
+    }
+  },
+  {
+    "nom": "Fesques",
+    "code": "76262",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4912, 49.7894]
+    }
+  },
+  {
+    "nom": "La Feuillie",
+    "code": "76263",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.517, 49.4682]
+    }
+  },
+  {
+    "nom": "Flamanville",
+    "code": "76264",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8313, 49.6304]
+    }
+  },
+  {
+    "nom": "Flamets-Frétils",
+    "code": "76265",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5792, 49.7288]
+    }
+  },
+  {
+    "nom": "Flocques",
+    "code": "76266",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3589, 50.0345]
+    }
+  },
+  {
+    "nom": "Fongueusemare",
+    "code": "76268",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3081, 49.6726]
+    }
+  },
+  {
+    "nom": "Fontaine-en-Bray",
+    "code": "76269",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4226, 49.6777]
+    }
+  },
+  {
+    "nom": "Fontaine-la-Mallet",
+    "code": "76270",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1399, 49.5415]
+    }
+  },
+  {
+    "nom": "Fontaine-le-Bourg",
+    "code": "76271",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1489, 49.5724]
+    }
+  },
+  {
+    "nom": "Fontaine-le-Dun",
+    "code": "76272",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8467, 49.8126]
+    }
+  },
+  {
+    "nom": "Fontaine-sous-Préaux",
+    "code": "76273",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.168, 49.4874]
+    }
+  },
+  {
+    "nom": "La Fontelaye",
+    "code": "76274",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9438, 49.6915]
+    }
+  },
+  {
+    "nom": "Fontenay",
+    "code": "76275",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1761, 49.5697]
+    }
+  },
+  {
+    "nom": "Forges-les-Eaux",
+    "code": "76276",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5644, 49.6104]
+    }
+  },
+  {
+    "nom": "Foucarmont",
+    "code": "76278",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5595, 49.8474]
+    }
+  },
+  {
+    "nom": "Foucart",
+    "code": "76279",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5907, 49.6175]
+    }
+  },
+  {
+    "nom": "Fréauville",
+    "code": "76280",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4135, 49.8264]
+    }
+  },
+  {
+    "nom": "La Frénaye",
+    "code": "76281",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5756, 49.5207]
+    }
+  },
+  {
+    "nom": "Freneuse",
+    "code": "76282",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0681, 49.308]
+    }
+  },
+  {
+    "nom": "Fresles",
+    "code": "76283",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3441, 49.7476]
+    }
+  },
+  {
+    "nom": "Fresnay-le-Long",
+    "code": "76284",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0919, 49.6518]
+    }
+  },
+  {
+    "nom": "Fresne-le-Plan",
+    "code": "76285",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2931, 49.4115]
+    }
+  },
+  {
+    "nom": "Fresnoy-Folny",
+    "code": "76286",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4344, 49.8935]
+    }
+  },
+  {
+    "nom": "Fresquiennes",
+    "code": "76287",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0151, 49.5642]
+    }
+  },
+  {
+    "nom": "Freulleville",
+    "code": "76288",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2193, 49.8173]
+    }
+  },
+  {
+    "nom": "Saint Martin de l'If",
+    "code": "76289",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.807, 49.5641]
+    }
+  },
+  {
+    "nom": "Frichemesnil",
+    "code": "76290",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1325, 49.621]
+    }
+  },
+  {
+    "nom": "Froberville",
+    "code": "76291",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3346, 49.7178]
+    }
+  },
+  {
+    "nom": "Fry",
+    "code": "76292",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5388, 49.5243]
+    }
+  },
+  {
+    "nom": "Fultot",
+    "code": "76293",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7797, 49.7592]
+    }
+  },
+  {
+    "nom": "La Gaillarde",
+    "code": "76294",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.869, 49.8392]
+    }
+  },
+  {
+    "nom": "Gaillefontaine",
+    "code": "76295",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6225, 49.6524]
+    }
+  },
+  {
+    "nom": "Gainneville",
+    "code": "76296",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2574, 49.5176]
+    }
+  },
+  {
+    "nom": "Gancourt-Saint-Étienne",
+    "code": "76297",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7134, 49.5465]
+    }
+  },
+  {
+    "nom": "Ganzeville",
+    "code": "76298",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4052, 49.7315]
+    }
+  },
+  {
+    "nom": "Gerponville",
+    "code": "76299",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5623, 49.7489]
+    }
+  },
+  {
+    "nom": "Gerville",
+    "code": "76300",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3279, 49.6982]
+    }
+  },
+  {
+    "nom": "Goderville",
+    "code": "76302",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.356, 49.6465]
+    }
+  },
+  {
+    "nom": "Gommerville",
+    "code": "76303",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3609, 49.5532]
+    }
+  },
+  {
+    "nom": "Gonfreville-Caillot",
+    "code": "76304",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4423, 49.6523]
+    }
+  },
+  {
+    "nom": "Gonfreville-l'Orcher",
+    "code": "76305",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2223, 49.487]
+    }
+  },
+  {
+    "nom": "Gonnetot",
+    "code": "76306",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8962, 49.7626]
+    }
+  },
+  {
+    "nom": "Gonneville-la-Mallet",
+    "code": "76307",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2144, 49.6298]
+    }
+  },
+  {
+    "nom": "Gonneville-sur-Scie",
+    "code": "76308",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0906, 49.7579]
+    }
+  },
+  {
+    "nom": "Gonzeville",
+    "code": "76309",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.809, 49.7579]
+    }
+  },
+  {
+    "nom": "Goupillières",
+    "code": "76311",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9839, 49.5836]
+    }
+  },
+  {
+    "nom": "Gournay-en-Bray",
+    "code": "76312",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7168, 49.4763]
+    }
+  },
+  {
+    "nom": "Gouy",
+    "code": "76313",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1439, 49.3571]
+    }
+  },
+  {
+    "nom": "Graimbouville",
+    "code": "76314",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3325, 49.5808]
+    }
+  },
+  {
+    "nom": "Grainville-la-Teinturière",
+    "code": "76315",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6449, 49.7404]
+    }
+  },
+  {
+    "nom": "Grainville-sur-Ry",
+    "code": "76316",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3003, 49.4728]
+    }
+  },
+  {
+    "nom": "Grainville-Ymauville",
+    "code": "76317",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4085, 49.6532]
+    }
+  },
+  {
+    "nom": "Grand-Camp",
+    "code": "76318",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5975, 49.5499]
+    }
+  },
+  {
+    "nom": "Grand-Couronne",
+    "code": "76319",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0097, 49.3508]
+    }
+  },
+  {
+    "nom": "Grandcourt",
+    "code": "76320",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4867, 49.9166]
+    }
+  },
+  {
+    "nom": "Les Grandes-Ventes",
+    "code": "76321",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2337, 49.7713]
+    }
+  },
+  {
+    "nom": "Le Grand-Quevilly",
+    "code": "76322",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0416, 49.4118]
+    }
+  },
+  {
+    "nom": "Graval",
+    "code": "76323",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5529, 49.7289]
+    }
+  },
+  {
+    "nom": "Grèges",
+    "code": "76324",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1496, 49.9234]
+    }
+  },
+  {
+    "nom": "Grémonville",
+    "code": "76325",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8317, 49.6619]
+    }
+  },
+  {
+    "nom": "Greuville",
+    "code": "76327",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9092, 49.8072]
+    }
+  },
+  {
+    "nom": "Grigneuseville",
+    "code": "76328",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1915, 49.6559]
+    }
+  },
+  {
+    "nom": "Gruchet-le-Valasse",
+    "code": "76329",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5149, 49.5473]
+    }
+  },
+  {
+    "nom": "Gruchet-Saint-Siméon",
+    "code": "76330",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8919, 49.8228]
+    }
+  },
+  {
+    "nom": "Grugny",
+    "code": "76331",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1053, 49.6189]
+    }
+  },
+  {
+    "nom": "Grumesnil",
+    "code": "76332",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6891, 49.62]
+    }
+  },
+  {
+    "nom": "Guerville",
+    "code": "76333",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5237, 49.9479]
+    }
+  },
+  {
+    "nom": "Gueures",
+    "code": "76334",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9499, 49.8423]
+    }
+  },
+  {
+    "nom": "Gueutteville",
+    "code": "76335",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0049, 49.651]
+    }
+  },
+  {
+    "nom": "Gueutteville-les-Grès",
+    "code": "76336",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7631, 49.838]
+    }
+  },
+  {
+    "nom": "La Hallotière",
+    "code": "76338",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4765, 49.5212]
+    }
+  },
+  {
+    "nom": "Le Hanouard",
+    "code": "76339",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6541, 49.7239]
+    }
+  },
+  {
+    "nom": "Harcanville",
+    "code": "76340",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.767, 49.7066]
+    }
+  },
+  {
+    "nom": "Harfleur",
+    "code": "76341",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1964, 49.5137]
+    }
+  },
+  {
+    "nom": "Hattenville",
+    "code": "76342",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5364, 49.6558]
+    }
+  },
+  {
+    "nom": "Haucourt",
+    "code": "76343",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6748, 49.6484]
+    }
+  },
+  {
+    "nom": "Haudricourt",
+    "code": "76344",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6972, 49.7314]
+    }
+  },
+  {
+    "nom": "Haussez",
+    "code": "76345",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6814, 49.5864]
+    }
+  },
+  {
+    "nom": "Hautot-l'Auvray",
+    "code": "76346",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7538, 49.766]
+    }
+  },
+  {
+    "nom": "Hautot-le-Vatois",
+    "code": "76347",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6983, 49.6467]
+    }
+  },
+  {
+    "nom": "Hautot-Saint-Sulpice",
+    "code": "76348",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7393, 49.6769]
+    }
+  },
+  {
+    "nom": "Hautot-sur-Mer",
+    "code": "76349",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.04, 49.9038]
+    }
+  },
+  {
+    "nom": "Hautot-sur-Seine",
+    "code": "76350",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9797, 49.3633]
+    }
+  },
+  {
+    "nom": "Le Havre",
+    "code": "76351",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1312, 49.4958]
+    }
+  },
+  {
+    "nom": "La Haye",
+    "code": "76352",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4437, 49.4616]
+    }
+  },
+  {
+    "nom": "Héberville",
+    "code": "76353",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8033, 49.7849]
+    }
+  },
+  {
+    "nom": "Hénouville",
+    "code": "76354",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9507, 49.4735]
+    }
+  },
+  {
+    "nom": "Héricourt-en-Caux",
+    "code": "76355",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7032, 49.6938]
+    }
+  },
+  {
+    "nom": "Hermanville",
+    "code": "76356",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9867, 49.8201]
+    }
+  },
+  {
+    "nom": "Hermeville",
+    "code": "76357",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2574, 49.5991]
+    }
+  },
+  {
+    "nom": "Héronchelles",
+    "code": "76359",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3823, 49.5385]
+    }
+  },
+  {
+    "nom": "Heugleville-sur-Scie",
+    "code": "76360",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0976, 49.736]
+    }
+  },
+  {
+    "nom": "Heuqueville",
+    "code": "76361",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1537, 49.6181]
+    }
+  },
+  {
+    "nom": "Heurteauville",
+    "code": "76362",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8009, 49.4513]
+    }
+  },
+  {
+    "nom": "Hodeng-au-Bosc",
+    "code": "76363",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7, 49.873]
+    }
+  },
+  {
+    "nom": "Hodeng-Hodenger",
+    "code": "76364",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5892, 49.5363]
+    }
+  },
+  {
+    "nom": "Houdetot",
+    "code": "76365",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8068, 49.8169]
+    }
+  },
+  {
+    "nom": "Le Houlme",
+    "code": "76366",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0352, 49.5111]
+    }
+  },
+  {
+    "nom": "Houppeville",
+    "code": "76367",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0909, 49.5037]
+    }
+  },
+  {
+    "nom": "Houquetot",
+    "code": "76368",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3877, 49.6053]
+    }
+  },
+  {
+    "nom": "La Houssaye-Béranger",
+    "code": "76369",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0833, 49.6281]
+    }
+  },
+  {
+    "nom": "Hugleville-en-Caux",
+    "code": "76370",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9895, 49.6217]
+    }
+  },
+  {
+    "nom": "Les Ifs",
+    "code": "76371",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3984, 49.8878]
+    }
+  },
+  {
+    "nom": "Illois",
+    "code": "76372",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6526, 49.746]
+    }
+  },
+  {
+    "nom": "Imbleville",
+    "code": "76373",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9429, 49.715]
+    }
+  },
+  {
+    "nom": "Incheville",
+    "code": "76374",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5003, 50.0049]
+    }
+  },
+  {
+    "nom": "Ingouville",
+    "code": "76375",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6814, 49.8452]
+    }
+  },
+  {
+    "nom": "Isneauville",
+    "code": "76377",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1473, 49.5033]
+    }
+  },
+  {
+    "nom": "Jumièges",
+    "code": "76378",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8305, 49.4283]
+    }
+  },
+  {
+    "nom": "Lamberville",
+    "code": "76379",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0126, 49.7721]
+    }
+  },
+  {
+    "nom": "Lammerville",
+    "code": "76380",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9682, 49.7931]
+    }
+  },
+  {
+    "nom": "Landes-Vieilles-et-Neuves",
+    "code": "76381",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.633, 49.7847]
+    }
+  },
+  {
+    "nom": "Lanquetot",
+    "code": "76382",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.536, 49.5813]
+    }
+  },
+  {
+    "nom": "Lestanville",
+    "code": "76383",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9612, 49.7486]
+    }
+  },
+  {
+    "nom": "Lillebonne",
+    "code": "76384",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5393, 49.505]
+    }
+  },
+  {
+    "nom": "Limésy",
+    "code": "76385",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9242, 49.6045]
+    }
+  },
+  {
+    "nom": "Limpiville",
+    "code": "76386",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4994, 49.6867]
+    }
+  },
+  {
+    "nom": "Lindebeuf",
+    "code": "76387",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8997, 49.7116]
+    }
+  },
+  {
+    "nom": "Lintot",
+    "code": "76388",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5651, 49.5581]
+    }
+  },
+  {
+    "nom": "Lintot-les-Bois",
+    "code": "76389",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0704, 49.8005]
+    }
+  },
+  {
+    "nom": "Les Loges",
+    "code": "76390",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2873, 49.7034]
+    }
+  },
+  {
+    "nom": "La Londe",
+    "code": "76391",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.913, 49.3193]
+    }
+  },
+  {
+    "nom": "Londinières",
+    "code": "76392",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.398, 49.8399]
+    }
+  },
+  {
+    "nom": "Longmesnil",
+    "code": "76393",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6133, 49.6218]
+    }
+  },
+  {
+    "nom": "Longroy",
+    "code": "76394",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5392, 49.9809]
+    }
+  },
+  {
+    "nom": "Longueil",
+    "code": "76395",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9527, 49.8804]
+    }
+  },
+  {
+    "nom": "Longuerue",
+    "code": "76396",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2853, 49.545]
+    }
+  },
+  {
+    "nom": "Longueville-sur-Scie",
+    "code": "76397",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1085, 49.7948]
+    }
+  },
+  {
+    "nom": "Louvetot",
+    "code": "76398",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7223, 49.5748]
+    }
+  },
+  {
+    "nom": "Lucy",
+    "code": "76399",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4434, 49.7709]
+    }
+  },
+  {
+    "nom": "Luneray",
+    "code": "76400",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9182, 49.8231]
+    }
+  },
+  {
+    "nom": "Arelaune-en-Seine",
+    "code": "76401",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7492, 49.4654]
+    }
+  },
+  {
+    "nom": "Malaunay",
+    "code": "76402",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.048, 49.5253]
+    }
+  },
+  {
+    "nom": "Malleville-les-Grès",
+    "code": "76403",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6066, 49.8303]
+    }
+  },
+  {
+    "nom": "Manéglise",
+    "code": "76404",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2575, 49.5661]
+    }
+  },
+  {
+    "nom": "Manéhouville",
+    "code": "76405",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0693, 49.8319]
+    }
+  },
+  {
+    "nom": "Maniquerville",
+    "code": "76406",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3468, 49.6945]
+    }
+  },
+  {
+    "nom": "Manneville-ès-Plains",
+    "code": "76407",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7501, 49.8586]
+    }
+  },
+  {
+    "nom": "Manneville-la-Goupil",
+    "code": "76408",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3519, 49.6123]
+    }
+  },
+  {
+    "nom": "Mannevillette",
+    "code": "76409",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1743, 49.5963]
+    }
+  },
+  {
+    "nom": "Maromme",
+    "code": "76410",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0321, 49.4767]
+    }
+  },
+  {
+    "nom": "Marques",
+    "code": "76411",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6831, 49.7797]
+    }
+  },
+  {
+    "nom": "Martainville-Épreville",
+    "code": "76412",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2987, 49.4505]
+    }
+  },
+  {
+    "nom": "Martigny",
+    "code": "76413",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1475, 49.8599]
+    }
+  },
+  {
+    "nom": "Martin-Église",
+    "code": "76414",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1279, 49.9105]
+    }
+  },
+  {
+    "nom": "Massy",
+    "code": "76415",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3928, 49.6883]
+    }
+  },
+  {
+    "nom": "Mathonville",
+    "code": "76416",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3823, 49.6236]
+    }
+  },
+  {
+    "nom": "Maucomble",
+    "code": "76417",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3346, 49.6879]
+    }
+  },
+  {
+    "nom": "Maulévrier-Sainte-Gertrude",
+    "code": "76418",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7049, 49.555]
+    }
+  },
+  {
+    "nom": "Mauny",
+    "code": "76419",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.899, 49.3979]
+    }
+  },
+  {
+    "nom": "Mauquenchy",
+    "code": "76420",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4597, 49.6002]
+    }
+  },
+  {
+    "nom": "Mélamare",
+    "code": "76421",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4401, 49.5409]
+    }
+  },
+  {
+    "nom": "Melleville",
+    "code": "76422",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4753, 49.9619]
+    }
+  },
+  {
+    "nom": "Ménerval",
+    "code": "76423",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6426, 49.5596]
+    }
+  },
+  {
+    "nom": "Ménonval",
+    "code": "76424",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.481, 49.7612]
+    }
+  },
+  {
+    "nom": "Mentheville",
+    "code": "76425",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4086, 49.6923]
+    }
+  },
+  {
+    "nom": "Mésangueville",
+    "code": "76426",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5668, 49.5592]
+    }
+  },
+  {
+    "nom": "Mesnières-en-Bray",
+    "code": "76427",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3891, 49.7652]
+    }
+  },
+  {
+    "nom": "Le Mesnil-Durdent",
+    "code": "76428",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7705, 49.8176]
+    }
+  },
+  {
+    "nom": "Le Mesnil-Esnard",
+    "code": "76429",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1462, 49.4123]
+    }
+  },
+  {
+    "nom": "Mesnil-Follemprise",
+    "code": "76430",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3036, 49.7619]
+    }
+  },
+  {
+    "nom": "Le Mesnil-Lieubray",
+    "code": "76431",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5061, 49.5173]
+    }
+  },
+  {
+    "nom": "Mesnil-Mauger",
+    "code": "76432",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5247, 49.6708]
+    }
+  },
+  {
+    "nom": "Mesnil-Panneville",
+    "code": "76433",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.885, 49.5919]
+    }
+  },
+  {
+    "nom": "Mesnil-Raoul",
+    "code": "76434",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2736, 49.3979]
+    }
+  },
+  {
+    "nom": "Le Mesnil-Réaume",
+    "code": "76435",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4418, 49.9709]
+    }
+  },
+  {
+    "nom": "Le Mesnil-sous-Jumièges",
+    "code": "76436",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.858, 49.4281]
+    }
+  },
+  {
+    "nom": "Meulers",
+    "code": "76437",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2247, 49.8409]
+    }
+  },
+  {
+    "nom": "Millebosc",
+    "code": "76438",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4983, 49.9794]
+    }
+  },
+  {
+    "nom": "Mirville",
+    "code": "76439",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.443, 49.6067]
+    }
+  },
+  {
+    "nom": "Molagnies",
+    "code": "76440",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7256, 49.524]
+    }
+  },
+  {
+    "nom": "Monchaux-Soreng",
+    "code": "76441",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5789, 49.9454]
+    }
+  },
+  {
+    "nom": "Monchy-sur-Eu",
+    "code": "76442",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4582, 49.9943]
+    }
+  },
+  {
+    "nom": "Mont-Cauvaire",
+    "code": "76443",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1149, 49.5706]
+    }
+  },
+  {
+    "nom": "Montérolier",
+    "code": "76445",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3473, 49.6234]
+    }
+  },
+  {
+    "nom": "Montigny",
+    "code": "76446",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.996, 49.46]
+    }
+  },
+  {
+    "nom": "Montivilliers",
+    "code": "76447",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.193, 49.5426]
+    }
+  },
+  {
+    "nom": "Montmain",
+    "code": "76448",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2447, 49.41]
+    }
+  },
+  {
+    "nom": "Montreuil-en-Caux",
+    "code": "76449",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1549, 49.6851]
+    }
+  },
+  {
+    "nom": "Montroty",
+    "code": "76450",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6642, 49.4313]
+    }
+  },
+  {
+    "nom": "Mont-Saint-Aignan",
+    "code": "76451",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0806, 49.4673]
+    }
+  },
+  {
+    "nom": "Montville",
+    "code": "76452",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0787, 49.5478]
+    }
+  },
+  {
+    "nom": "Morgny-la-Pommeraye",
+    "code": "76453",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2509, 49.518]
+    }
+  },
+  {
+    "nom": "Mortemer",
+    "code": "76454",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5434, 49.7452]
+    }
+  },
+  {
+    "nom": "Morville-le-Héron",
+    "code": "76455",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.412, 49.49]
+    }
+  },
+  {
+    "nom": "Motteville",
+    "code": "76456",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8534, 49.6292]
+    }
+  },
+  {
+    "nom": "Moulineaux",
+    "code": "76457",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9567, 49.342]
+    }
+  },
+  {
+    "nom": "Muchedent",
+    "code": "76458",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1876, 49.7672]
+    }
+  },
+  {
+    "nom": "Nesle-Hodeng",
+    "code": "76459",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5186, 49.704]
+    }
+  },
+  {
+    "nom": "Nesle-Normandeuse",
+    "code": "76460",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6631, 49.9003]
+    }
+  },
+  {
+    "nom": "Neufbosc",
+    "code": "76461",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.359, 49.6455]
+    }
+  },
+  {
+    "nom": "Neufchâtel-en-Bray",
+    "code": "76462",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4488, 49.742]
+    }
+  },
+  {
+    "nom": "Neuf-Marché",
+    "code": "76463",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6921, 49.4218]
+    }
+  },
+  {
+    "nom": "La Neuville-Chant-d'Oisel",
+    "code": "76464",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2496, 49.3742]
+    }
+  },
+  {
+    "nom": "Neuville-Ferrières",
+    "code": "76465",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4572, 49.7139]
+    }
+  },
+  {
+    "nom": "Néville",
+    "code": "76467",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7108, 49.8279]
+    }
+  },
+  {
+    "nom": "Nointot",
+    "code": "76468",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4761, 49.5958]
+    }
+  },
+  {
+    "nom": "Nolléval",
+    "code": "76469",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4834, 49.489]
+    }
+  },
+  {
+    "nom": "Normanville",
+    "code": "76470",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5888, 49.6934]
+    }
+  },
+  {
+    "nom": "Norville",
+    "code": "76471",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6399, 49.4799]
+    }
+  },
+  {
+    "nom": "Notre-Dame-d'Aliermont",
+    "code": "76472",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3015, 49.8474]
+    }
+  },
+  {
+    "nom": "Notre-Dame-de-Bliquetuit",
+    "code": "76473",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7533, 49.498]
+    }
+  },
+  {
+    "nom": "Notre-Dame-de-Bondeville",
+    "code": "76474",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0559, 49.4876]
+    }
+  },
+  {
+    "nom": "Franqueville-Saint-Pierre",
+    "code": "76475",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1861, 49.4038]
+    }
+  },
+  {
+    "nom": "Port-Jérôme-sur-Seine",
+    "code": "76476",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5834, 49.5062]
+    }
+  },
+  {
+    "nom": "Notre-Dame-du-Bec",
+    "code": "76477",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2235, 49.595]
+    }
+  },
+  {
+    "nom": "Notre-Dame-du-Parc",
+    "code": "76478",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.127, 49.7506]
+    }
+  },
+  {
+    "nom": "Nullemont",
+    "code": "76479",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6484, 49.7709]
+    }
+  },
+  {
+    "nom": "Ocqueville",
+    "code": "76480",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6851, 49.8005]
+    }
+  },
+  {
+    "nom": "Octeville-sur-Mer",
+    "code": "76481",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1232, 49.5593]
+    }
+  },
+  {
+    "nom": "Offranville",
+    "code": "76482",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0334, 49.871]
+    }
+  },
+  {
+    "nom": "Oherville",
+    "code": "76483",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6912, 49.7245]
+    }
+  },
+  {
+    "nom": "Oissel",
+    "code": "76484",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0751, 49.3457]
+    }
+  },
+  {
+    "nom": "Omonville",
+    "code": "76485",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0479, 49.7898]
+    }
+  },
+  {
+    "nom": "Orival",
+    "code": "76486",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0027, 49.315]
+    }
+  },
+  {
+    "nom": "Osmoy-Saint-Valery",
+    "code": "76487",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.301, 49.7963]
+    }
+  },
+  {
+    "nom": "Ouainville",
+    "code": "76488",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5836, 49.7855]
+    }
+  },
+  {
+    "nom": "Oudalle",
+    "code": "76489",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2832, 49.4864]
+    }
+  },
+  {
+    "nom": "Ourville-en-Caux",
+    "code": "76490",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5976, 49.7321]
+    }
+  },
+  {
+    "nom": "Ouville-l'Abbaye",
+    "code": "76491",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8678, 49.6913]
+    }
+  },
+  {
+    "nom": "Ouville-la-Rivière",
+    "code": "76492",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.982, 49.8737]
+    }
+  },
+  {
+    "nom": "Paluel",
+    "code": "76493",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6309, 49.8426]
+    }
+  },
+  {
+    "nom": "Parc-d'Anxtot",
+    "code": "76494",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3881, 49.5833]
+    }
+  },
+  {
+    "nom": "Pavilly",
+    "code": "76495",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9491, 49.5783]
+    }
+  },
+  {
+    "nom": "Petit-Couronne",
+    "code": "76497",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0342, 49.3817]
+    }
+  },
+  {
+    "nom": "Le Petit-Quevilly",
+    "code": "76498",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0572, 49.4238]
+    }
+  },
+  {
+    "nom": "Petiville",
+    "code": "76499",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5789, 49.4542]
+    }
+  },
+  {
+    "nom": "Pierrecourt",
+    "code": "76500",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6369, 49.8857]
+    }
+  },
+  {
+    "nom": "Pierrefiques",
+    "code": "76501",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2285, 49.6753]
+    }
+  },
+  {
+    "nom": "Pierreval",
+    "code": "76502",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2538, 49.5398]
+    }
+  },
+  {
+    "nom": "Pissy-Pôville",
+    "code": "76503",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0029, 49.5322]
+    }
+  },
+  {
+    "nom": "Pleine-Sève",
+    "code": "76504",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7515, 49.8184]
+    }
+  },
+  {
+    "nom": "Pommereux",
+    "code": "76505",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6304, 49.6112]
+    }
+  },
+  {
+    "nom": "Pommeréval",
+    "code": "76506",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3021, 49.7369]
+    }
+  },
+  {
+    "nom": "Ponts-et-Marais",
+    "code": "76507",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4551, 50.0386]
+    }
+  },
+  {
+    "nom": "La Poterie-Cap-d'Antifer",
+    "code": "76508",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1798, 49.6804]
+    }
+  },
+  {
+    "nom": "Préaux",
+    "code": "76509",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2145, 49.489]
+    }
+  },
+  {
+    "nom": "Prétot-Vicquemare",
+    "code": "76510",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.847, 49.7342]
+    }
+  },
+  {
+    "nom": "Preuseville",
+    "code": "76511",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5047, 49.8804]
+    }
+  },
+  {
+    "nom": "Puisenval",
+    "code": "76512",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4625, 49.8778]
+    }
+  },
+  {
+    "nom": "Quevillon",
+    "code": "76513",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9581, 49.4107]
+    }
+  },
+  {
+    "nom": "Quévreville-la-Poterie",
+    "code": "76514",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1881, 49.3534]
+    }
+  },
+  {
+    "nom": "Quiberville-sur-Mer",
+    "code": "76515",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9186, 49.8966]
+    }
+  },
+  {
+    "nom": "Quièvrecourt",
+    "code": "76516",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4172, 49.7254]
+    }
+  },
+  {
+    "nom": "Quincampoix",
+    "code": "76517",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1738, 49.5172]
+    }
+  },
+  {
+    "nom": "Raffetot",
+    "code": "76518",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.522, 49.6027]
+    }
+  },
+  {
+    "nom": "Rainfreville",
+    "code": "76519",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9238, 49.7936]
+    }
+  },
+  {
+    "nom": "Réalcamp",
+    "code": "76520",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6182, 49.8644]
+    }
+  },
+  {
+    "nom": "Rebets",
+    "code": "76521",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3957, 49.5124]
+    }
+  },
+  {
+    "nom": "La Remuée",
+    "code": "76522",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.41, 49.5271]
+    }
+  },
+  {
+    "nom": "Rétonval",
+    "code": "76523",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5943, 49.8118]
+    }
+  },
+  {
+    "nom": "Reuville",
+    "code": "76524",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8619, 49.7469]
+    }
+  },
+  {
+    "nom": "Ricarville-du-Val",
+    "code": "76526",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2702, 49.7976]
+    }
+  },
+  {
+    "nom": "Richemont",
+    "code": "76527",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6434, 49.812]
+    }
+  },
+  {
+    "nom": "Rieux",
+    "code": "76528",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5809, 49.9231]
+    }
+  },
+  {
+    "nom": "Riville",
+    "code": "76529",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5647, 49.7248]
+    }
+  },
+  {
+    "nom": "Robertot",
+    "code": "76530",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6961, 49.7158]
+    }
+  },
+  {
+    "nom": "Rocquefort",
+    "code": "76531",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7029, 49.6675]
+    }
+  },
+  {
+    "nom": "Rocquemont",
+    "code": "76532",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2962, 49.609]
+    }
+  },
+  {
+    "nom": "Rogerville",
+    "code": "76533",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2642, 49.4836]
+    }
+  },
+  {
+    "nom": "Rolleville",
+    "code": "76534",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2147, 49.5781]
+    }
+  },
+  {
+    "nom": "Roncherolles-en-Bray",
+    "code": "76535",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4793, 49.6127]
+    }
+  },
+  {
+    "nom": "Roncherolles-sur-le-Vivier",
+    "code": "76536",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1828, 49.4628]
+    }
+  },
+  {
+    "nom": "Ronchois",
+    "code": "76537",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6234, 49.7235]
+    }
+  },
+  {
+    "nom": "Rosay",
+    "code": "76538",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2555, 49.6975]
+    }
+  },
+  {
+    "nom": "Rouen",
+    "code": "76540",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0912, 49.4412]
+    }
+  },
+  {
+    "nom": "Roumare",
+    "code": "76541",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9625, 49.5087]
+    }
+  },
+  {
+    "nom": "Routes",
+    "code": "76542",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7505, 49.7299]
+    }
+  },
+  {
+    "nom": "Rouville",
+    "code": "76543",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4994, 49.6275]
+    }
+  },
+  {
+    "nom": "Rouvray-Catillon",
+    "code": "76544",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4784, 49.5788]
+    }
+  },
+  {
+    "nom": "Rouxmesnil-Bouteilles",
+    "code": "76545",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.102, 49.8987]
+    }
+  },
+  {
+    "nom": "Royville",
+    "code": "76546",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9531, 49.7788]
+    }
+  },
+  {
+    "nom": "La Rue-Saint-Pierre",
+    "code": "76547",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2525, 49.565]
+    }
+  },
+  {
+    "nom": "Ry",
+    "code": "76548",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3357, 49.4736]
+    }
+  },
+  {
+    "nom": "Saâne-Saint-Just",
+    "code": "76549",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9255, 49.7545]
+    }
+  },
+  {
+    "nom": "Sahurs",
+    "code": "76550",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.947, 49.3698]
+    }
+  },
+  {
+    "nom": "Sainneville",
+    "code": "76551",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2968, 49.5529]
+    }
+  },
+  {
+    "nom": "Sainte-Adresse",
+    "code": "76552",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.0789, 49.5099]
+    }
+  },
+  {
+    "nom": "Sainte-Agathe-d'Aliermont",
+    "code": "76553",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3393, 49.8288]
+    }
+  },
+  {
+    "nom": "Saint-Aignan-sur-Ry",
+    "code": "76554",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3488, 49.4976]
+    }
+  },
+  {
+    "nom": "Saint-André-sur-Cailly",
+    "code": "76555",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2217, 49.5511]
+    }
+  },
+  {
+    "nom": "Saint-Antoine-la-Forêt",
+    "code": "76556",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4892, 49.5402]
+    }
+  },
+  {
+    "nom": "Saint-Arnoult",
+    "code": "76557",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6669, 49.537]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-Celloville",
+    "code": "76558",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.161, 49.3733]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-de-Crétot",
+    "code": "76559",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6336, 49.5708]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-Épinay",
+    "code": "76560",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2, 49.4162]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-lès-Elbeuf",
+    "code": "76561",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0211, 49.3058]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-le-Cauf",
+    "code": "76562",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1723, 49.8663]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-Routot",
+    "code": "76563",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3139, 49.5235]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-sur-Mer",
+    "code": "76564",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8759, 49.8881]
+    }
+  },
+  {
+    "nom": "Saint-Aubin-sur-Scie",
+    "code": "76565",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0802, 49.8855]
+    }
+  },
+  {
+    "nom": "Sainte-Austreberthe",
+    "code": "76566",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9757, 49.6026]
+    }
+  },
+  {
+    "nom": "Sainte-Beuve-en-Rivière",
+    "code": "76567",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5259, 49.7596]
+    }
+  },
+  {
+    "nom": "Saint-Clair-sur-les-Monts",
+    "code": "76568",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7813, 49.6023]
+    }
+  },
+  {
+    "nom": "Sainte-Colombe",
+    "code": "76569",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7626, 49.7956]
+    }
+  },
+  {
+    "nom": "Saint-Crespin",
+    "code": "76570",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1089, 49.7734]
+    }
+  },
+  {
+    "nom": "Sainte-Croix-sur-Buchy",
+    "code": "76571",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3458, 49.5625]
+    }
+  },
+  {
+    "nom": "Saint-Denis-d'Aclon",
+    "code": "76572",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9419, 49.8646]
+    }
+  },
+  {
+    "nom": "Saint-Denis-le-Thiboult",
+    "code": "76573",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3545, 49.4601]
+    }
+  },
+  {
+    "nom": "Saint-Denis-sur-Scie",
+    "code": "76574",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0891, 49.7022]
+    }
+  },
+  {
+    "nom": "Saint-Étienne-du-Rouvray",
+    "code": "76575",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0909, 49.3833]
+    }
+  },
+  {
+    "nom": "Saint-Eustache-la-Forêt",
+    "code": "76576",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4494, 49.5535]
+    }
+  },
+  {
+    "nom": "Sainte-Foy",
+    "code": "76577",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1414, 49.7987]
+    }
+  },
+  {
+    "nom": "Sainte-Geneviève",
+    "code": "76578",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4232, 49.6573]
+    }
+  },
+  {
+    "nom": "Saint-Georges-sur-Fontaine",
+    "code": "76580",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1759, 49.5469]
+    }
+  },
+  {
+    "nom": "Saint-Germain-des-Essourts",
+    "code": "76581",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3158, 49.5368]
+    }
+  },
+  {
+    "nom": "Saint-Germain-d'Étables",
+    "code": "76582",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1861, 49.8373]
+    }
+  },
+  {
+    "nom": "Saint-Germain-sous-Cailly",
+    "code": "76583",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2108, 49.5809]
+    }
+  },
+  {
+    "nom": "Saint-Germain-sur-Eaulne",
+    "code": "76584",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5134, 49.7654]
+    }
+  },
+  {
+    "nom": "Saint-Gilles-de-Crétot",
+    "code": "76585",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6523, 49.5592]
+    }
+  },
+  {
+    "nom": "Saint-Gilles-de-la-Neuville",
+    "code": "76586",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3716, 49.5722]
+    }
+  },
+  {
+    "nom": "Sainte-Hélène-Bondeville",
+    "code": "76587",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4579, 49.7702]
+    }
+  },
+  {
+    "nom": "Saint-Hellier",
+    "code": "76588",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2005, 49.7368]
+    }
+  },
+  {
+    "nom": "Saint-Honoré",
+    "code": "76589",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1556, 49.7829]
+    }
+  },
+  {
+    "nom": "Saint-Jacques-d'Aliermont",
+    "code": "76590",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2491, 49.8478]
+    }
+  },
+  {
+    "nom": "Saint-Jacques-sur-Darnétal",
+    "code": "76591",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.207, 49.4485]
+    }
+  },
+  {
+    "nom": "Saint-Jean-de-Folleville",
+    "code": "76592",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4993, 49.5048]
+    }
+  },
+  {
+    "nom": "Saint-Jean-de-la-Neuville",
+    "code": "76593",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4273, 49.576]
+    }
+  },
+  {
+    "nom": "Saint-Jean-du-Cardonnay",
+    "code": "76594",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0084, 49.5]
+    }
+  },
+  {
+    "nom": "Saint-Jouin-Bruneval",
+    "code": "76595",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.1689, 49.6375]
+    }
+  },
+  {
+    "nom": "Saint-Laurent-de-Brèvedent",
+    "code": "76596",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2698, 49.5338]
+    }
+  },
+  {
+    "nom": "Saint-Laurent-en-Caux",
+    "code": "76597",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8843, 49.744]
+    }
+  },
+  {
+    "nom": "Saint-Léger-aux-Bois",
+    "code": "76598",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6144, 49.823]
+    }
+  },
+  {
+    "nom": "Saint-Léger-du-Bourg-Denis",
+    "code": "76599",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1633, 49.4288]
+    }
+  },
+  {
+    "nom": "Saint-Léonard",
+    "code": "76600",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3363, 49.7323]
+    }
+  },
+  {
+    "nom": "Saint-Lucien",
+    "code": "76601",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4504, 49.505]
+    }
+  },
+  {
+    "nom": "Saint-Maclou-de-Folleville",
+    "code": "76602",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0885, 49.6779]
+    }
+  },
+  {
+    "nom": "Saint-Maclou-la-Brière",
+    "code": "76603",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4697, 49.6491]
+    }
+  },
+  {
+    "nom": "Saint-Mards",
+    "code": "76604",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0165, 49.761]
+    }
+  },
+  {
+    "nom": "Sainte-Marguerite-sur-Mer",
+    "code": "76605",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9521, 49.9072]
+    }
+  },
+  {
+    "nom": "Morienne",
+    "code": "76606",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7213, 49.7837]
+    }
+  },
+  {
+    "nom": "Sainte-Marguerite-sur-Duclair",
+    "code": "76608",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8252, 49.5155]
+    }
+  },
+  {
+    "nom": "Sainte-Marie-au-Bosc",
+    "code": "76609",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2045, 49.6649]
+    }
+  },
+  {
+    "nom": "Sainte-Marie-des-Champs",
+    "code": "76610",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7758, 49.6255]
+    }
+  },
+  {
+    "nom": "Saint-Martin-aux-Arbres",
+    "code": "76611",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8917, 49.6496]
+    }
+  },
+  {
+    "nom": "Saint-Martin-au-Bosc",
+    "code": "76612",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6686, 49.8318]
+    }
+  },
+  {
+    "nom": "Saint-Martin-aux-Buneaux",
+    "code": "76613",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5497, 49.828]
+    }
+  },
+  {
+    "nom": "Saint-Martin-de-Boscherville",
+    "code": "76614",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9632, 49.4473]
+    }
+  },
+  {
+    "nom": "Saint-Martin-du-Bec",
+    "code": "76615",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.205, 49.5991]
+    }
+  },
+  {
+    "nom": "Saint-Martin-du-Manoir",
+    "code": "76616",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2332, 49.5389]
+    }
+  },
+  {
+    "nom": "Saint-Martin-du-Vivier",
+    "code": "76617",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1551, 49.4719]
+    }
+  },
+  {
+    "nom": "Petit-Caux",
+    "code": "76618",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2343, 49.9612]
+    }
+  },
+  {
+    "nom": "Saint-Martin-le-Gaillard",
+    "code": "76619",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3705, 49.9712]
+    }
+  },
+  {
+    "nom": "Saint-Martin-l'Hortier",
+    "code": "76620",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4008, 49.7461]
+    }
+  },
+  {
+    "nom": "Saint-Martin-Osmonville",
+    "code": "76621",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3039, 49.643]
+    }
+  },
+  {
+    "nom": "Saint-Maurice-d'Ételan",
+    "code": "76622",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6308, 49.4606]
+    }
+  },
+  {
+    "nom": "Saint-Michel-d'Halescourt",
+    "code": "76623",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6587, 49.6106]
+    }
+  },
+  {
+    "nom": "Saint-Nicolas-d'Aliermont",
+    "code": "76624",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2412, 49.8754]
+    }
+  },
+  {
+    "nom": "Saint-Nicolas-de-la-Haie",
+    "code": "76626",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.617, 49.5595]
+    }
+  },
+  {
+    "nom": "Saint-Nicolas-de-la-Taille",
+    "code": "76627",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4745, 49.5086]
+    }
+  },
+  {
+    "nom": "Saint-Ouen-du-Breuil",
+    "code": "76628",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.023, 49.6317]
+    }
+  },
+  {
+    "nom": "Saint-Ouen-le-Mauger",
+    "code": "76629",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9612, 49.7612]
+    }
+  },
+  {
+    "nom": "Saint-Ouen-sous-Bailly",
+    "code": "76630",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3001, 49.905]
+    }
+  },
+  {
+    "nom": "Saint-Paër",
+    "code": "76631",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8844, 49.5227]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-Bénouville",
+    "code": "76632",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9703, 49.7399]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-de-Manneville",
+    "code": "76634",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9459, 49.3944]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-des-Jonquières",
+    "code": "76635",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4524, 49.8487]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-de-Varengeville",
+    "code": "76636",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9206, 49.5028]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-en-Port",
+    "code": "76637",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4987, 49.808]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-en-Val",
+    "code": "76638",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4447, 50.0114]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-lès-Elbeuf",
+    "code": "76640",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0497, 49.2778]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-le-Vieux",
+    "code": "76641",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8843, 49.8483]
+    }
+  },
+  {
+    "nom": "Saint-Pierre-le-Viger",
+    "code": "76642",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8548, 49.8267]
+    }
+  },
+  {
+    "nom": "Saint-Rémy-Boscrocourt",
+    "code": "76644",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.388, 50.0089]
+    }
+  },
+  {
+    "nom": "Saint-Riquier-en-Rivière",
+    "code": "76645",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5662, 49.8841]
+    }
+  },
+  {
+    "nom": "Saint-Riquier-ès-Plains",
+    "code": "76646",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6654, 49.8212]
+    }
+  },
+  {
+    "nom": "Saint-Romain-de-Colbosc",
+    "code": "76647",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3652, 49.5287]
+    }
+  },
+  {
+    "nom": "Saint-Saëns",
+    "code": "76648",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2799, 49.6728]
+    }
+  },
+  {
+    "nom": "Saint-Saire",
+    "code": "76649",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4786, 49.6833]
+    }
+  },
+  {
+    "nom": "Saint-Sauveur-d'Émalleville",
+    "code": "76650",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3059, 49.6126]
+    }
+  },
+  {
+    "nom": "Saint-Sylvain",
+    "code": "76651",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.661, 49.8501]
+    }
+  },
+  {
+    "nom": "Saint-Vaast-d'Équiqueville",
+    "code": "76652",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2599, 49.8128]
+    }
+  },
+  {
+    "nom": "Saint-Vaast-Dieppedalle",
+    "code": "76653",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7244, 49.7579]
+    }
+  },
+  {
+    "nom": "Saint-Vaast-du-Val",
+    "code": "76654",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0093, 49.6867]
+    }
+  },
+  {
+    "nom": "Saint-Valery-en-Caux",
+    "code": "76655",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7094, 49.8582]
+    }
+  },
+  {
+    "nom": "Saint-Victor-l'Abbaye",
+    "code": "76656",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1237, 49.6658]
+    }
+  },
+  {
+    "nom": "Saint-Vigor-d'Ymonville",
+    "code": "76657",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3469, 49.4761]
+    }
+  },
+  {
+    "nom": "Saint-Vincent-Cramesnil",
+    "code": "76658",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3585, 49.5087]
+    }
+  },
+  {
+    "nom": "Sandouville",
+    "code": "76660",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3039, 49.4756]
+    }
+  },
+  {
+    "nom": "Sassetot-le-Malgardé",
+    "code": "76662",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8987, 49.772]
+    }
+  },
+  {
+    "nom": "Sassetot-le-Mauconduit",
+    "code": "76663",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5316, 49.8024]
+    }
+  },
+  {
+    "nom": "Sasseville",
+    "code": "76664",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6892, 49.7821]
+    }
+  },
+  {
+    "nom": "Sauchay",
+    "code": "76665",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2073, 49.9179]
+    }
+  },
+  {
+    "nom": "Saumont-la-Poterie",
+    "code": "76666",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.6188, 49.5759]
+    }
+  },
+  {
+    "nom": "Sauqueville",
+    "code": "76667",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0598, 49.8469]
+    }
+  },
+  {
+    "nom": "Saussay",
+    "code": "76668",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9267, 49.6381]
+    }
+  },
+  {
+    "nom": "Sausseuzemare-en-Caux",
+    "code": "76669",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3434, 49.6711]
+    }
+  },
+  {
+    "nom": "Senneville-sur-Fécamp",
+    "code": "76670",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4105, 49.7736]
+    }
+  },
+  {
+    "nom": "Sept-Meules",
+    "code": "76671",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.419, 49.9461]
+    }
+  },
+  {
+    "nom": "Serqueux",
+    "code": "76672",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.541, 49.6281]
+    }
+  },
+  {
+    "nom": "Servaville-Salmonville",
+    "code": "76673",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.274, 49.4803]
+    }
+  },
+  {
+    "nom": "Sierville",
+    "code": "76675",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0348, 49.593]
+    }
+  },
+  {
+    "nom": "Sigy-en-Bray",
+    "code": "76676",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4706, 49.5464]
+    }
+  },
+  {
+    "nom": "Smermesnil",
+    "code": "76677",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4867, 49.8597]
+    }
+  },
+  {
+    "nom": "Sommery",
+    "code": "76678",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4426, 49.6392]
+    }
+  },
+  {
+    "nom": "Sommesnil",
+    "code": "76679",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6693, 49.7116]
+    }
+  },
+  {
+    "nom": "Sorquainville",
+    "code": "76680",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5548, 49.7038]
+    }
+  },
+  {
+    "nom": "Sotteville-lès-Rouen",
+    "code": "76681",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0944, 49.4116]
+    }
+  },
+  {
+    "nom": "Sotteville-sous-le-Val",
+    "code": "76682",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1142, 49.3191]
+    }
+  },
+  {
+    "nom": "Sotteville-sur-Mer",
+    "code": "76683",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8275, 49.8711]
+    }
+  },
+  {
+    "nom": "Tancarville",
+    "code": "76684",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4575, 49.4828]
+    }
+  },
+  {
+    "nom": "Thérouldeville",
+    "code": "76685",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5238, 49.7574]
+    }
+  },
+  {
+    "nom": "Theuville-aux-Maillots",
+    "code": "76686",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5469, 49.7587]
+    }
+  },
+  {
+    "nom": "Thiergeville",
+    "code": "76688",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4859, 49.728]
+    }
+  },
+  {
+    "nom": "Thiétreville",
+    "code": "76689",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5176, 49.7192]
+    }
+  },
+  {
+    "nom": "Thil-Manneville",
+    "code": "76690",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9959, 49.8394]
+    }
+  },
+  {
+    "nom": "Le Thil-Riberpré",
+    "code": "76691",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5837, 49.634]
+    }
+  },
+  {
+    "nom": "Thiouville",
+    "code": "76692",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6296, 49.6889]
+    }
+  },
+  {
+    "nom": "Le Tilleul",
+    "code": "76693",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2027, 49.6848]
+    }
+  },
+  {
+    "nom": "Tocqueville-en-Caux",
+    "code": "76694",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9106, 49.7828]
+    }
+  },
+  {
+    "nom": "Tocqueville-les-Murs",
+    "code": "76695",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4994, 49.6643]
+    }
+  },
+  {
+    "nom": "Torcy-le-Grand",
+    "code": "76697",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.183, 49.7936]
+    }
+  },
+  {
+    "nom": "Torcy-le-Petit",
+    "code": "76698",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1809, 49.8166]
+    }
+  },
+  {
+    "nom": "Le Torp-Mesnil",
+    "code": "76699",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9052, 49.7256]
+    }
+  },
+  {
+    "nom": "Tôtes",
+    "code": "76700",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0409, 49.6869]
+    }
+  },
+  {
+    "nom": "Touffreville-la-Corbeline",
+    "code": "76702",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7672, 49.5837]
+    }
+  },
+  {
+    "nom": "Touffreville-sur-Eu",
+    "code": "76703",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3209, 49.9911]
+    }
+  },
+  {
+    "nom": "Tourville-la-Rivière",
+    "code": "76705",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0966, 49.3363]
+    }
+  },
+  {
+    "nom": "Tourville-les-Ifs",
+    "code": "76706",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4001, 49.7113]
+    }
+  },
+  {
+    "nom": "Tourville-sur-Arques",
+    "code": "76707",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.093, 49.8603]
+    }
+  },
+  {
+    "nom": "Toussaint",
+    "code": "76708",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4379, 49.7345]
+    }
+  },
+  {
+    "nom": "Le Trait",
+    "code": "76709",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8206, 49.4813]
+    }
+  },
+  {
+    "nom": "Trémauville",
+    "code": "76710",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.522, 49.6644]
+    }
+  },
+  {
+    "nom": "Le Tréport",
+    "code": "76711",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3759, 50.052]
+    }
+  },
+  {
+    "nom": "La Trinité-du-Mont",
+    "code": "76712",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5585, 49.5454]
+    }
+  },
+  {
+    "nom": "Les Trois-Pierres",
+    "code": "76714",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4044, 49.5514]
+    }
+  },
+  {
+    "nom": "Trouville",
+    "code": "76715",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6015, 49.5843]
+    }
+  },
+  {
+    "nom": "Turretot",
+    "code": "76716",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2403, 49.6099]
+    }
+  },
+  {
+    "nom": "Val-de-la-Haye",
+    "code": "76717",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9907, 49.3885]
+    }
+  },
+  {
+    "nom": "Valliquerville",
+    "code": "76718",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.705, 49.6133]
+    }
+  },
+  {
+    "nom": "Valmont",
+    "code": "76719",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5121, 49.7381]
+    }
+  },
+  {
+    "nom": "Varengeville-sur-Mer",
+    "code": "76720",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9997, 49.9013]
+    }
+  },
+  {
+    "nom": "Varneville-Bretteville",
+    "code": "76721",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0463, 49.6554]
+    }
+  },
+  {
+    "nom": "Vassonville",
+    "code": "76723",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.0767, 49.6879]
+    }
+  },
+  {
+    "nom": "Vatierville",
+    "code": "76724",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.5214, 49.7879]
+    }
+  },
+  {
+    "nom": "Vattetot-sous-Beaumont",
+    "code": "76725",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.4502, 49.6289]
+    }
+  },
+  {
+    "nom": "Vattetot-sur-Mer",
+    "code": "76726",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2875, 49.7233]
+    }
+  },
+  {
+    "nom": "Vatteville-la-Rue",
+    "code": "76727",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.6745, 49.46]
+    }
+  },
+  {
+    "nom": "La Vaupalière",
+    "code": "76728",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9907, 49.4804]
+    }
+  },
+  {
+    "nom": "Veauville-lès-Quelles",
+    "code": "76730",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7118, 49.7397]
+    }
+  },
+  {
+    "nom": "Vénestanville",
+    "code": "76731",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8992, 49.7945]
+    }
+  },
+  {
+    "nom": "Butot-Vénesville",
+    "code": "76732",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5866, 49.8147]
+    }
+  },
+  {
+    "nom": "Ventes-Saint-Rémy",
+    "code": "76733",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2972, 49.7095]
+    }
+  },
+  {
+    "nom": "Vergetot",
+    "code": "76734",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2823, 49.6102]
+    }
+  },
+  {
+    "nom": "Veules-les-Roses",
+    "code": "76735",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7877, 49.864]
+    }
+  },
+  {
+    "nom": "Veulettes-sur-Mer",
+    "code": "76736",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5872, 49.8451]
+    }
+  },
+  {
+    "nom": "Vibeuf",
+    "code": "76737",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9137, 49.6879]
+    }
+  },
+  {
+    "nom": "Vieux-Manoir",
+    "code": "76738",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.294, 49.5691]
+    }
+  },
+  {
+    "nom": "Vieux-Rouen-sur-Bresle",
+    "code": "76739",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.7013, 49.8337]
+    }
+  },
+  {
+    "nom": "La Vieux-Rue",
+    "code": "76740",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2425, 49.4941]
+    }
+  },
+  {
+    "nom": "Villainville",
+    "code": "76741",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.2377, 49.6615]
+    }
+  },
+  {
+    "nom": "Villers-Écalles",
+    "code": "76743",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.9248, 49.5339]
+    }
+  },
+  {
+    "nom": "Villers-sous-Foucarmont",
+    "code": "76744",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.554, 49.8172]
+    }
+  },
+  {
+    "nom": "Villy-sur-Yères",
+    "code": "76745",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.4628, 49.9426]
+    }
+  },
+  {
+    "nom": "Vinnemerville",
+    "code": "76746",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5558, 49.808]
+    }
+  },
+  {
+    "nom": "Virville",
+    "code": "76747",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.355, 49.5913]
+    }
+  },
+  {
+    "nom": "Vittefleur",
+    "code": "76748",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.638, 49.816]
+    }
+  },
+  {
+    "nom": "Wanchy-Capval",
+    "code": "76749",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.3744, 49.8618]
+    }
+  },
+  {
+    "nom": "Yainville",
+    "code": "76750",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8315, 49.4577]
+    }
+  },
+  {
+    "nom": "Yébleron",
+    "code": "76751",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.537, 49.6302]
+    }
+  },
+  {
+    "nom": "Yerville",
+    "code": "76752",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8902, 49.6752]
+    }
+  },
+  {
+    "nom": "Ymare",
+    "code": "76753",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.1637, 49.3494]
+    }
+  },
+  {
+    "nom": "Yport",
+    "code": "76754",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.3156, 49.7342]
+    }
+  },
+  {
+    "nom": "Ypreville-Biville",
+    "code": "76755",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.5294, 49.6975]
+    }
+  },
+  {
+    "nom": "Yquebeuf",
+    "code": "76756",
+    "centre": {
+      "type": "Point",
+      "coordinates": [1.2598, 49.5946]
+    }
+  },
+  {
+    "nom": "Yvecrique",
+    "code": "76757",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8097, 49.6886]
+    }
+  },
+  {
+    "nom": "Yvetot",
+    "code": "76758",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.7685, 49.6183]
+    }
+  },
+  {
+    "nom": "Yville-sur-Seine",
+    "code": "76759",
+    "centre": {
+      "type": "Point",
+      "coordinates": [0.8846, 49.4098]
+    }
+  }
+]

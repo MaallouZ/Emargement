@@ -19,7 +19,17 @@ class ActivityRepository extends Repository
         return $activite;
     }
 
-    public function getNbActivity(int $idUser): int
+    public function getActivityID(): array
+    {
+        $sql = "SELECT id, libelle
+        FROM activite;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getNbActivityByUser(int $idUser): int
     {
         $stmt = $this->conn->prepare("SELECT act.id, act.libelle
             FROM access as acc
@@ -65,7 +75,7 @@ class ActivityRepository extends Repository
         }
     }
 
-    public function getAttendance(int $idActivity, string $debutDate, string $endDate): array
+    public function getAttendanceByDay(int $idActivity, string $debutDate, string $endDate): array
     {
         $sqlAttendance = "SELECT DATE_FORMAT(estPresent.date, '%d %b') AS 'Date', COUNT(*) AS 'nbVisitors', SUM(visiteur.sexe = 'M') AS 'nbHomme', SUM(visiteur.sexe = 'F') AS 'nbFemme', SUM(visiteur.ADH = 1) AS 'nbAdh'
         FROM estPresent
@@ -74,6 +84,34 @@ class ActivityRepository extends Repository
         AND present = 1
         AND estPresent.date BETWEEN :debutDate AND :endDate
         GROUP BY estPresent.date;";
+
+        $stmt = $this->conn->prepare($sqlAttendance);
+        $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
+        $stmt->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
+        $stmt->bindParam(":endDate", $endDate, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $attendance = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $attendance;
+    }
+
+    public function getAttendanceByMonth(int $idActivity, string $debutDate, string $endDate): array
+    {
+        $sqlAttendance = "SELECT 
+                        DATE_FORMAT(estPresent.date, '%b %Y') AS 'Mois',
+                        COUNT(*) AS 'nbVisitors',
+                        SUM(visiteur.sexe = 'M') AS 'nbHomme',
+                        SUM(visiteur.sexe = 'F') AS 'nbFemme',
+                        SUM(visiteur.ADH = 1) AS 'nbAdh'
+                    FROM estPresent
+                    INNER JOIN visiteur 
+                        ON estPresent.idVisiteur = visiteur.id
+                    WHERE idActivite = :idActivite
+                    AND present = 1
+                    AND estPresent.date BETWEEN :debutDate AND :endDate
+                    GROUP BY YEAR(estPresent.date), MONTH(estPresent.date)
+                    ORDER BY YEAR(estPresent.date), MONTH(estPresent.date);
+                    ";
 
         $stmt = $this->conn->prepare($sqlAttendance);
         $stmt->bindParam(":idActivite", $idActivity, PDO::PARAM_INT);
@@ -138,10 +176,10 @@ class ActivityRepository extends Repository
         WHERE id = :act;";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt -> bindParam(':act', $act, PDO::PARAM_INT);
-        $stmt -> execute();
+        $stmt->bindParam(':act', $act, PDO::PARAM_INT);
+        $stmt->execute();
 
-        $result = $stmt -> fetch();
+        $result = $stmt->fetch();
 
         return $result[0];
     }

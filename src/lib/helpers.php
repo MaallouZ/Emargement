@@ -8,7 +8,7 @@ function printMenu(): string {
     $repo = new ActivityRepository($db);
 
     $activite = $repo->getActivityByAccess($_SESSION['user']['id']);
-    $nbActivite = $repo->getNbActivity($_SESSION['user']['id']);
+    $nbActivite = $repo->getNbActivityByUser($_SESSION['user']['id']);
 
     ob_start();
     for ($i=0; $i < $nbActivite; $i++) { 
