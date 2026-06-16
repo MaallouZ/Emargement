@@ -76,14 +76,6 @@ Sur ce projet, j’ai travaillé sur :
 * l’intégration des retours utilisateurs ;
 * la prise en compte de sujets RGPD.
 
-## Captures d’écran
-
-Des captures d’écran de l’application sont disponibles dans le dossier :
-
-```text
-/docs/screenshots
-```
-
 ## Installation locale
 
 ### Prérequis
